@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img"
+     aria-label="Ilustração do painel de indicadores do CRM: quatro cartões de KPI, um gráfico de barras mensal e uma tabela resumida, com valores fictícios.">
+  <defs>
+    <linearGradient id="pbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f1b2a"/><stop offset="1" stop-color="#16283d"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1d3350"/><stop offset="1" stop-color="#17283f"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5fe3d2"/><stop offset="1" stop-color="#1a8f9c"/>
+    </linearGradient>
+    <style>
+      .t  { font-family: "Segoe UI", Tahoma, sans-serif; }
+      .k  { font-size:12px; fill:#7fa3c4; letter-spacing:.1em; font-weight:700; }
+      .n  { font-size:30px; fill:#eaf6ff; font-weight:700; }
+      .u  { font-size:12px; fill:#7fa3c4; }
+      .h  { font-size:15px; fill:#cfe6f7; font-weight:700; }
+      .ax { font-size:11px; fill:#6f92b3; }
+      .rw { font-size:12.5px; fill:#b9d4e8; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="600" fill="url(#pbg)"/>
+
+  <!-- cabeçalho -->
+  <text class="t k" x="48" y="52">COBRATEC ANALYTICS · SISCOBRA · SOMENTE LEITURA</text>
+  <text class="t h" x="48" y="82" style="font-size:20px">Desempenho da equipe — recorte mensal</text>
+  <rect x="980" y="56" width="172" height="30" rx="15" fill="#1d3350" stroke="#2f5580"/>
+  <text class="t u" x="1002" y="76">Período: 12 meses</text>
+  <line x1="48" y1="104" x2="1152" y2="104" stroke="#27405f"/>
+
+  <!-- KPIs -->
+  <g>
+    <rect x="48" y="128" width="256" height="104" rx="10" fill="url(#card)" stroke="#2b4869"/>
+    <text class="t k" x="70" y="158">ACIONAMENTOS</text>
+    <text class="t n" x="70" y="196">1.482.907</text>
+    <text class="t u" x="70" y="216">no período selecionado</text>
+  </g>
+  <g>
+    <rect x="330" y="128" width="256" height="104" rx="10" fill="url(#card)" stroke="#2b4869"/>
+    <text class="t k" x="352" y="158">ACORDOS FECHADOS</text>
+    <text class="t n" x="352" y="196">8.314</text>
+    <text class="t u" x="352" y="216">validado com o relatório oficial</text>
+  </g>
+  <g>
+    <rect x="612" y="128" width="256" height="104" rx="10" fill="url(#card)" stroke="#2b4869"/>
+    <text class="t k" x="634" y="158">VALOR RECUPERADO</text>
+    <text class="t n" x="634" y="196">R$ 12,7 mi</text>
+    <text class="t u" x="634" y="216">soma das parcelas baixadas</text>
+  </g>
+  <g>
+    <rect x="894" y="128" width="258" height="104" rx="10" fill="url(#card)" stroke="#2b4869"/>
+    <text class="t k" x="916" y="158">BASE CONSULTADA</text>
+    <text class="t n" x="916" y="196">55 mi linhas</text>
+    <text class="t u" x="916" y="216">janela de data apoiada em índice</text>
+  </g>
+
+  <!-- gráfico -->
+  <rect x="48" y="256" width="632" height="296" rx="10" fill="url(#card)" stroke="#2b4869"/>
+  <text class="t h" x="72" y="288">Acordos por mês</text>
+  <line x1="72" y1="500" x2="656" y2="500" stroke="#2f5580"/>
+  <g>
+    <rect x="88"  y="404" width="34" height="96"  rx="4" fill="url(#bar)"/>
+    <rect x="136" y="380" width="34" height="120" rx="4" fill="url(#bar)"/>
+    <rect x="184" y="416" width="34" height="84"  rx="4" fill="url(#bar)"/>
+    <rect x="232" y="348" width="34" height="152" rx="4" fill="url(#bar)"/>
+    <rect x="280" y="366" width="34" height="134" rx="4" fill="url(#bar)"/>
+    <rect x="328" y="322" width="34" height="178" rx="4" fill="url(#bar)"/>
+    <rect x="376" y="336" width="34" height="164" rx="4" fill="url(#bar)"/>
+    <rect x="424" y="300" width="34" height="200" rx="4" fill="url(#bar)"/>
+    <rect x="472" y="318" width="34" height="182" rx="4" fill="url(#bar)"/>
+    <rect x="520" y="286" width="34" height="214" rx="4" fill="url(#bar)"/>
+    <rect x="568" y="308" width="34" height="192" rx="4" fill="url(#bar)"/>
+    <rect x="616" y="272" width="34" height="228" rx="4" fill="url(#bar)"/>
+  </g>
+  <g class="t ax">
+    <text x="105" y="520" text-anchor="middle">jan</text>
+    <text x="201" y="520" text-anchor="middle">mar</text>
+    <text x="297" y="520" text-anchor="middle">mai</text>
+    <text x="393" y="520" text-anchor="middle">jul</text>
+    <text x="489" y="520" text-anchor="middle">set</text>
+    <text x="585" y="520" text-anchor="middle">nov</text>
+  </g>
+
+  <!-- tabela -->
+  <rect x="706" y="256" width="446" height="296" rx="10" fill="url(#card)" stroke="#2b4869"/>
+  <text class="t h" x="730" y="288">Resumo por operadora</text>
+  <line x1="730" y1="304" x2="1128" y2="304" stroke="#2f5580"/>
+  <g class="t rw">
+    <text x="730" y="332">Operadora A</text><text x="1128" y="332" text-anchor="end">1.204 acordos</text>
+    <text x="730" y="366">Operadora B</text><text x="1128" y="366" text-anchor="end">1.087 acordos</text>
+    <text x="730" y="400">Operadora C</text><text x="1128" y="400" text-anchor="end">   962 acordos</text>
+    <text x="730" y="434">Operadora D</text><text x="1128" y="434" text-anchor="end">   918 acordos</text>
+    <text x="730" y="468">Operadora E</text><text x="1128" y="468" text-anchor="end">   844 acordos</text>
+  </g>
+  <line x1="730" y1="490" x2="1128" y2="490" stroke="#2f5580" stroke-dasharray="4 4"/>
+  <text class="t u" x="730" y="516">Nomes substituídos · CPF mascarado em logs e exemplos (LGPD)</text>
+  <text class="t u" x="730" y="536" style="fill:#e0a52b">Ilustração — valores fictícios</text>
+</svg>

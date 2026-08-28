@@ -1,0 +1,332 @@
+/* ==========================================================================
+   components.css — peças reutilizáveis com acabamento "gel" Frutiger Aero
+   ========================================================================== */
+
+/* --- Botões gel ---------------------------------------------------------- */
+
+.gel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: var(--grad-gel);
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--t-sm);
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgba(0, 40, 90, 0.6);
+  box-shadow: var(--shadow-raised);
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+.gel-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gel-shine);
+  pointer-events: none;
+}
+.gel-btn:hover {
+  filter: brightness(1.14);
+  transform: translateY(-1px);
+}
+.gel-btn:active {
+  transform: translateY(0);
+  filter: brightness(0.95);
+}
+
+.gel-btn--ghost {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(222, 238, 250, 0.95));
+  color: var(--sky-800);
+  text-shadow: 0 1px 0 #fff;
+  border-color: rgba(26, 127, 200, 0.45);
+}
+.gel-btn--green {
+  background: var(--grad-gel-green);
+  text-shadow: 0 1px 2px rgba(0, 60, 0, 0.7);
+}
+
+/* Estado indisponível (repositório privado). Não é um controle desabilitado de
+   verdade — é texto informativo, então precisa passar em contraste igual. */
+.gel-btn--off {
+  background: linear-gradient(180deg, #e2e8ee, #c9d2da);
+  color: #333c45;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.gel-btn--off:hover {
+  filter: none;
+  transform: none;
+}
+
+/* --- Etiquetas de tecnologia -------------------------------------------- */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1) var(--sp-2);
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--r-pill);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--sky-800);
+  background: linear-gradient(180deg, #ffffff, #dcefff);
+  border: 1px solid rgba(26, 127, 200, 0.38);
+  box-shadow: 0 1px 2px rgba(10, 60, 110, 0.14);
+}
+.tag--aqua {
+  color: #0c5f58;
+  background: linear-gradient(180deg, #ffffff, #d3f7f2);
+  border-color: rgba(23, 153, 142, 0.4);
+}
+
+/* --- Selos de estado ----------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.15rem 0.65rem;
+  border-radius: var(--r-pill);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  border: 1px solid;
+}
+.badge--live {
+  color: #14532d;
+  background: linear-gradient(180deg, #e6ffe9, #bff0c6);
+  border-color: #6fbb35;
+}
+.badge--wip {
+  color: #7a4a06;
+  background: linear-gradient(180deg, #fff6e0, #ffe6b0);
+  border-color: #e0a52b;
+}
+.badge--private {
+  color: #4a4a55;
+  background: linear-gradient(180deg, #f4f5f7, #dfe2e8);
+  border-color: #a9b0bb;
+}
+
+/* --- Caixa de grupo (o "group box" clássico do Windows) ------------------ */
+
+.groupbox {
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-card);
+  background: var(--surface-sunken);
+  padding: var(--sp-4);
+}
+/* h2/h3/h4 aqui é só nível semântico — visualmente todos têm o mesmo peso. */
+.groupbox > h2,
+.groupbox > h3,
+.groupbox > h4 {
+  font-size: var(--t-base);
+  color: var(--sky-800);
+  margin-block-end: var(--sp-2);
+}
+
+/* --- Detalhes expansíveis (<details> nativo, sem JavaScript) ------------- */
+
+.disclose {
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-card);
+  background: var(--surface-sunken);
+  overflow: hidden;
+}
+.disclose + .disclose {
+  margin-block-start: var(--sp-2);
+}
+
+.disclose > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: var(--sp-3) var(--sp-4);
+  font-weight: 700;
+  font-size: var(--t-sm);
+  color: var(--sky-800);
+  background: linear-gradient(180deg, #ffffff, #e7f2fb);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.disclose > summary::-webkit-details-marker {
+  display: none;
+}
+/* seta desenhada em CSS, gira ao abrir */
+.disclose > summary::before {
+  content: "";
+  width: 0;
+  height: 0;
+  flex: none;
+  border-inline-start: 7px solid var(--sky-600);
+  border-block: 5px solid transparent;
+  transition: transform 0.18s ease;
+}
+.disclose[open] > summary::before {
+  transform: rotate(90deg) translateX(1px);
+}
+.disclose > summary:hover {
+  background: linear-gradient(180deg, #ffffff, #d6eafb);
+}
+
+.disclose__body {
+  padding: var(--sp-4);
+  border-block-start: 1px solid var(--hairline);
+  background: #fff;
+}
+.disclose__body > * + * {
+  margin-block-start: var(--sp-3);
+}
+
+/* --- Lista com marcador em bolha ---------------------------------------- */
+
+.bullets li {
+  position: relative;
+  padding-inline-start: 1.4em;
+}
+.bullets li + li {
+  margin-block-start: var(--sp-2);
+}
+.bullets li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.55em;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, #ffffff 0%, var(--aqua) 55%, var(--aqua-dark) 100%);
+  box-shadow: 0 1px 2px rgba(10, 60, 110, 0.35);
+}
+
+/* --- Barra de competências (escala 1–5) --------------------------------- */
+
+.skill {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--sp-2) var(--sp-3);
+  padding-block: 0.3rem;
+}
+.skill + .skill {
+  border-block-start: 1px dashed var(--hairline);
+}
+.skill__name {
+  font-size: var(--t-sm);
+  font-weight: 600;
+}
+
+/* as bolinhas são decorativas; o valor real vai no texto do aria-label */
+.rating {
+  display: flex;
+  gap: 4px;
+}
+.rating i {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 1px solid rgba(26, 127, 200, 0.5);
+  background: linear-gradient(180deg, #ffffff, #dbe7f0);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9);
+}
+.rating i.on {
+  background: radial-gradient(circle at 32% 28%, #ffffff 0%, var(--sky-400) 45%, var(--sky-800) 100%);
+  border-color: var(--sky-800);
+  box-shadow: 0 0 5px rgba(79, 184, 240, 0.8);
+}
+
+.rating-legend {
+  font-size: var(--t-xs);
+  color: var(--ink-soft);
+  background: var(--surface-sunken);
+  border: 1px dashed var(--hairline);
+  border-radius: var(--r-card);
+  padding: var(--sp-2) var(--sp-3);
+  margin-block-end: var(--sp-4);
+}
+
+/* --- Moldura de captura de tela (janelinha dentro do cartão) ------------- */
+
+.shot {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(16, 60, 110, 0.28);
+  box-shadow: 0 6px 16px -8px rgba(6, 40, 80, 0.55);
+  background: #0b2740;
+}
+.shot__bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 8px;
+  background: linear-gradient(180deg, #6fb3e8, #2a6fb8);
+  border-block-end: 1px solid rgba(255, 255, 255, 0.4);
+}
+.shot__bar i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.25);
+}
+.shot__bar span {
+  font-size: 10px;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 30, 70, 0.7);
+  margin-inline-start: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* 2:1 é a proporção nativa das capturas — assim `cover` preenche sem cortar. */
+.shot img {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: top center;
+  background: #f7fbff;
+}
+
+/* Diagramas precisam ser lidos inteiros: nada de corte. */
+.shot--diagram img {
+  object-fit: contain;
+  aspect-ratio: 2 / 1;
+}
+
+/* --- Foto de perfil (moldura biselada + brilho Aero) -------------------- */
+
+.avatar {
+  flex: none;
+  width: clamp(132px, 22vw, 184px);
+  aspect-ratio: 1;
+  padding: 5px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(160, 214, 250, 0.85));
+  border: 1px solid var(--glass-edge);
+  box-shadow: var(--shadow-raised), 0 0 24px -4px rgba(120, 220, 255, 0.9);
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid rgba(16, 60, 110, 0.3);
+}
+
+/* --- Régua fina ---------------------------------------------------------- */
+
+.rule {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline) 15%, var(--hairline) 85%, transparent);
+  margin-block: var(--sp-5);
+}

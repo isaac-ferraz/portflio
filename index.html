@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isaac Ferraz de Oliveira — Portfólio Acadêmico | ADS FATEC SJC</title>
+<meta name="description" content="Portfólio acadêmico de Isaac Ferraz de Oliveira, estudante de Análise e Desenvolvimento de Sistemas na FATEC São José dos Campos e estagiário de desenvolvimento na Cobratec. Projetos acadêmicos, profissionais e pessoais.">
+<meta name="author" content="Isaac Ferraz de Oliveira">
+<meta name="theme-color" content="#1a7fc8">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Isaac Ferraz de Oliveira — Portfólio Acadêmico">
+<meta property="og:description" content="Análise e Desenvolvimento de Sistemas — FATEC SJC. Projetos acadêmicos (API), profissionais e pessoais.">
+<meta property="og:image" content="https://isaac-ferraz.github.io/img/perfil-512.jpg">
+<meta property="og:url" content="https://isaac-ferraz.github.io/">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="img/icons/start.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- Alterna o menu Iniciar. Truque do checkbox: o site inteiro não usa JavaScript. -->
+<input type="checkbox" id="start-toggle" class="start-toggle" aria-label="Abrir o menu de navegação">
+
+<main class="shell" id="conteudo">
+
+  <!-- ══════════════════════════════ APRESENTAÇÃO ══════════════════════════ -->
+  <section class="window" id="apresentacao" aria-labelledby="t-apresentacao">
+    <div class="titlebar">
+      <img class="titlebar__icon" src="img/icons/user.svg" alt="" aria-hidden="true">
+      <!-- Não é <h2>: o <h1> da página é o nome, logo abaixo. Um <h2> aqui
+           viria antes dele e quebraria a hierarquia de títulos. -->
+      <p class="titlebar__text" id="t-apresentacao">Apresentação</p>
+      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+    </div>
+
+    <div class="window__body stack">
+      <div class="hero">
+        <div class="avatar">
+          <img src="img/perfil-512.jpg"
+               srcset="img/perfil-512.jpg 512w, img/perfil-1024.jpg 1024w"
+               sizes="(max-width: 640px) 132px, 184px"
+               width="512" height="512"
+               alt="Retrato de Isaac Ferraz de Oliveira, sorrindo, de camiseta preta e crachá.">
+        </div>
+
+        <div class="hero__text">
+          <h1 class="hero__name">Isaac Ferraz de Oliveira</h1>
+          <p class="hero__role">Desenvolvedor Full-Stack Júnior · Estagiário de Desenvolvimento na Cobratec</p>
+
+          <ul class="hero__meta">
+            <li>🎓 Tecnólogo em Análise e Desenvolvimento de Sistemas — FATEC São José dos Campos (2026 &ndash; cursando)</li>
+            <li>📍 São José dos Campos, SP</li>
+          </ul>
+
+          <div class="hero__actions">
+            <a class="gel-btn" href="assets/curriculo-isaac-ferraz.pdf" download>⬇ Baixar currículo (PDF)</a>
+            <a class="gel-btn gel-btn--ghost" href="https://github.com/isaac-ferraz" target="_blank" rel="noopener">GitHub</a>
+            <a class="gel-btn gel-btn--ghost" href="https://www.linkedin.com/in/isaacferraz1311/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="rule">
+
+      <p class="lead">
+        Construo sistemas que entram em produção e são usados por pessoas de verdade: um site
+        institucional no ar, um sistema interno de inventário rodando na rede do escritório e uma
+        camada de análise que reproduz, linha a linha, os relatórios oficiais de um CRM com
+        55 milhões de registros.
+      </p>
+
+      <div class="two-col">
+        <div class="groupbox">
+          <h2>Objetivos acadêmicos</h2>
+          <ul class="bullets">
+            <li>Concluir o curso de ADS na FATEC SJC consolidando as bases de algoritmos, estrutura de dados, banco de dados e engenharia de software.</li>
+            <li>Aprofundar arquitetura de software — DDD, Clean Architecture e modelagem de domínio — aplicando o que estudo já nos projetos de cada semestre.</li>
+            <li>Levar cada API (Aprendizagem por Projetos Integrados) até uma entrega documentada e funcional, e não apenas até o código que roda.</li>
+          </ul>
+        </div>
+
+        <div class="groupbox">
+          <h2>Objetivos profissionais</h2>
+          <ul class="bullets">
+            <li>Efetivação como desenvolvedor júnior full-stack, seguindo em produtos com usuários reais e responsabilidade de ponta a ponta.</li>
+            <li>Evoluir do "faz funcionar" para o "continua funcionando": testes, observabilidade e decisões de arquitetura registradas.</li>
+            <li>Trabalhar perto do problema de negócio — levantar requisitos, entender a operação e traduzir isso em software.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="groupbox">
+        <h2>Áreas de interesse</h2>
+        <ul class="tags">
+          <li class="tag">Desenvolvimento web full-stack</li>
+          <li class="tag">APIs REST</li>
+          <li class="tag">Modelagem e performance de banco de dados</li>
+          <li class="tag tag--aqua">Automação de processos</li>
+          <li class="tag tag--aqua">Inteligência artificial aplicada e LLMs locais</li>
+          <li class="tag tag--aqua">Infraestrutura, Linux e redes</li>
+          <li class="tag">Arquitetura de software</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════ COMPETÊNCIAS ══════════════════════════ -->
+  <section class="window" id="competencias" aria-labelledby="t-competencias">
+    <div class="titlebar">
+      <img class="titlebar__icon" src="img/icons/skills.svg" alt="" aria-hidden="true">
+      <h2 class="titlebar__text" id="t-competencias">Competências técnicas</h2>
+      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+    </div>
+
+    <div class="window__body">
+      <p class="rating-legend">
+        <strong>Como ler a escala.</strong> Em vez de percentuais (que não dizem nada sobre o que
+        eu consigo fazer), uso cinco níveis declarados:
+        <strong>1</strong> ouvi falar ·
+        <strong>2</strong> uso com apoio e consulta constante ·
+        <strong>3</strong> desenvolvedor autônomo em tarefas comuns ·
+        <strong>4</strong> confortável, entrego sozinho em produção ·
+        <strong>5</strong> fluente, consigo ensinar e tomar decisões de arquitetura.
+      </p>
+
+      <div class="skills-grid">
+
+        <div class="groupbox">
+          <h3>Linguagens</h3>
+          <div class="skill"><span class="skill__name">TypeScript / JavaScript</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Python</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">SQL</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">HTML &amp; CSS</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Bash / Shell Script</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Java</span>
+            <span class="rating" role="img" aria-label="Nível 2 de 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+        </div>
+
+        <div class="groupbox">
+          <h3>Front-end</h3>
+          <div class="skill"><span class="skill__name">React</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Next.js (App Router)</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Tailwind CSS</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Acessibilidade e responsividade</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+        </div>
+
+        <div class="groupbox">
+          <h3>Back-end &amp; dados</h3>
+          <div class="skill"><span class="skill__name">APIs REST</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Node.js</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">NestJS</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Prisma ORM</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">PostgreSQL</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">SQLite</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">MySQL</span>
+            <span class="rating" role="img" aria-label="Nível 2 de 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+        </div>
+
+        <div class="groupbox">
+          <h3>IA &amp; automação</h3>
+          <div class="skill"><span class="skill__name">Engenharia de prompts</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">LLMs locais (Ollama)</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Automação de processos em Python</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Análise de dados (pandas / Polars)</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+        </div>
+
+        <div class="groupbox">
+          <h3>Infraestrutura &amp; ferramentas</h3>
+          <div class="skill"><span class="skill__name">Git &amp; GitHub</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Linux &amp; terminal</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Docker</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Vercel / deploy</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Redes de computadores</span>
+            <span class="rating" role="img" aria-label="Nível 2 de 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+        </div>
+
+        <div class="groupbox">
+          <h3>Metodologias &amp; gestão</h3>
+          <div class="skill"><span class="skill__name">Ágil / Scrum</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Product Owner (requisitos e escopo)</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Clean Architecture / DDD</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Documentação técnica</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ PROJETOS ACADÊMICOS ═══════════════════════ -->
+  <section class="window" id="academicos" aria-labelledby="t-academicos">
+    <div class="titlebar">
+      <img class="titlebar__icon" src="img/icons/academic.svg" alt="" aria-hidden="true">
+      <h2 class="titlebar__text" id="t-academicos">Projetos acadêmicos — API</h2>
+      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+    </div>
+
+    <div class="window__body stack">
+      <p class="muted">
+        API = <strong>Aprendizagem por Projetos Integrados</strong>, a metodologia da FATEC em que
+        cada semestre resolve um desafio real proposto por uma empresa parceira.
+      </p>
+
+      <div class="projects">
+
+        <article class="project project--wide">
+          <div class="project__head">
+            <div>
+              <p class="project__sub">2º semestre · 2026/2 · Parceiro: DM</p>
+              <h3 class="project__title">Landing page de captação e pré-qualificação de clientes</h3>
+            </div>
+            <span class="badge badge--wip">Em andamento</span>
+          </div>
+
+          <div class="api-grid">
+            <div class="stack-sm">
+              <h4>O problema</h4>
+              <p class="project__desc">
+                A DM recebe solicitações de cartão por canais que não conseguem responder ao cliente
+                na hora. Cada pedido precisa ser confrontado com a base de pré-qualificação para
+                decidir, <em>no momento da solicitação</em>, se ele é aprovado, reprovado ou vai para
+                análise — e, no caso do Cartão Loja, ainda é preciso oferecer apenas as lojas do mesmo
+                estado do CEP informado, entre parceiros que têm mais de mil estabelecimentos. Sem
+                isso, o cliente escolhe uma loja onde o cartão não passa e a captação se perde.
+              </p>
+              <ul class="tags">
+                <li class="tag">Python</li>
+                <li class="tag">MySQL</li>
+                <li class="tag">Modelagem relacional</li>
+                <li class="tag tag--aqua">Levantamento de requisitos</li>
+                <li class="tag tag--aqua">User Stories</li>
+                <li class="tag tag--aqua">Wireframes</li>
+                <li class="tag tag--aqua">Scrum</li>
+              </ul>
+            </div>
+          </div>
+
+          <figure class="shot shot--diagram">
+            <figcaption class="shot__bar" aria-hidden="true">
+              <i></i><i></i><i></i><span>api-dm — fluxo de pré-qualificação</span>
+            </figcaption>
+            <img src="img/projetos/api-dm.svg" loading="lazy" width="1200" height="600"
+                 alt="Diagrama do fluxo de decisão da landing page: o cliente informa CPF, CEP e tipo de cartão; o sistema consulta a base de pré-qualificação e encaminha para aprovação automática, reprovação automática ou análise, respeitando a restrição de loja por estado.">
+          </figure>
+
+          <details class="disclose">
+            <summary>Regras de negócio e solução desenvolvida</summary>
+            <div class="disclose__body">
+              <div class="groupbox">
+                <h4>Regras de pré-qualificação acordadas com o parceiro</h4>
+                <ul class="bullets">
+                  <li><strong>Colaborador da DM</strong> — Cartão DM: aprovação automática. Cartão Loja: reprovação automática.</li>
+                  <li><strong>Não colaborador</strong> — Cartão DM e Cartão Loja passam por análise; quem é considerado apto é aprovado, o restante fica com status <em>em análise</em>.</li>
+                  <li><strong>Cartão Loja</strong> — só permite escolher unidades no mesmo estado do CEP informado, porque o cartão PL só passa na respectiva unidade.</li>
+                  <li><strong>Cartão Loja Digital</strong> — captação liberada independentemente do estado, deixando explícito para o cliente que não haverá via física.</li>
+                </ul>
+              </div>
+              <p class="muted">
+                <strong>Solução — em construção.</strong> O semestre está em andamento; esta seção será
+                atualizada com a arquitetura final, o modelo de dados e as capturas da aplicação
+                funcionando assim que a entrega for concluída.
+              </p>
+              <div class="groupbox">
+                <h4>Artefatos previstos na entrega</h4>
+                <ul class="bullets">
+                  <li>Manual de instalação versionado no Git e manual do usuário.</li>
+                  <li>Documentação da API.</li>
+                  <li>Modelagem do banco de dados relacional.</li>
+                  <li>Vídeo de demonstração das funcionalidades.</li>
+                  <li>Interface responsiva validada em telas pequenas.</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <details class="disclose">
+            <summary>Contribuições pessoais</summary>
+            <div class="disclose__body">
+              <p class="muted">
+                <strong>A preencher ao longo do semestre.</strong> Registro aqui, ao final de cada
+                sprint, o que foi efetivamente meu: histórias assumidas, código escrito, artefatos
+                produzidos e decisões que eu propus.
+              </p>
+            </div>
+          </details>
+
+          <details class="disclose">
+            <summary>Habilidades exercitadas</summary>
+            <div class="disclose__body">
+              <div class="two-col">
+                <div class="groupbox">
+                  <h4>Hard skills</h4>
+                  <ul class="bullets">
+                    <li>Desenvolvimento web com Python.</li>
+                    <li>Planejamento e implementação de modelo de dados relacional em MySQL.</li>
+                    <li>Tradução de regras de negócio do parceiro em lógica de validação.</li>
+                    <li>Documentação de software: user stories, wireframes e documentação de API.</li>
+                  </ul>
+                </div>
+                <div class="groupbox">
+                  <h4>Soft skills</h4>
+                  <ul class="bullets">
+                    <li>Comunicação com o ponto focal do parceiro para esclarecer regras ambíguas.</li>
+                    <li>Trabalho em equipe com divisão de responsabilidades por sprint.</li>
+                    <li>Organização e cumprimento de prazos de entrega parciais.</li>
+                    <li>Negociação de escopo diante do que cabe no semestre.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- O roteiro pede um FORK pessoal, para o link não quebrar se a equipe
+               apagar o repositório. Enquanto o fork não existe, aponta para o
+               repositório da equipe. Trocar para
+               github.com/isaac-ferraz/Projeto-Integrador-II depois de forkar. -->
+          <div class="project__actions">
+            <a class="gel-btn" href="https://github.com/PI-Nexus/Projeto-Integrador-II" target="_blank" rel="noopener">Repositório da equipe no GitHub</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ PROJETOS PROFISSIONAIS ═══════════════════════ -->
+  <section class="window" id="profissionais" aria-labelledby="t-profissionais">
+    <div class="titlebar">
+      <img class="titlebar__icon" src="img/icons/work.svg" alt="" aria-hidden="true">
+      <h2 class="titlebar__text" id="t-profissionais">Projetos profissionais</h2>
+      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+    </div>
+
+    <div class="window__body stack">
+      <p class="muted">
+        Desenvolvidos durante o estágio na <strong>Cobratec Cobranças Ltda</strong>
+        (São José dos Campos, maio/2026 &ndash; atual), onde atuo em desenvolvimento, automação de
+        processos internos e suporte a sistemas.
+      </p>
+
+      <div class="projects">
+
+        <article class="project">
+          <figure class="shot">
+            <figcaption class="shot__bar" aria-hidden="true">
+              <i></i><i></i><i></i><span>cobratecsp.com.br</span>
+            </figcaption>
+            <img src="img/projetos/site-cobratec.jpg" loading="lazy" width="1200" height="600"
+                 alt="Página inicial do site institucional da Cobratec, com o menu, a chamada principal e a identidade azul da marca.">
+          </figure>
+          <div class="project__head">
+            <div>
+              <p class="project__sub">Cobratec · site institucional</p>
+              <h3 class="project__title">Site institucional Cobratec</h3>
+            </div>
+            <span class="badge badge--live">No ar</span>
+          </div>
+          <p class="project__desc">
+            Site institucional do Grupo Cobratec, publicado e em produção. Cuidei do projeto de ponta
+            a ponta: planejamento, UI/UX, vetorização das imagens, desenvolvimento e deploy em
+            hospedagem compartilhada. Renderização estática com um <em>build duplo</em> — bundle Node
+            e bundle estático com endpoint PHP equivalente, para rodar na Hostgator.
+          </p>
+          <ul class="tags">
+            <li class="tag">Next.js 14</li><li class="tag">TypeScript</li><li class="tag">Tailwind</li>
+            <li class="tag">PHP</li><li class="tag tag--aqua">Resend API</li><li class="tag tag--aqua">Vitest</li>
+          </ul>
+          <ul class="bullets">
+            <li>Formulário de captação com validação compartilhada cliente/servidor, <strong>rate limiting</strong> por IP e entrega do lead por e-mail transacional, com fallback de webhook para o CRM.</li>
+            <li>Design system em tokens CSS, tipografia fluida e páginas legais completas de <strong>LGPD</strong>.</li>
+            <li>SEO e acessibilidade: JSON-LD, sitemap/robots, cards sociais gerados no build e gates de score no Lighthouse CI.</li>
+          </ul>
+          <div class="project__actions">
+            <a class="gel-btn" href="https://cobratecsp.com.br" target="_blank" rel="noopener">Ver site no ar</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <figure class="shot">
+            <figcaption class="shot__bar" aria-hidden="true">
+              <i></i><i></i><i></i><span>inventario-cobratec — dashboard</span>
+            </figcaption>
+            <img src="img/projetos/inventario.jpg" loading="lazy" width="1200" height="600"
+                 alt="Dashboard do sistema de inventário de hardware, com indicadores numéricos e listas de máquinas.">
+          </figure>
+          <div class="project__head">
+            <div>
+              <p class="project__sub">Cobratec · sistema interno de TI</p>
+              <h3 class="project__title">Inventário de Hardware</h3>
+            </div>
+            <span class="badge badge--live">Em uso</span>
+          </div>
+          <p class="project__desc">
+            Aplicação web que o departamento de TI usa para controlar o hardware de cada computador
+            do escritório. O banco é a <strong>fonte única de verdade</strong>; a planilha Excel é
+            apenas um relatório de saída gerado sob demanda, nunca a origem do dado.
+          </p>
+          <ul class="tags">
+            <li class="tag">Next.js 14</li><li class="tag">TypeScript</li><li class="tag">Prisma</li>
+            <li class="tag">SQLite</li><li class="tag tag--aqua">zod</li><li class="tag tag--aqua">Docker</li>
+          </ul>
+          <ul class="bullets">
+            <li>Especificações de hardware em pares <strong>chave/valor livres</strong>: um tipo novo de componente entra sem migração de schema.</li>
+            <li><strong>Trilha de auditoria</strong> append-only de toda alteração, com tela de consulta filtrável.</li>
+            <li>Dashboard em que <strong>todo número é clicável</strong> e abre a lista que está por trás dele, incluindo pendências de licença e de conta.</li>
+            <li>Exportação <code>.xlsx</code> com abas de inventário e dashboard.</li>
+          </ul>
+          <div class="project__actions">
+            <a class="gel-btn" href="https://github.com/isaac-ferraz/inventario-cobratec" target="_blank" rel="noopener">Repositório</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <figure class="shot">
+            <figcaption class="shot__bar" aria-hidden="true">
+              <i></i><i></i><i></i><span>cobratec-analytics — painel de KPIs</span>
+            </figcaption>
+            <img src="img/projetos/analytics.svg" loading="lazy" width="1200" height="600"
+                 alt="Ilustração do painel de indicadores: cartões de KPI e um gráfico de barras mensal, com dados fictícios.">
+          </figure>
+          <div class="project__head">
+            <div>
+              <p class="project__sub">Cobratec · análise de dados</p>
+              <h3 class="project__title">Analytics do CRM Siscobra</h3>
+            </div>
+            <span class="badge badge--private">Privado</span>
+          </div>
+          <p class="project__desc">
+            Camada de análise sobre o banco de produção do CRM da empresa, em acesso
+            <strong>somente leitura</strong>, gerando planilhas de desempenho da equipe em recortes
+            mensais, trimestrais e anuais.
+          </p>
+          <ul class="tags">
+            <li class="tag">Python</li><li class="tag">PostgreSQL</li><li class="tag">SQLAlchemy</li>
+            <li class="tag tag--aqua">Polars / pandas</li><li class="tag tag--aqua">Streamlit</li>
+          </ul>
+          <ul class="bullets">
+            <li><strong>Engenharia reversa do schema</strong> legado a partir do catálogo do Postgres, virando documentação versionada.</li>
+            <li>KPIs validados <strong>linha a linha contra os relatórios oficiais</strong> do sistema — o que revelou divergências de atribuição entre colunas parecidas.</li>
+            <li>Tabela de <strong>55 milhões de linhas</strong>: consultas sempre por janela de data, apoiadas em índice.</li>
+            <li>LGPD levada a sério: credenciais fora do repositório e CPF mascarado em logs e exemplos.</li>
+          </ul>
+          <div class="project__actions">
+            <span class="gel-btn gel-btn--off" aria-disabled="true">Código privado (dados da empresa)</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════ PROJETOS PESSOAIS ══════════════════════════ -->
+  <section class="window" id="pessoais" aria-labelledby="t-pessoais">
+    <div class="titlebar">
+      <img class="titlebar__icon" src="img/icons/personal.svg" alt="" aria-hidden="true">
+      <h2 class="titlebar__text" id="t-pessoais">Projetos pessoais</h2>
+      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+    </div>
+
+    <div class="window__body stack">
+      <p class="muted">
+        Projetos que nasceram fora da faculdade e do trabalho — normalmente para resolver um problema
+        concreto de alguém próximo — e que puxaram competências que os outros dois contextos não puxariam.
+      </p>
+
+      <div class="projects">
+
+        <article class="project">
+          <figure class="shot">
+            <figcaption class="shot__bar" aria-hidden="true">
+              <i></i><i></i><i></i><span>entardecer — feed em tempo real</span>
+            </figcaption>
+            <img src="img/projetos/entardecer.jpg" loading="lazy" width="1200" height="600"
+                 alt="Tela do aplicativo ENTARDECER com o feed de fotos do evento e as ações de reação e comentário.">
+          </figure>
+          <div class="project__head">
+            <div>
+              <p class="project__sub">Rede social de evento · PWA</p>
+              <h3 class="project__title">ENTARDECER</h3>
+            </div>
+            <span class="badge badge--private">Privado</span>
+          </div>
+          <p class="project__desc">
+            Rede social temporária e museu permanente de memórias, feita para o casamento de um amigo
+            e <strong>usada ao vivo pelos convidados no dia do evento</strong>. Cuidei da
+            especificação técnica, da identidade visual (paleta extraída do brasão e conjunto de
+            ícones SVG/PWA), do banco de dados e do deploy.
+          </p>
+          <ul class="tags">
+            <li class="tag">Next.js 14</li><li class="tag">TypeScript</li><li class="tag">Prisma</li>
+            <li class="tag">Supabase</li><li class="tag tag--aqua">PWA</li>
+            <li class="tag tag--aqua">Playwright</li><li class="tag tag--aqua">Vitest</li>
+          </ul>
+          <ul class="bullets">
+            <li>Feed em tempo real com upload e <strong>compressão de mídia no cliente</strong>, reações e comentários.</li>
+            <li>Enquetes ao vivo, playlist colaborativa, mural de recados, timeline do casal e bingo do casamento.</li>
+            <li>Gamificação com ranking e badges, e <strong>Modo Telão</strong> para projeção no salão.</li>
+            <li>Autenticação leve por <code>guestId</code> (sem senha para o convidado) e PWA offline-first.</li>
+          </ul>
+          <div class="project__actions">
+            <a class="gel-btn gel-btn--ghost" href="https://www.linkedin.com/in/isaacferraz1311/details/projects/" target="_blank" rel="noopener">Capturas no LinkedIn</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <figure class="shot">
+            <figcaption class="shot__bar" aria-hidden="true">
+              <i></i><i></i><i></i><span>overnight — modalidades</span>
+            </figcaption>
+            <img src="img/projetos/overnight.jpg" loading="lazy" width="1200" height="600"
+                 alt="Tela de modalidades da plataforma Overnight, com os cards das competições disponíveis.">
+          </figure>
+          <div class="project__head">
+            <div>
+              <p class="project__sub">Gestão de competições · monorepo</p>
+              <h3 class="project__title">Overnight — Sports Competition Platform</h3>
+            </div>
+            <span class="badge badge--private">Privado</span>
+          </div>
+          <p class="project__desc">
+            Plataforma para gerenciar campeonatos internos, <strong>agnóstica à modalidade</strong>:
+            futebol, FIFA, futmesa, xadrez e truco rodam na mesma estrutura sem mexer no núcleo.
+            Monorepo pnpm com API e front separados.
+          </p>
+          <ul class="tags">
+            <li class="tag">Next.js 15</li><li class="tag">NestJS</li><li class="tag">TypeScript</li>
+            <li class="tag">Prisma</li><li class="tag">PostgreSQL</li><li class="tag tag--aqua">Docker</li>
+            <li class="tag tag--aqua">DDD</li>
+          </ul>
+          <ul class="bullets">
+            <li>Três <strong>engines de domínio puras e testadas</strong>, sem dependência de framework ou banco: inscrição, chaveamento (round robin, grupos, eliminação simples e dupla) e classificação com critérios de desempate configuráveis.</li>
+            <li>Arquitetura em DDD + Clean Architecture, com a regra de negócio isolada do controller e do ORM.</li>
+            <li>Autenticação com NextAuth + JWT e Postgres em Docker Compose.</li>
+          </ul>
+          <div class="project__actions">
+            <a class="gel-btn gel-btn--ghost" href="https://github.com/isaac-ferraz/overnight" target="_blank" rel="noopener">Demonstração</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <figure class="shot">
+            <figcaption class="shot__bar" aria-hidden="true">
+              <i></i><i></i><i></i><span>web-studio — template de cliente</span>
+            </figcaption>
+            <img src="img/projetos/web-studio.jpg" loading="lazy" width="1200" height="600"
+                 alt="Página de exemplo gerada pelo Web Studio para um negócio local, com seção de destaque e chamada para contato.">
+          </figure>
+          <div class="project__head">
+            <div>
+              <p class="project__sub">Processo de produção de sites</p>
+              <h3 class="project__title">Web Studio</h3>
+            </div>
+            <span class="badge badge--private">Privado</span>
+          </div>
+          <p class="project__desc">
+            Um sistema para transformar uma entrada crua — um site mal feito ou uma ficha do Google
+            Maps — em um site pronto e publicável para um negócio local. Cada cliente tem uma dor
+            diferente; o que não muda é <em>como o trabalho é feito</em>, e essa parte está escrita.
+          </p>
+          <ul class="tags">
+            <li class="tag">Next.js</li><li class="tag">TypeScript</li><li class="tag">Tailwind</li>
+            <li class="tag tag--aqua">Design system</li><li class="tag tag--aqua">Processo documentado</li>
+          </ul>
+          <ul class="bullets">
+            <li>Um cânone de princípios que todo projeto herda, um manual de operação com o pipeline e a régua de qualidade, e um registro de decisões com o custo de cada uma.</li>
+            <li>Template base reaproveitável, com o que é específico de cliente isolado do que é comum.</li>
+            <li>Exercita a parte menos técnica da profissão: escopo, expectativa e entrega para quem não é da área.</li>
+          </ul>
+          <div class="project__actions">
+            <span class="gel-btn gel-btn--off" aria-disabled="true">Repositório privado</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ INFORMAÇÕES CURRICULARES ═════════════════════ -->
+  <section class="window" id="curriculo" aria-labelledby="t-curriculo">
+    <div class="titlebar">
+      <img class="titlebar__icon" src="img/icons/curricular.svg" alt="" aria-hidden="true">
+      <h2 class="titlebar__text" id="t-curriculo">Informações curriculares</h2>
+      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+    </div>
+
+    <div class="window__body stack">
+
+      <div class="groupbox">
+        <h3>Formação acadêmica</h3>
+        <ol class="timeline">
+          <li class="timeline__item">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div>
+              <p class="timeline__when">2026 &ndash; cursando</p>
+              <p class="timeline__what">Tecnólogo em Análise e Desenvolvimento de Sistemas</p>
+              <p class="timeline__where">FATEC São José dos Campos — Prof. Jessen Vidal</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div>
+              <p class="timeline__when">2022 &ndash; 2024</p>
+              <p class="timeline__what">Ensino Médio completo</p>
+              <p class="timeline__where">Colégio Fonte — São José dos Campos, SP</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="groupbox">
+        <h3>Experiência profissional</h3>
+        <ol class="timeline">
+          <li class="timeline__item">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div>
+              <p class="timeline__when">Maio/2026 &ndash; atual</p>
+              <p class="timeline__what">Estagiário em Desenvolvimento de Software</p>
+              <p class="timeline__where">Cobratec Cobranças Ltda — São José dos Campos, SP</p>
+              <ul class="bullets" style="margin-block-start:.6rem">
+                <li>Atuação como <strong>Product Owner</strong> em projetos internos: levantamento de requisitos junto ao cliente, definição de escopo e planejamento do trajeto até a entrega.</li>
+                <li>Participação no ciclo completo de desenvolvimento, da implementação aos testes.</li>
+                <li>Scripts de automação em Python para otimizar fluxos internos e reduzir esforço manual.</li>
+                <li>Análise estrutural do banco PostgreSQL da empresa: mapeamento de schemas legados e testes de restauração de backup para avaliar integridade dos dados.</li>
+                <li>Suporte técnico a usuários e sistemas, com diagnóstico e resolução de incidentes.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="cards">
+        <div class="groupbox">
+          <h3>Cursos e certificações</h3>
+          <ul class="bullets">
+            <li><strong>IT Essentials</strong> — Cisco Networking Academy <span class="badge badge--live">Concluído</span></li>
+            <li><strong>Linux Essentials</strong> — Cisco Networking Academy <span class="badge badge--wip">Em andamento</span></li>
+            <li><strong>Formação em Python &amp; IA</strong> — Alura <span class="badge badge--wip">Em andamento</span></li>
+            <li><strong>AWS Academy Learner Lab</strong> — Amazon Web Services <span class="badge badge--wip">Em andamento</span></li>
+          </ul>
+        </div>
+
+        <div class="groupbox">
+          <h3>Premiações e olimpíadas</h3>
+          <ul class="bullets">
+            <li>🥇 Medalha — Olimpíada Canguru de Matemática</li>
+            <li>🥇 Medalha — Olimpíada Brasileira de Astronomia e Astronáutica (OBA)</li>
+            <li>🥇 Medalha — Olimpíada Matemática sem Fronteiras</li>
+          </ul>
+        </div>
+
+        <div class="groupbox">
+          <h3>Idiomas</h3>
+          <div class="skill"><span class="skill__name">Português — nativo</span>
+            <span class="rating" role="img" aria-label="Nível 5 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <div class="skill"><span class="skill__name">Inglês — intermediário</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Espanhol — básico</span>
+            <span class="rating" role="img" aria-label="Nível 2 de 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+        </div>
+
+        <div class="groupbox">
+          <h3>Habilidades pessoais</h3>
+          <ul class="tags">
+            <li class="tag tag--aqua">Trabalho em equipe</li>
+            <li class="tag tag--aqua">Proatividade</li>
+            <li class="tag tag--aqua">Atenção aos detalhes</li>
+            <li class="tag tag--aqua">Raciocínio analítico</li>
+            <li class="tag tag--aqua">Organização</li>
+            <li class="tag tag--aqua">Responsabilidade</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="groupbox">
+        <h3>Como eu trabalho</h3>
+        <ul class="bullets">
+          <li><strong>Documentação junto do código.</strong> Todo projeto meu tem README de verdade e um documento de contexto com as decisões de arquitetura registradas — quem chega depois entende o porquê, não só o quê.</li>
+          <li><strong>Validação na borda e tipagem total.</strong> <code>strict: true</code>, validação em toda escrita de API e erros do banco traduzidos para mensagens que a pessoa usuária entende.</li>
+          <li><strong>Mobile-first e acessível.</strong> A tela nasce em 360&nbsp;px e escala; skip link, foco visível e checagem automatizada de acessibilidade.</li>
+          <li><strong>Domínio isolado do framework.</strong> Regra de negócio em função pura e testada, longe do controller e do ORM.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════ CONTATO ════════════════════════════════ -->
+  <section class="window" id="contato" aria-labelledby="t-contato">
+    <div class="titlebar">
+      <img class="titlebar__icon" src="img/icons/contact.svg" alt="" aria-hidden="true">
+      <h2 class="titlebar__text" id="t-contato">Contato</h2>
+      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+    </div>
+
+    <div class="window__body stack">
+      <p class="lead">Aberto a oportunidades, colaborações e conversa técnica.</p>
+
+      <div class="contact-grid">
+        <a class="contact-card" href="https://www.linkedin.com/in/isaacferraz1311/" target="_blank" rel="noopener">
+          <strong>LinkedIn</strong>
+          <span>linkedin.com/in/isaacferraz1311</span>
+        </a>
+        <a class="contact-card" href="https://github.com/isaac-ferraz" target="_blank" rel="noopener">
+          <strong>GitHub</strong>
+          <span>github.com/isaac-ferraz</span>
+        </a>
+        <a class="contact-card" href="mailto:isaac.ferraz1311@gmail.com">
+          <strong>E-mail</strong>
+          <span>isaac.ferraz1311@gmail.com</span>
+        </a>
+        <a class="contact-card" href="assets/curriculo-isaac-ferraz.pdf" download>
+          <strong>Currículo</strong>
+          <span>Baixar em PDF</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <p class="colophon">
+    Portfólio acadêmico · Análise e Desenvolvimento de Sistemas ·
+    FATEC São José dos Campos — Prof. Jessen Vidal<br>
+    Construído à mão em HTML e CSS, sem framework e sem JavaScript.
+    Estética <em>Frutiger Aero</em> / Windows XP / Windows 7.
+  </p>
+
+</main>
+
+<!-- ═══════════════════════════ BARRA DE TAREFAS ═══════════════════════════ -->
+<footer class="taskbar">
+  <label class="start-btn" for="start-toggle">
+    <img src="img/icons/start.svg" alt="" width="20" height="20" aria-hidden="true">
+    <span>Iniciar</span>
+  </label>
+
+  <nav class="taskbar__nav" aria-label="Seções do portfólio">
+    <a class="taskbar__item" href="#apresentacao">Apresentação</a>
+    <a class="taskbar__item" href="#competencias">Competências</a>
+    <a class="taskbar__item" href="#academicos">Acadêmicos</a>
+    <a class="taskbar__item" href="#profissionais">Profissionais</a>
+    <a class="taskbar__item" href="#pessoais">Pessoais</a>
+    <a class="taskbar__item" href="#curriculo">Currículo</a>
+    <a class="taskbar__item" href="#contato">Contato</a>
+  </nav>
+
+  <p class="tray"><span aria-hidden="true">🔊 🌐</span> Isaac Ferraz</p>
+
+  <div class="start-menu">
+    <div class="start-menu__head">
+      <img src="img/perfil-512.jpg" alt="" width="40" height="40" aria-hidden="true">
+      <strong>Isaac Ferraz</strong>
+    </div>
+    <ul>
+      <li><a href="#apresentacao">Apresentação</a></li>
+      <li><a href="#competencias">Competências técnicas</a></li>
+      <li><a href="#academicos">Projetos acadêmicos (API)</a></li>
+      <li><a href="#profissionais">Projetos profissionais</a></li>
+      <li><a href="#pessoais">Projetos pessoais</a></li>
+      <li><a href="#curriculo">Informações curriculares</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="assets/curriculo-isaac-ferraz.pdf" download>⬇ Baixar currículo</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

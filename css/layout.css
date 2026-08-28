@@ -1,0 +1,296 @@
+/* ==========================================================================
+   layout.css — disposição das seções.
+   Restrição do projeto: só CSS Grid e Flexbox. Nenhum framework.
+   ========================================================================== */
+
+/* --- Apresentação: Flexbox ---------------------------------------------- */
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  flex-wrap: wrap;
+}
+
+.hero__text {
+  flex: 1 1 min(30rem, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.hero__name {
+  font-size: var(--t-3xl);
+  color: var(--sky-800);
+  letter-spacing: -0.01em;
+}
+
+.hero__role {
+  font-size: var(--t-lg);
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  font-size: var(--t-sm);
+  color: var(--ink-soft);
+}
+.hero__meta li {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-block-start: var(--sp-2);
+}
+
+/* Duas colunas para "objetivos" e "áreas de interesse" */
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--sp-4);
+}
+
+/* --- Competências: Grid -------------------------------------------------- */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: var(--sp-4);
+}
+
+/* --- Projetos: Grid ------------------------------------------------------ */
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: var(--sp-5);
+}
+
+/* Um cartão de projeto é um Flexbox em coluna: a imagem no topo,
+   as ações sempre coladas na base para alinharem entre cartões. */
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  border-radius: var(--r-card);
+  border: 1px solid var(--hairline);
+  background: linear-gradient(180deg, #ffffff 0%, #f4f9fd 100%);
+  box-shadow: 0 4px 14px -8px rgba(6, 40, 80, 0.4);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.project:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px -12px rgba(6, 40, 80, 0.55);
+}
+
+/* Sem wrap: com título de duas linhas o selo caía para baixo e desalinhava
+   em relação aos cartões vizinhos. O min-width:0 deixa o título quebrar. */
+.project__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+.project__head > div:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.project__head > .badge {
+  flex: none;
+  margin-block-start: 0.15rem;
+}
+
+.project__title {
+  font-size: var(--t-lg);
+  color: var(--sky-800);
+}
+
+.project__sub {
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.project__desc {
+  font-size: var(--t-sm);
+  color: var(--ink-soft);
+}
+
+.project__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-block-start: auto;
+  padding-block-start: var(--sp-2);
+}
+
+/* O projeto acadêmico (API) ocupa a linha inteira: tem muito mais
+   informação obrigatória do que os demais. */
+.project--wide {
+  grid-column: 1 / -1;
+}
+
+.api-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--sp-4);
+}
+
+/* --- Currículo ----------------------------------------------------------- */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.timeline__item {
+  display: grid;
+  grid-template-columns: 12px 1fr;
+  gap: var(--sp-3);
+  align-items: start;
+}
+.timeline__dot {
+  width: 12px;
+  height: 12px;
+  margin-block-start: 0.45em;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #fff 0%, var(--sky-400) 45%, var(--sky-800) 100%);
+  box-shadow: 0 0 6px rgba(79, 184, 240, 0.9);
+}
+.timeline__when {
+  font-size: var(--t-xs);
+  font-weight: 700;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.timeline__what {
+  font-size: var(--t-base);
+  font-weight: 700;
+  color: var(--sky-800);
+}
+.timeline__where {
+  font-size: var(--t-sm);
+  color: var(--ink-soft);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: var(--sp-4);
+}
+
+/* --- Contato ------------------------------------------------------------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: var(--sp-4);
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding: var(--sp-4);
+  border-radius: var(--r-card);
+  border: 1px solid var(--hairline);
+  background: linear-gradient(180deg, #ffffff, #eef7ff);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px -12px rgba(6, 40, 80, 0.5);
+}
+.contact-card strong {
+  color: var(--sky-800);
+  font-family: var(--font-title);
+}
+.contact-card span {
+  font-size: var(--t-sm);
+  color: var(--ink-soft);
+  word-break: break-word;
+}
+
+/* --- Rodapé -------------------------------------------------------------- */
+
+/* Placa escura por baixo: sobre a colina verde do papel de parede o texto
+   claro só chegava a 2.5:1. A sombra de texto não conta para o WCAG. */
+.colophon {
+  text-align: center;
+  font-size: var(--t-xs);
+  color: #eaf6ff;
+  text-shadow: 0 1px 3px rgba(4, 30, 66, 0.9);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-card);
+  background: rgba(8, 38, 80, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.colophon a {
+  color: #fff;
+}
+
+/* --- Utilitários --------------------------------------------------------- */
+
+.stack > * + * {
+  margin-block-start: var(--sp-4);
+}
+.stack-sm > * + * {
+  margin-block-start: var(--sp-2);
+}
+
+.lead {
+  font-size: var(--t-lg);
+  color: var(--ink-soft);
+}
+
+.section-title {
+  font-size: var(--t-xl);
+  color: var(--sky-800);
+  margin-block-end: var(--sp-1);
+}
+
+.muted {
+  color: var(--ink-faint);
+  font-size: var(--t-sm);
+}
+
+/* só para leitores de tela */
+.vh {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Ajustes de tela pequena -------------------------------------------- */
+
+@media (max-width: 640px) {
+  .hero {
+    gap: var(--sp-4);
+  }
+  .project {
+    padding: var(--sp-3);
+  }
+}

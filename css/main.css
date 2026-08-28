@@ -1,0 +1,10 @@
+/* ==========================================================================
+   main.css — único arquivo ligado ao HTML.
+   Ordem importa: tokens → reset → cromo → componentes → layout.
+   ========================================================================== */
+
+@import url("tokens.css");
+@import url("reset.css");
+@import url("chrome.css");
+@import url("components.css");
+@import url("layout.css");

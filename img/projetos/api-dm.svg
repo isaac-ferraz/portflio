@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img"
+     aria-label="Fluxo de decisão da landing page: o cliente informa CEP e tipo de cartão, o sistema consulta a base de pré-qualificação e encaminha para aprovação automática, reprovação automática ou análise.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7fbff"/><stop offset="1" stop-color="#e6eff8"/>
+    </linearGradient>
+    <linearGradient id="box" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#eef5fc"/>
+    </linearGradient>
+    <linearGradient id="ok" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9fbe9"/><stop offset="1" stop-color="#c7f0c9"/>
+    </linearGradient>
+    <linearGradient id="no" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffeceb"/><stop offset="1" stop-color="#fbcfcc"/>
+    </linearGradient>
+    <linearGradient id="wait" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff6e2"/><stop offset="1" stop-color="#ffe6b4"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4a6d8c"/>
+    </marker>
+    <style>
+      .t   { font-family: "Segoe UI", Tahoma, sans-serif; fill:#10243a; }
+      .h   { font-weight:700; font-size:17px; }
+      .s   { font-size:13px; fill:#4a6d8c; }
+      .k   { font-size:12px; fill:#4a6d8c; letter-spacing:.09em; font-weight:700; }
+      .lbl { font-size:12px; fill:#4a6d8c; font-weight:600; }
+      .ln  { stroke:#8ba7bf; stroke-width:2; fill:none; marker-end:url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <text class="t k" x="48" y="46">API 2026/2 · PARCEIRO DM · FLUXO DE PRÉ-QUALIFICAÇÃO</text>
+  <line x1="48" y1="60" x2="1152" y2="60" stroke="#c8d8e6" stroke-width="1"/>
+
+  <!-- 1. formulário -->
+  <rect x="48" y="240" width="228" height="128" rx="10" fill="url(#box)" stroke="#a8c2d8" stroke-width="1.5"/>
+  <text class="t h" x="70" y="278">Landing page</text>
+  <text class="t s" x="70" y="303">CPF · CEP</text>
+  <text class="t s" x="70" y="323">Tipo de cartão:</text>
+  <text class="t s" x="70" y="343">DM · Loja · Loja Digital</text>
+
+  <!-- 2. base -->
+  <rect x="344" y="240" width="212" height="128" rx="10" fill="url(#box)" stroke="#a8c2d8" stroke-width="1.5"/>
+  <text class="t h" x="366" y="278">Base de</text>
+  <text class="t h" x="366" y="300">pré-qualificação</text>
+  <text class="t s" x="366" y="328">MySQL · consulta por</text>
+  <text class="t s" x="366" y="347">CPF e vínculo</text>
+
+  <!-- 3. decisão -->
+  <path d="M726 190 L862 304 L726 418 L590 304 Z" fill="#dcecfa" stroke="#6f9dc4" stroke-width="1.8"/>
+  <text class="t h" x="726" y="296" text-anchor="middle">É colaborador</text>
+  <text class="t h" x="726" y="318" text-anchor="middle">da DM?</text>
+
+  <!-- saídas -->
+  <rect x="912" y="112" width="240" height="96" rx="10" fill="url(#ok)" stroke="#6fbb35" stroke-width="1.5"/>
+  <text class="t h" x="934" y="148">Aprovação automática</text>
+  <text class="t s" x="934" y="172">Cartão DM para colaborador</text>
+  <text class="t s" x="934" y="191">— sem passar por análise</text>
+
+  <rect x="912" y="256" width="240" height="96" rx="10" fill="url(#no)" stroke="#d3534b" stroke-width="1.5"/>
+  <text class="t h" x="934" y="292">Reprovação automática</text>
+  <text class="t s" x="934" y="316">Cartão Loja para colaborador</text>
+  <text class="t s" x="934" y="335">— regra do parceiro</text>
+
+  <rect x="912" y="400" width="240" height="112" rx="10" fill="url(#wait)" stroke="#e0a52b" stroke-width="1.5"/>
+  <text class="t h" x="934" y="436">Análise</text>
+  <text class="t s" x="934" y="460">Não colaborador: apto é</text>
+  <text class="t s" x="934" y="479">aprovado; o restante fica</text>
+  <text class="t s" x="934" y="498">com status “em análise”</text>
+
+  <!-- restrição geográfica -->
+  <rect x="48" y="424" width="508" height="112" rx="10" fill="#ffffff" stroke="#a8c2d8" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text class="t h" x="70" y="458">Seleção de loja — restrição por estado</text>
+  <text class="t s" x="70" y="484">Cartão Loja: só unidades no mesmo estado do CEP informado,</text>
+  <text class="t s" x="70" y="503">entre parceiros com mais de mil estabelecimentos.</text>
+  <text class="t s" x="70" y="522">Cartão Loja Digital: qualquer estado, sem via física — avisado ao cliente.</text>
+
+  <!-- conexões -->
+  <path class="ln" d="M276 304 L336 304"/>
+  <path class="ln" d="M556 304 L582 304"/>
+  <path class="ln" d="M810 250 C 870 220, 870 180, 904 165"/>
+  <path class="ln" d="M862 304 L904 304"/>
+  <path class="ln" d="M810 358 C 870 390, 870 430, 904 450"/>
+  <path class="ln" d="M162 368 L162 416"/>
+
+  <text class="t lbl" x="836" y="212">sim · Cartão DM</text>
+  <text class="t lbl" x="900" y="294" text-anchor="end">sim · Cartão Loja</text>
+  <text class="t lbl" x="836" y="404">não</text>
+</svg>

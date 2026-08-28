@@ -1,0 +1,114 @@
+/* ==========================================================================
+   tokens.css — variáveis de design
+   Paleta derivada de três referências: Windows XP (Luna), Windows 7 (Aero)
+   e a estética Frutiger Aero (céu, água, vidro, brilho).
+   ========================================================================== */
+
+:root {
+  /* --- Windows XP · tema Luna ------------------------------------------ */
+  --xp-blue: #245edb;
+  --xp-blue-hi: #4a90f0;
+  --xp-blue-lo: #143f9e;
+  --xp-green: #379e37;
+  --xp-green-hi: #6fd25f;
+  --xp-green-lo: #1e6b1e;
+  --xp-face: #ece9d8; /* cinza-creme das janelas clássicas */
+  --xp-border: #0831d9;
+
+  /* --- Frutiger Aero · céu e água -------------------------------------- */
+  --sky-100: #e8faff;
+  --sky-200: #9fe6ff;
+  --sky-400: #4fb8f0;
+  --sky-600: #1a7fc8;
+  --sky-800: #0a4c8f;
+  --aqua: #37d3c4;
+  --aqua-dark: #17998e;
+  --grass: #6fbb35;
+
+  /* --- Vidro (Aero Glass) ---------------------------------------------- */
+  --glass: rgba(255, 255, 255, 0.34);
+  --glass-strong: rgba(255, 255, 255, 0.62);
+  --glass-edge: rgba(255, 255, 255, 0.85);
+  --glass-shadow: rgba(6, 40, 80, 0.32);
+
+  /* --- Texto ------------------------------------------------------------ */
+  --ink: #10243a;
+  --ink-soft: #3c5a76;
+  /* #6a8299 dava 3.99:1 sobre branco — reprova AA para texto normal. */
+  --ink-faint: #56708a;
+  --ink-invert: #ffffff;
+  --link: #0b57b5;
+
+  /* --- Superfícies ------------------------------------------------------ */
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-solid: #ffffff;
+  --surface-sunken: #f2f7fb;
+  --hairline: rgba(16, 60, 110, 0.16);
+
+  /* --- Gradientes reutilizáveis ---------------------------------------- */
+  /* Azul Luna translúcido. Precisa ser saturado o bastante para o texto
+     branco passar em contraste AA — vidro claro demais reprova. */
+  --grad-titlebar: linear-gradient(
+    180deg,
+    rgba(63, 143, 216, 0.94) 0%,
+    rgba(42, 111, 180, 0.95) 46%,
+    rgba(30, 92, 156, 0.96) 47%,
+    rgba(17, 66, 129, 0.97) 100%
+  );
+  --grad-gel: linear-gradient(180deg, var(--sky-400) 0%, var(--sky-600) 52%, var(--sky-800) 100%);
+  --grad-gel-green: linear-gradient(180deg, var(--xp-green-hi) 0%, var(--xp-green) 52%, var(--xp-green-lo) 100%);
+  /* o brilho “gel”: metade de cima clara, corte seco no meio */
+  --gel-shine: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.28) 48%,
+    rgba(255, 255, 255, 0) 49%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  /* Opaca o bastante para o texto branco dos itens ter contraste previsível,
+     seja qual for o trecho do papel de parede que passa por trás. */
+  --grad-taskbar: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(126, 190, 240, 0.55) 7%,
+    rgba(27, 74, 134, 0.88) 55%,
+    rgba(8, 38, 80, 0.95) 100%
+  );
+
+  /* --- Sombras ---------------------------------------------------------- */
+  --shadow-window: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 18px 44px -14px var(--glass-shadow),
+    0 4px 14px -6px rgba(6, 40, 80, 0.28);
+  --shadow-raised: 0 1px 0 rgba(255, 255, 255, 0.75) inset, 0 6px 16px -8px rgba(6, 40, 80, 0.4);
+  --glow-aero: 0 0 0 1px rgba(255, 255, 255, 0.7), 0 0 22px 2px rgba(120, 220, 255, 0.75);
+
+  /* --- Geometria -------------------------------------------------------- */
+  --r-window: 10px;
+  --r-card: 8px;
+  --r-pill: 999px;
+
+  /* --- Ritmo ------------------------------------------------------------ */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+
+  /* --- Tipografia ------------------------------------------------------- */
+  --font-ui: "Segoe UI", Tahoma, "Trebuchet MS", "Noto Sans", sans-serif;
+  --font-title: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+  --font-mono: "Cascadia Mono", Consolas, "DejaVu Sans Mono", monospace;
+
+  /* escala fluida — o texto acompanha a largura sem media query */
+  --t-xs: 0.75rem;
+  --t-sm: 0.8125rem;
+  --t-base: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
+  --t-lg: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --t-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --t-2xl: clamp(1.5rem, 1.25rem + 1.1vw, 2.125rem);
+  --t-3xl: clamp(1.875rem, 1.4rem + 2vw, 2.75rem);
+
+  /* --- Altura da barra de tarefas (usada em vários lugares) ------------- */
+  --taskbar-h: 46px;
+}
