@@ -179,6 +179,38 @@
   grid-column: 1 / -1;
 }
 
+/* Topo do cartão largo: captura de um lado, texto do outro.
+
+   Empilhada, a captura de um cartão de linha inteira crescia junto com ele —
+   `aspect-ratio: 2/1` em 1130px dá 547px de altura, metade do cartão, e o
+   texto virava legenda da foto. Nos cartões estreitos a mesma captura ocupa um
+   terço. Lado a lado, a largura sobrando vai para o texto (que é justamente o
+   que esses dois projetos têm de mais) e a imagem volta à escala dos vizinhos.
+
+   O ponto de virada é o mesmo de `.projects`: enquanto a seção está em coluna
+   única, o cartão largo não tem largura sobrando para dividir. */
+.project__top {
+  display: grid;
+  gap: var(--sp-4);
+}
+.project__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+@media (min-width: 55.5em) {
+  .project__top {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+  /* Ampliada, a captura larga a coluna e toma o cartão inteiro — senão
+     "ampliar" devolveria a mesma imagem no mesmo tamanho. */
+  .project__top > .zoom-toggle:checked + .shot {
+    grid-column: 1 / -1;
+  }
+}
+
 /* Hoje cada API traz um bloco só aqui dentro, então a grade nunca passou de
    uma coluna em nenhuma largura — a fração declara isso, em vez de deixar a
    conta do `auto-fit` dar o mesmo resultado por acidente. */

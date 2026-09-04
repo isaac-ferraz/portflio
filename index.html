@@ -512,41 +512,46 @@
       <div class="projects">
 
         <article class="project project--wide">
-          <input type="checkbox" id="zoom-negociacao" class="zoom-toggle"
-                 aria-label="Ampliar ou reduzir a tela de autoatendimento da Cobratec">
-          <figure class="shot">
-            <figcaption class="shot__bar" aria-hidden="true">
-              <i></i><i></i><i></i><span>cobratecsp.com.br/negocie — escolha de caminho</span>
-            </figcaption>
-            <label class="shot__zoom" for="zoom-negociacao">
-              <img src="img/projetos/negociacao-cobratec.jpg" loading="lazy" width="1280" height="632"
-                   alt="A tela de autoatendimento da Cobratec: um cartão pergunta “O que você quer fazer?” e oferece três caminhos — consultar minha dívida (somente consulta), simular um acordo (nada é registrado) e fechar acordo e gerar boleto (registra o acordo no sistema) — com a alternativa de falar com um atendente no WhatsApp.">
-            </label>
-          </figure>
-          <div class="project__head">
-            <div>
-              <p class="project__sub">Cobratec · autoatendimento de negociação</p>
-              <h3 class="project__title">Portal de negociação online — integração com a API REST do sistema de cobranças</h3>
+          <div class="project__top">
+            <input type="checkbox" id="zoom-negociacao" class="zoom-toggle"
+                   aria-label="Ampliar ou reduzir a tela de autoatendimento da Cobratec">
+            <figure class="shot">
+              <figcaption class="shot__bar" aria-hidden="true">
+                <i></i><i></i><i></i><span>cobratecsp.com.br/negocie — escolha de caminho</span>
+              </figcaption>
+              <label class="shot__zoom" for="zoom-negociacao">
+                <img src="img/projetos/negociacao-cobratec.jpg" loading="lazy" width="1280" height="632"
+                     alt="A tela de autoatendimento da Cobratec: um cartão pergunta “O que você quer fazer?” e oferece três caminhos — consultar minha dívida (somente consulta), simular um acordo (nada é registrado) e fechar acordo e gerar boleto (registra o acordo no sistema) — com a alternativa de falar com um atendente no WhatsApp.">
+              </label>
+            </figure>
+
+            <div class="project__intro">
+              <div class="project__head">
+                <div>
+                  <p class="project__sub">Cobratec · autoatendimento de negociação</p>
+                  <h3 class="project__title">Portal de negociação online — integração com a API REST do sistema de cobranças</h3>
+                </div>
+                <span class="badge badge--wip">Em homologação</span>
+              </div>
+              <p class="project__desc">
+                Autoatendimento em que o próprio devedor consulta a dívida, simula condições de pagamento
+                e fecha o acordo sozinho, direto no site. A negociação conversa com o
+                <strong>Sistema de Cobranças da empresa</strong> — o CRM interno — por uma
+                <strong>API REST</strong>: o acordo nasce gravado no sistema e o boleto sai com linha
+                digitável na hora, sem ninguém digitar nada do outro lado.
+              </p>
+              <p class="muted">
+                Tudo o que aparece aqui — CPF, valores, contratos e acordos — vem de uma
+                <strong>base de homologação com dados de teste</strong>. Nenhum dado de cliente real é
+                exibido; os números servem apenas para demonstrar o funcionamento do fluxo.
+              </p>
+              <ul class="tags">
+                <li class="tag">API REST</li><li class="tag">PHP</li><li class="tag">Next.js 14</li>
+                <li class="tag">TypeScript</li><li class="tag tag--aqua">HTTP / JSON</li>
+                <li class="tag tag--aqua">Emissão bancária de boleto</li>
+              </ul>
             </div>
-            <span class="badge badge--wip">Em homologação</span>
           </div>
-          <p class="project__desc">
-            Autoatendimento em que o próprio devedor consulta a dívida, simula condições de pagamento
-            e fecha o acordo sozinho, direto no site. A negociação conversa com o
-            <strong>Sistema de Cobranças da empresa</strong> — o CRM interno — por uma
-            <strong>API REST</strong>: o acordo nasce gravado no sistema e o boleto sai com linha
-            digitável na hora, sem ninguém digitar nada do outro lado.
-          </p>
-          <p class="muted">
-            Tudo o que aparece aqui — CPF, valores, contratos e acordos — vem de uma
-            <strong>base de homologação com dados de teste</strong>. Nenhum dado de cliente real é
-            exibido; os números servem apenas para demonstrar o funcionamento do fluxo.
-          </p>
-          <ul class="tags">
-            <li class="tag">API REST</li><li class="tag">PHP</li><li class="tag">Next.js 14</li>
-            <li class="tag">TypeScript</li><li class="tag tag--aqua">HTTP / JSON</li>
-            <li class="tag tag--aqua">Emissão bancária de boleto</li>
-          </ul>
 
           <details class="disclose">
             <summary>O que o portal faz</summary>
@@ -686,40 +691,45 @@
         </article>
 
         <article class="project project--wide">
-          <input type="checkbox" id="zoom-analytics" class="zoom-toggle"
-                 aria-label="Ampliar ou reduzir o painel de indicadores">
-          <figure class="shot">
-            <figcaption class="shot__bar" aria-hidden="true">
-              <i></i><i></i><i></i><span>cobratec-analytics — painel de KPIs</span>
-            </figcaption>
-            <label class="shot__zoom" for="zoom-analytics">
-              <img src="img/projetos/analytics.svg" loading="lazy" width="1200" height="600"
-                   alt="A ilustração do painel de indicadores: cartões de KPI e um gráfico de barras mensal, com dados fictícios.">
-            </label>
-          </figure>
-          <div class="project__head">
-            <div>
-              <p class="project__sub">Cobratec · análise de dados</p>
-              <h3 class="project__title">Analytics do CRM de cobrança</h3>
+          <div class="project__top">
+            <input type="checkbox" id="zoom-analytics" class="zoom-toggle"
+                   aria-label="Ampliar ou reduzir o painel de indicadores">
+            <figure class="shot">
+              <figcaption class="shot__bar" aria-hidden="true">
+                <i></i><i></i><i></i><span>cobratec-analytics — painel de KPIs</span>
+              </figcaption>
+              <label class="shot__zoom" for="zoom-analytics">
+                <img src="img/projetos/analytics.svg" loading="lazy" width="1200" height="600"
+                     alt="A ilustração do painel de indicadores: cartões de KPI e um gráfico de barras mensal, com dados fictícios.">
+              </label>
+            </figure>
+
+            <div class="project__intro">
+              <div class="project__head">
+                <div>
+                  <p class="project__sub">Cobratec · análise de dados</p>
+                  <h3 class="project__title">Analytics do CRM de cobrança</h3>
+                </div>
+                <span class="badge badge--private">Privado</span>
+              </div>
+              <p class="project__desc">
+                Camada de análise sobre o banco do <strong>Sistema de Cobranças da empresa</strong>, em
+                acesso <strong>somente leitura</strong>, gerando planilhas de desempenho da equipe em
+                recortes diários, mensais, trimestrais e anuais.
+              </p>
+              <p class="muted">
+                Os números, nomes e gráficos que aparecem nas ilustrações desta seção são
+                <strong>dados de teste</strong> — nenhum é real. A base de produção não é exposta em
+                lugar nenhum do portfólio; o que está aqui serve só para mostrar o formato do
+                relatório e o caminho que o dado percorre.
+              </p>
+              <ul class="tags">
+                <li class="tag">Python</li><li class="tag">PostgreSQL</li><li class="tag">SQLAlchemy</li>
+                <li class="tag tag--aqua">Polars / pandas</li><li class="tag tag--aqua">Streamlit</li>
+                <li class="tag tag--aqua">n8n</li>
+              </ul>
             </div>
-            <span class="badge badge--private">Privado</span>
           </div>
-          <p class="project__desc">
-            Camada de análise sobre o banco do <strong>Sistema de Cobranças da empresa</strong>, em
-            acesso <strong>somente leitura</strong>, gerando planilhas de desempenho da equipe em
-            recortes diários, mensais, trimestrais e anuais.
-          </p>
-          <p class="muted">
-            Os números, nomes e gráficos que aparecem nas ilustrações desta seção são
-            <strong>dados de teste</strong> — nenhum é real. A base de produção não é exposta em
-            lugar nenhum do portfólio; o que está aqui serve só para mostrar o formato do
-            relatório e o caminho que o dado percorre.
-          </p>
-          <ul class="tags">
-            <li class="tag">Python</li><li class="tag">PostgreSQL</li><li class="tag">SQLAlchemy</li>
-            <li class="tag tag--aqua">Polars / pandas</li><li class="tag tag--aqua">Streamlit</li>
-            <li class="tag tag--aqua">n8n</li>
-          </ul>
           <ul class="bullets">
             <li><strong>Engenharia reversa do schema</strong> legado a partir do catálogo do Postgres, virando documentação versionada.</li>
             <li>KPIs validados <strong>linha a linha contra os relatórios oficiais</strong> do sistema — o que revelou divergências de atribuição entre colunas parecidas.</li>
