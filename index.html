@@ -29,13 +29,13 @@
 <main class="shell" id="conteudo">
 
   <!-- ══════════════════════════════ APRESENTAÇÃO ══════════════════════════ -->
+  <input type="checkbox" id="min-apresentacao" class="min-toggle"
+         aria-label="Minimizar a janela Apresentação">
   <section class="window" id="apresentacao" aria-labelledby="t-apresentacao">
     <div class="titlebar">
       <img class="titlebar__icon" src="img/icons/user.svg" alt="" aria-hidden="true">
-      <!-- Não é <h2>: o <h1> da página é o nome, logo abaixo. Um <h2> aqui
-           viria antes dele e quebraria a hierarquia de títulos. -->
       <p class="titlebar__text" id="t-apresentacao">Apresentação</p>
-      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+      <div class="win-controls"><label class="win-btn" for="min-apresentacao">_</label><span aria-hidden="true">▢</span><span aria-hidden="true">✕</span></div>
     </div>
 
     <div class="window__body stack">
@@ -58,9 +58,9 @@
           </ul>
 
           <div class="hero__actions">
-            <a class="gel-btn" href="assets/curriculo-isaac-ferraz.pdf" download>⬇ Baixar currículo (PDF)</a>
-            <a class="gel-btn gel-btn--ghost" href="https://github.com/isaac-ferraz" target="_blank" rel="noopener">GitHub</a>
+            <a class="gel-btn" href="mailto:isaac.ferraz1311@gmail.com">✉ Falar comigo por e-mail</a>
             <a class="gel-btn gel-btn--ghost" href="https://www.linkedin.com/in/isaacferraz1311/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="gel-btn gel-btn--ghost" href="https://github.com/isaac-ferraz" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
@@ -71,7 +71,7 @@
         Construo sistemas que entram em produção e são usados por pessoas de verdade: um site
         institucional no ar, um sistema interno de inventário rodando na rede do escritório e uma
         camada de análise que reproduz, linha a linha, os relatórios oficiais de um CRM com
-        55 milhões de registros.
+        aproximadamente 50 milhões de registros.
       </p>
 
       <div class="two-col">
@@ -110,11 +110,13 @@
   </section>
 
   <!-- ══════════════════════════════ COMPETÊNCIAS ══════════════════════════ -->
+  <input type="checkbox" id="min-competencias" class="min-toggle"
+         aria-label="Minimizar a janela Competências técnicas">
   <section class="window" id="competencias" aria-labelledby="t-competencias">
     <div class="titlebar">
       <img class="titlebar__icon" src="img/icons/skills.svg" alt="" aria-hidden="true">
       <h2 class="titlebar__text" id="t-competencias">Competências técnicas</h2>
-      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+      <div class="win-controls"><label class="win-btn" for="min-competencias">_</label><span aria-hidden="true">▢</span><span aria-hidden="true">✕</span></div>
     </div>
 
     <div class="window__body">
@@ -132,47 +134,39 @@
 
         <div class="groupbox">
           <h3>Linguagens</h3>
-          <div class="skill"><span class="skill__name">TypeScript / JavaScript</span>
-            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
           <div class="skill"><span class="skill__name">Python</span>
             <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
           <div class="skill"><span class="skill__name">SQL</span>
             <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
           <div class="skill"><span class="skill__name">HTML &amp; CSS</span>
             <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
-          <div class="skill"><span class="skill__name">Bash / Shell Script</span>
-            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
           <div class="skill"><span class="skill__name">Java</span>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">Bash / Shell Script</span>
             <span class="rating" role="img" aria-label="Nível 2 de 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
         </div>
 
         <div class="groupbox">
           <h3>Front-end</h3>
           <div class="skill"><span class="skill__name">React</span>
-            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
           <div class="skill"><span class="skill__name">Next.js (App Router)</span>
-            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
           <div class="skill"><span class="skill__name">Tailwind CSS</span>
-            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
           <div class="skill"><span class="skill__name">Acessibilidade e responsividade</span>
             <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
         </div>
 
         <div class="groupbox">
-          <h3>Back-end &amp; dados</h3>
-          <div class="skill"><span class="skill__name">APIs REST</span>
-            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
-          <div class="skill"><span class="skill__name">Node.js</span>
+          <h3>Dados</h3>
+          <div class="skill"><span class="skill__name">SQLite</span>
+            <span class="rating" role="img" aria-label="Nível 2 de 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">MySQL</span>
             <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
-          <div class="skill"><span class="skill__name">NestJS</span>
-            <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
-          <div class="skill"><span class="skill__name">Prisma ORM</span>
-            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
           <div class="skill"><span class="skill__name">PostgreSQL</span>
             <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
-          <div class="skill"><span class="skill__name">SQLite</span>
-            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
-          <div class="skill"><span class="skill__name">MySQL</span>
+          <div class="skill"><span class="skill__name">Node.js</span>
             <span class="rating" role="img" aria-label="Nível 2 de 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
         </div>
 
@@ -182,23 +176,23 @@
             <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
           <div class="skill"><span class="skill__name">LLMs locais (Ollama)</span>
             <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
-          <div class="skill"><span class="skill__name">Automação de processos em Python</span>
+          <div class="skill"><span class="skill__name">Automatização de processos com IA</span>
             <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
           <div class="skill"><span class="skill__name">Análise de dados (pandas / Polars)</span>
             <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
         </div>
 
         <div class="groupbox">
-          <h3>Infraestrutura &amp; ferramentas</h3>
-          <div class="skill"><span class="skill__name">Git &amp; GitHub</span>
+          <h3>Infraestrutura e arquitetura</h3>
+          <div class="skill"><span class="skill__name">Versionamento (Git &amp; GitHub)</span>
             <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
-          <div class="skill"><span class="skill__name">Linux &amp; terminal</span>
+          <div class="skill"><span class="skill__name">Sistemas operacionais</span>
             <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
-          <div class="skill"><span class="skill__name">Docker</span>
+          <div class="skill"><span class="skill__name">APIs REST</span>
+            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div class="skill"><span class="skill__name">DevOps</span>
             <span class="rating" role="img" aria-label="Nível 3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
-          <div class="skill"><span class="skill__name">Vercel / deploy</span>
-            <span class="rating" role="img" aria-label="Nível 4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
-          <div class="skill"><span class="skill__name">Redes de computadores</span>
+          <div class="skill"><span class="skill__name">Segurança da informação</span>
             <span class="rating" role="img" aria-label="Nível 2 de 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
         </div>
 
@@ -219,11 +213,13 @@
   </section>
 
   <!-- ══════════════════════════ PROJETOS ACADÊMICOS ═══════════════════════ -->
+  <input type="checkbox" id="min-academicos" class="min-toggle"
+         aria-label="Minimizar a janela Projetos acadêmicos">
   <section class="window" id="academicos" aria-labelledby="t-academicos">
     <div class="titlebar">
       <img class="titlebar__icon" src="img/icons/academic.svg" alt="" aria-hidden="true">
       <h2 class="titlebar__text" id="t-academicos">Projetos acadêmicos — API</h2>
-      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+      <div class="win-controls"><label class="win-btn" for="min-academicos">_</label><span aria-hidden="true">▢</span><span aria-hidden="true">✕</span></div>
     </div>
 
     <div class="window__body stack">
@@ -266,14 +262,17 @@
             </div>
           </div>
 
+          <input type="checkbox" id="zoom-api-dm" class="zoom-toggle"
+                 aria-label="Ampliar ou reduzir o diagrama do fluxo de pré-qualificação">
           <figure class="shot shot--diagram">
             <figcaption class="shot__bar" aria-hidden="true">
               <i></i><i></i><i></i><span>api-dm — fluxo de pré-qualificação</span>
             </figcaption>
-            <img src="img/projetos/api-dm.svg" loading="lazy" width="1200" height="600"
-                 alt="Diagrama do fluxo de decisão da landing page: o cliente informa CPF, CEP e tipo de cartão; o sistema consulta a base de pré-qualificação e encaminha para aprovação automática, reprovação automática ou análise, respeitando a restrição de loja por estado.">
+            <label class="shot__zoom" for="zoom-api-dm">
+              <img src="img/projetos/api-dm.svg" loading="lazy" width="1200" height="600"
+                   alt="O diagrama do fluxo de decisão da landing page: o cliente informa CPF, CEP e tipo de cartão; o sistema consulta a base de pré-qualificação e encaminha para aprovação automática, reprovação automática ou análise, respeitando a restrição de loja por estado.">
+            </label>
           </figure>
-
           <details class="disclose">
             <summary>Regras de negócio e solução desenvolvida</summary>
             <div class="disclose__body">
@@ -350,16 +349,157 @@
           </div>
         </article>
 
+        <article class="project project--wide">
+          <div class="project__head">
+            <div>
+              <p class="project__sub">1º semestre · 2026/1 · Desafio: dados públicos de saúde</p>
+              <h3 class="project__title">BotGotinha — assistente de vacinação no Telegram</h3>
+            </div>
+            <span class="badge badge--live">Concluído</span>
+          </div>
+
+          <div class="api-grid">
+            <div class="stack-sm">
+              <h4>O problema</h4>
+              <p class="project__desc">
+                Os dados de vacinação do Ministério da Saúde são públicos, mas ficam espalhados em
+                PDFs de calendário, num painel de cobertura vacinal em Qlik e no cadastro CNES de
+                unidades de saúde. Quem só quer saber <em>quais vacinas o filho de dois meses precisa
+                tomar</em> não vai atravessar três portais. O desafio era construir um assistente que
+                entregasse essa resposta dentro do Telegram — com uma restrição dura do enunciado:
+                <strong>sem API externa de terceiros e sem banco de dados</strong>. Tudo tinha que
+                sair de raspagem própria e de algoritmo escrito por nós.
+              </p>
+              <ul class="tags">
+                <li class="tag">Python</li>
+                <li class="tag">Flask</li>
+                <li class="tag">pyTelegramBotAPI</li>
+                <li class="tag">BeautifulSoup</li>
+                <li class="tag">Selenium</li>
+                <li class="tag">pandas</li>
+                <li class="tag tag--aqua">Ollama (llama3.2)</li>
+                <li class="tag tag--aqua">faster-whisper</li>
+                <li class="tag tag--aqua">Scrum</li>
+              </ul>
+            </div>
+          </div>
+
+          <input type="checkbox" id="zoom-gotinha" class="zoom-toggle"
+                 aria-label="Ampliar ou reduzir o fluxograma do assistente de vacinação">
+          <figure class="shot shot--diagram">
+            <figcaption class="shot__bar" aria-hidden="true">
+              <i></i><i></i><i></i><span>@Gotinha_bot — fluxo do assistente</span>
+            </figcaption>
+            <label class="shot__zoom" for="zoom-gotinha">
+              <img src="img/projetos/api-gotinha.svg" loading="lazy" width="1200" height="600"
+                   alt="Fluxograma do assistente: a entrada chega por botões do menu, texto livre ou mensagem de voz; o áudio é transcrito pelo faster-whisper e o texto classificado pelo Ollama em intenção e parâmetros; um roteador valida a intenção contra uma lista fechada e despacha para calendário vacinal, agendamento com lembretes, cobertura vacinal, unidades próximas ou FAQ — tudo sem API externa e sem banco de dados.">
+            </label>
+          </figure>
+          <details class="disclose">
+            <summary>O que o assistente faz</summary>
+            <div class="disclose__body">
+              <div class="groupbox">
+                <h4>Calendário vacinal</h4>
+                <ul class="bullets">
+                  <li>Consulta <strong>por grupo</strong> — criança, adolescente, adulto, idoso e gestante — a partir da raspagem do calendário nacional publicado em <code>gov.br/saude</code>, mais os PDFs oficiais de cada faixa.</li>
+                  <li>Consulta <strong>por data de nascimento</strong>: o bot converte a data em dias, meses ou anos, escolhe a categoria correspondente e devolve só o que ainda está pendente para aquela idade — em vez de despejar a tabela inteira.</li>
+                  <li>Cada dose sai com o período e o esquema (dose única, reforço, número da dose), já formatados para leitura no celular.</li>
+                </ul>
+              </div>
+              <div class="groupbox">
+                <h4>Agendamento e lembretes</h4>
+                <ul class="bullets">
+                  <li>O usuário marca num <strong>checklist</strong> as vacinas que ainda vai tomar e informa um e-mail.</li>
+                  <li>Um laço de notificação em thread separada dispara alertas <strong>10 dias antes, 1 dia antes e no dia</strong>, pelo próprio Telegram e por e-mail (SMTP), sem repetir avisos já enviados.</li>
+                  <li>Cada dose agendada vira também um <strong>link de evento do Google Agenda</strong>, com título, data e descrição prontos.</li>
+                </ul>
+              </div>
+              <div class="groupbox">
+                <h4>Cobertura vacinal</h4>
+                <ul class="bullets">
+                  <li>Raspagem do painel de cobertura do Ministério da Saúde com Selenium: o robô abre o painel, baixa a planilha e guarda a data de atualização declarada na própria página.</li>
+                  <li>Tratamento em pandas, com <strong>cache de 6 horas</strong> em disco e em memória — o painel só é reaberto quando os dados envelhecem.</li>
+                  <li>Consulta <strong>por estado</strong>, <strong>por município</strong> (navegando região → estado → cidade) e <strong>ranking dos estados</strong>, além do painel interativo para quem quer filtrar por conta própria.</li>
+                </ul>
+              </div>
+              <div class="groupbox">
+                <h4>Unidades de saúde próximas</h4>
+                <ul class="bullets">
+                  <li>O usuário compartilha a localização pelo GPS do Telegram e o bot devolve as UBS mais próximas.</li>
+                  <li>A base é o cadastro CNES de unidades básicas de saúde; a distância é calculada por <strong>fórmula de Haversine</strong> sobre latitude e longitude — sem serviço de mapas pago, como o enunciado exigia.</li>
+                  <li>Os links de rota são resolvidos em <strong>threads paralelas</strong>, para a resposta não travar enquanto várias unidades são consultadas.</li>
+                </ul>
+              </div>
+              <div class="groupbox">
+                <h4>Linguagem natural e voz</h4>
+                <ul class="bullets">
+                  <li>Além dos botões, o usuário pode <strong>escrever com as próprias palavras</strong>: um LLM rodando localmente (Ollama / llama3.2) classifica a mensagem em uma intenção e extrai os parâmetros — grupo, idade, estado, município.</li>
+                  <li>Um <strong>roteador de intenções</strong> valida esse resultado e despacha para a função correta; intenção fora da lista ou modelo fora do ar caem no menu de botões, nunca em erro.</li>
+                  <li><strong>Mensagem de voz</strong>: o áudio é baixado do Telegram e transcrito localmente com faster-whisper em português; a transcrição segue para o mesmo classificador.</li>
+                  <li>Um FAQ responde as duas dúvidas mais repetidas na operação: documentos necessários e reações comuns.</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <details class="disclose">
+            <summary>Contribuições pessoais</summary>
+            <div class="disclose__body">
+              <ul class="bullets">
+                <li><strong>Camada de linguagem natural (em dupla).</strong> Fui um dos responsáveis pela construção do interpretador que fala com o Ollama e devolve intenção + parâmetros em JSON, e do roteador que transforma esse JSON em chamada de função — atuei como apoio na implementação, principalmente na validação da intenção contra uma lista fechada e na queda para o menu de botões quando o modelo está offline ou responde fora do formato.</li>
+                <li><strong>Comandos de voz.</strong> Implementei o fluxo de áudio: download do arquivo do Telegram, transcrição local com faster-whisper e classificação da transcrição pelo mesmo modelo, com limpeza do arquivo temporário garantida no <code>finally</code>.</li>
+                <li><strong>Agendamento no Google Agenda.</strong> Liguei a vacina escolhida a um link de evento pronto, para o lembrete sair do bot e entrar na agenda da pessoa.</li>
+                <li><strong>Navegação do bot.</strong> Refiz o visual e o posicionamento dos teclados e botões — foi a mudança que mais reduziu a quantidade de gente perdida no meio do fluxo.</li>
+                <li><strong>Documentação.</strong> Escrevi o incremento do DoR e do DoD do time, mantive o registro das sprints no README e o QR code de acesso ao bot no manual do usuário.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="disclose">
+            <summary>Habilidades exercitadas</summary>
+            <div class="disclose__body">
+              <div class="two-col">
+                <div class="groupbox">
+                  <h4>Hard skills</h4>
+                  <ul class="bullets">
+                    <li>Web scraping de portais públicos, com HTML estático (BeautifulSoup) e painel dinâmico (Selenium).</li>
+                    <li>Tratamento e agregação de dados em pandas, com cache para não repetir download caro.</li>
+                    <li>Integração com LLM local via Ollama e transcrição de voz com faster-whisper — sem depender de API paga.</li>
+                    <li>Programação concorrente com threads para o laço de notificação e a busca de unidades.</li>
+                    <li>Lógica algorítmica pura: conversão de idade em faixas, cálculo de datas-alvo e distância geográfica por Haversine.</li>
+                  </ul>
+                </div>
+                <div class="groupbox">
+                  <h4>Soft skills</h4>
+                  <ul class="bullets">
+                    <li>Trabalho em equipe de oito pessoas, com rastreio de cada história no Jira.</li>
+                    <li>Divisão de escopo em três sprints e entrega de um incremento utilizável em cada uma.</li>
+                    <li>Escrita de documentação para quem não é da área — o manual do usuário parte das personas, não das funções.</li>
+                    <li>Revisão de código entre colegas antes do merge.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <div class="project__actions">
+            <a class="gel-btn" href="https://github.com/PI-Nexus/Projeto-Integrador-I" target="_blank" rel="noopener">Repositório da equipe no GitHub</a>
+            <a class="gel-btn gel-btn--ghost" href="https://github.com/PI-Nexus/Projeto-Integrador-I/blob/master/docs/Manual%20do%20Usu%C3%A1rio.md" target="_blank" rel="noopener">Manual do usuário</a>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════════ PROJETOS PROFISSIONAIS ═══════════════════════ -->
+  <input type="checkbox" id="min-profissionais" class="min-toggle"
+         aria-label="Minimizar a janela Projetos profissionais">
   <section class="window" id="profissionais" aria-labelledby="t-profissionais">
     <div class="titlebar">
       <img class="titlebar__icon" src="img/icons/work.svg" alt="" aria-hidden="true">
       <h2 class="titlebar__text" id="t-profissionais">Projetos profissionais</h2>
-      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+      <div class="win-controls"><label class="win-btn" for="min-profissionais">_</label><span aria-hidden="true">▢</span><span aria-hidden="true">✕</span></div>
     </div>
 
     <div class="window__body stack">
@@ -371,13 +511,113 @@
 
       <div class="projects">
 
+        <article class="project project--wide">
+          <input type="checkbox" id="zoom-negociacao" class="zoom-toggle"
+                 aria-label="Ampliar ou reduzir a tela de autoatendimento da Cobratec">
+          <figure class="shot">
+            <figcaption class="shot__bar" aria-hidden="true">
+              <i></i><i></i><i></i><span>cobratecsp.com.br/negocie — escolha de caminho</span>
+            </figcaption>
+            <label class="shot__zoom" for="zoom-negociacao">
+              <img src="img/projetos/negociacao-cobratec.jpg" loading="lazy" width="1280" height="632"
+                   alt="A tela de autoatendimento da Cobratec: um cartão pergunta “O que você quer fazer?” e oferece três caminhos — consultar minha dívida (somente consulta), simular um acordo (nada é registrado) e fechar acordo e gerar boleto (registra o acordo no sistema) — com a alternativa de falar com um atendente no WhatsApp.">
+            </label>
+          </figure>
+          <div class="project__head">
+            <div>
+              <p class="project__sub">Cobratec · autoatendimento de negociação</p>
+              <h3 class="project__title">Portal de negociação online — integração com a API REST do sistema de cobranças</h3>
+            </div>
+            <span class="badge badge--wip">Em homologação</span>
+          </div>
+          <p class="project__desc">
+            Autoatendimento em que o próprio devedor consulta a dívida, simula condições de pagamento
+            e fecha o acordo sozinho, direto no site. A negociação conversa com o
+            <strong>Sistema de Cobranças da empresa</strong> — o CRM interno — por uma
+            <strong>API REST</strong>: o acordo nasce gravado no sistema e o boleto sai com linha
+            digitável na hora, sem ninguém digitar nada do outro lado.
+          </p>
+          <p class="muted">
+            Tudo o que aparece aqui — CPF, valores, contratos e acordos — vem de uma
+            <strong>base de homologação com dados de teste</strong>. Nenhum dado de cliente real é
+            exibido; os números servem apenas para demonstrar o funcionamento do fluxo.
+          </p>
+          <ul class="tags">
+            <li class="tag">API REST</li><li class="tag">PHP</li><li class="tag">Next.js 14</li>
+            <li class="tag">TypeScript</li><li class="tag tag--aqua">HTTP / JSON</li>
+            <li class="tag tag--aqua">Emissão bancária de boleto</li>
+          </ul>
+
+          <details class="disclose">
+            <summary>O que o portal faz</summary>
+            <div class="disclose__body">
+              <div class="groupbox">
+                <h4>Três caminhos, escolhidos antes do CPF</h4>
+                <p class="muted">
+                  A primeira tela não empurra todo mundo para o mesmo fluxo: ela pergunta a intenção
+                  e só então pede o CPF. Cada caminho declara ali mesmo o que vai fazer.
+                </p>
+                <ul class="bullets">
+                  <li><strong>Consultar minha dívida</strong> — lista os contratos em aberto no CPF e o valor total. Só leitura.</li>
+                  <li><strong>Simular um acordo</strong> — monta e explora as condições de pagamento, à vista ou parceladas, sem compromisso. Num teste com uma dívida fictícia de R$ 10.000,00 o motor devolveu <strong>25 condições diferentes</strong> de parcelamento.</li>
+                  <li><strong>Fechar acordo e gerar boleto</strong> — o único caminho que formaliza a negociação e devolve a linha digitável na hora.</li>
+                </ul>
+              </div>
+              <div class="groupbox">
+                <h4>A conversa com o sistema de cobranças</h4>
+                <p class="muted">
+                  O navegador nunca fala com o CRM. Quem chama a API é um endpoint PHP no servidor
+                  do site, que guarda as credenciais e orquestra a sequência.
+                </p>
+                <ul class="bullets">
+                  <li><code>GET /titulos</code> — localiza os contratos em aberto do CPF.</li>
+                  <li><code>POST /acordos/planos</code> — calcula e lista as condições de pagamento possíveis.</li>
+                  <li><code>POST /acordos/efetivar</code> — formaliza a negociação escolhida.</li>
+                  <li><code>POST /boletos</code> — emite o título e devolve o código de barras.</li>
+                </ul>
+              </div>
+              <div class="groupbox">
+                <h4>Fechamento do acordo</h4>
+                <ul class="bullets">
+                  <li>No modo simulação o botão de efetivar <strong>não existe na tela</strong> — a interface muda de forma conforme o caminho escolhido, e o backend recusa qualquer efetivação cuja sessão não tenha começado com a intenção de gerar boleto.</li>
+                  <li>Antes de gravar, um modal repete os termos exatos do que será registrado: CPF, forma de pagamento, valor e vencimento da entrada.</li>
+                  <li>Confirmado, o sistema devolve o número do acordo, o número do documento, a data de vencimento, a <strong>linha digitável copiável</strong> e o boleto em PDF para download.</li>
+                  <li>O servidor <strong>refaz a consulta na fonte</strong> antes de efetivar: valores que chegam do navegador são descartados e recalculados contra o sistema de cobranças.</li>
+                </ul>
+              </div>
+              <div class="groupbox">
+                <h4>O que aparece do outro lado</h4>
+                <ul class="bullets">
+                  <li>A ocorrência entra no sistema de cobranças no mesmo segundo da efetivação, amarrada ao contrato de origem — número do boleto, número do acordo, documento, vencimento e valor —, do jeito que o backoffice já espera ler.</li>
+                  <li>Se a emissão do boleto falhar depois do acordo criado, o acordo <strong>não é desfeito</strong>: a tela avisa o usuário e o encaminha ao atendimento humano no WhatsApp, preservando a negociação já registrada.</li>
+                  <li>Limite de tentativas por minuto no IP, para a efetivação não virar alvo de força bruta.</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <ul class="bullets">
+            <li><strong>Teste ponta a ponta em 02/09/2026:</strong> não foi simulação de tela — um acordo de teste de R$ 10.000,00 à vista percorreu o fluxo inteiro, foi gravado no sistema de cobranças e devolveu um boleto, com o número do documento batendo entre o comprovante da tela, a ocorrência no CRM e o título emitido. O caso usado foi um <strong>cadastro de teste</strong>, montado só para essa validação.</li>
+            <li>O CPF aparece mascarado na interface (<code>150.***.***-03</code>) e os dados sensíveis saem anonimizados dos logs do servidor.</li>
+          </ul>
+
+          <div class="project__actions">
+            <a class="gel-btn" href="https://cobratecsp.com.br" target="_blank" rel="noopener">Ver o site no ar</a>
+            <span class="gel-btn gel-btn--off" aria-disabled="true">Código privado (sistema da empresa)</span>
+          </div>
+        </article>
+
         <article class="project">
+          <input type="checkbox" id="zoom-site-cobratec" class="zoom-toggle"
+                 aria-label="Ampliar ou reduzir a página inicial do site da Cobratec">
           <figure class="shot">
             <figcaption class="shot__bar" aria-hidden="true">
               <i></i><i></i><i></i><span>cobratecsp.com.br</span>
             </figcaption>
-            <img src="img/projetos/site-cobratec.jpg" loading="lazy" width="1200" height="600"
-                 alt="Página inicial do site institucional da Cobratec, com o menu, a chamada principal e a identidade azul da marca.">
+            <label class="shot__zoom" for="zoom-site-cobratec">
+              <img src="img/projetos/site-cobratec.jpg" loading="lazy" width="1200" height="600"
+                   alt="A página inicial do site institucional da Cobratec, com o menu, a chamada principal e a identidade azul da marca.">
+            </label>
           </figure>
           <div class="project__head">
             <div>
@@ -407,12 +647,16 @@
         </article>
 
         <article class="project">
+          <input type="checkbox" id="zoom-inventario" class="zoom-toggle"
+                 aria-label="Ampliar ou reduzir o dashboard do inventário de hardware">
           <figure class="shot">
             <figcaption class="shot__bar" aria-hidden="true">
               <i></i><i></i><i></i><span>inventario-cobratec — dashboard</span>
             </figcaption>
-            <img src="img/projetos/inventario.jpg" loading="lazy" width="1200" height="600"
-                 alt="Dashboard do sistema de inventário de hardware, com indicadores numéricos e listas de máquinas.">
+            <label class="shot__zoom" for="zoom-inventario">
+              <img src="img/projetos/inventario.jpg" loading="lazy" width="1200" height="600"
+                   alt="O dashboard do sistema de inventário de hardware, com indicadores numéricos e listas de máquinas.">
+            </label>
           </figure>
           <div class="project__head">
             <div>
@@ -441,36 +685,91 @@
           </div>
         </article>
 
-        <article class="project">
+        <article class="project project--wide">
+          <input type="checkbox" id="zoom-analytics" class="zoom-toggle"
+                 aria-label="Ampliar ou reduzir o painel de indicadores">
           <figure class="shot">
             <figcaption class="shot__bar" aria-hidden="true">
               <i></i><i></i><i></i><span>cobratec-analytics — painel de KPIs</span>
             </figcaption>
-            <img src="img/projetos/analytics.svg" loading="lazy" width="1200" height="600"
-                 alt="Ilustração do painel de indicadores: cartões de KPI e um gráfico de barras mensal, com dados fictícios.">
+            <label class="shot__zoom" for="zoom-analytics">
+              <img src="img/projetos/analytics.svg" loading="lazy" width="1200" height="600"
+                   alt="A ilustração do painel de indicadores: cartões de KPI e um gráfico de barras mensal, com dados fictícios.">
+            </label>
           </figure>
           <div class="project__head">
             <div>
               <p class="project__sub">Cobratec · análise de dados</p>
-              <h3 class="project__title">Analytics do CRM Siscobra</h3>
+              <h3 class="project__title">Analytics do CRM de cobrança</h3>
             </div>
             <span class="badge badge--private">Privado</span>
           </div>
           <p class="project__desc">
-            Camada de análise sobre o banco de produção do CRM da empresa, em acesso
-            <strong>somente leitura</strong>, gerando planilhas de desempenho da equipe em recortes
-            mensais, trimestrais e anuais.
+            Camada de análise sobre o banco do <strong>Sistema de Cobranças da empresa</strong>, em
+            acesso <strong>somente leitura</strong>, gerando planilhas de desempenho da equipe em
+            recortes diários, mensais, trimestrais e anuais.
+          </p>
+          <p class="muted">
+            Os números, nomes e gráficos que aparecem nas ilustrações desta seção são
+            <strong>dados de teste</strong> — nenhum é real. A base de produção não é exposta em
+            lugar nenhum do portfólio; o que está aqui serve só para mostrar o formato do
+            relatório e o caminho que o dado percorre.
           </p>
           <ul class="tags">
             <li class="tag">Python</li><li class="tag">PostgreSQL</li><li class="tag">SQLAlchemy</li>
             <li class="tag tag--aqua">Polars / pandas</li><li class="tag tag--aqua">Streamlit</li>
+            <li class="tag tag--aqua">n8n</li>
           </ul>
           <ul class="bullets">
             <li><strong>Engenharia reversa do schema</strong> legado a partir do catálogo do Postgres, virando documentação versionada.</li>
             <li>KPIs validados <strong>linha a linha contra os relatórios oficiais</strong> do sistema — o que revelou divergências de atribuição entre colunas parecidas.</li>
-            <li>Tabela de <strong>55 milhões de linhas</strong>: consultas sempre por janela de data, apoiadas em índice.</li>
+            <li><strong>Coleta hora a hora:</strong> uma rotina agendada puxa os acordos fechados a cada hora e vai acumulando o dia, em vez de tirar uma foto única no fim do expediente — dá para ver em que horário a equipe fecha mais.</li>
+            <li>Tabela de <strong>aproximadamente 50 milhões de linhas</strong>: consultas sempre por janela de data, apoiadas em índice.</li>
             <li>LGPD levada a sério: credenciais fora do repositório e CPF mascarado em logs e exemplos.</li>
           </ul>
+
+          <details class="disclose">
+            <summary>Envio automático do relatório por e-mail</summary>
+            <div class="disclose__body">
+              <p class="muted">
+                <strong>Por que existe.</strong> O relatório de acordos era montado à mão: alguém
+                precisava abrir o sistema, rodar a consulta, colar o resultado numa planilha,
+                formatar e mandar para a gestão — todo dia, sempre igual. É um trabalho que consome
+                tempo de quem deveria estar analisando o número, não copiando ele. O fluxo abaixo faz
+                esse caminho sozinho: o relatório chega pronto na caixa de entrada, no mesmo formato,
+                sem depender de alguém lembrar.
+              </p>
+
+              <input type="checkbox" id="zoom-workflow" class="zoom-toggle"
+                     aria-label="Ampliar ou reduzir o fluxo de envio automático do relatório">
+              <figure class="shot shot--wide">
+                <figcaption class="shot__bar" aria-hidden="true">
+                  <i></i><i></i><i></i><span>n8n — relatório diário de acordos</span>
+                </figcaption>
+                <label class="shot__zoom" for="zoom-workflow">
+                  <img src="img/projetos/workflow-relatorio.png" loading="lazy" width="1581" height="283"
+                       alt="O fluxo automatizado no n8n, da esquerda para a direita: dois gatilhos — execução manual e “ao ligar o computador” — entram em um nó de parâmetros; em seguida uma consulta ao banco do sistema de cobranças (o nome do sistema está borrado na imagem), a leitura do arquivo de acumulado, a extração do JSON, a montagem da matriz, uma decisão “já rodou hoje?”, a gravação do acumulado em disco, a geração da planilha e, por fim, o envio do e-mail.">
+                </label>
+              </figure>
+
+              <div class="groupbox">
+                <h4>O caminho, nó a nó</h4>
+                <ul class="bullets">
+                  <li><strong>Gatilho</strong> — o fluxo dispara ao ligar a máquina, e continua disponível para execução manual quando a gestão pede o número fora de hora.</li>
+                  <li><strong>Parâmetros</strong> — data de referência, janela e destinatários ficam num nó só; mudar o período não exige mexer na consulta.</li>
+                  <li><strong>Consulta ao banco</strong> — leitura direta no banco do sistema de cobranças, sempre <em>somente leitura</em> e sempre por janela de data.</li>
+                  <li><strong>Acumulado do dia</strong> — o resultado de cada hora é lido do arquivo anterior, somado ao novo e gravado de volta em disco. É isso que permite o recorte hora a hora sem manter um serviço de pé o dia inteiro.</li>
+                  <li><strong>“Já rodou hoje?”</strong> — uma verificação de data impede que o mesmo relatório seja montado e enviado duas vezes no mesmo dia.</li>
+                  <li><strong>Planilha e e-mail</strong> — a matriz vira um arquivo formatado e sai anexado por e-mail para a lista de destinatários, sem intervenção humana.</li>
+                </ul>
+              </div>
+              <p class="muted">
+                A captura acima é do fluxo real, com o nome do sistema interno borrado; os dados que
+                trafegam nela, para efeito de demonstração, são de teste.
+              </p>
+            </div>
+          </details>
+
           <div class="project__actions">
             <span class="gel-btn gel-btn--off" aria-disabled="true">Código privado (dados da empresa)</span>
           </div>
@@ -481,11 +780,13 @@
   </section>
 
   <!-- ═════════════════════════ PROJETOS PESSOAIS ══════════════════════════ -->
+  <input type="checkbox" id="min-pessoais" class="min-toggle"
+         aria-label="Minimizar a janela Projetos pessoais">
   <section class="window" id="pessoais" aria-labelledby="t-pessoais">
     <div class="titlebar">
       <img class="titlebar__icon" src="img/icons/personal.svg" alt="" aria-hidden="true">
       <h2 class="titlebar__text" id="t-pessoais">Projetos pessoais</h2>
-      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+      <div class="win-controls"><label class="win-btn" for="min-pessoais">_</label><span aria-hidden="true">▢</span><span aria-hidden="true">✕</span></div>
     </div>
 
     <div class="window__body stack">
@@ -497,12 +798,16 @@
       <div class="projects">
 
         <article class="project">
-          <figure class="shot">
+          <input type="checkbox" id="zoom-entardecer" class="zoom-toggle"
+                 aria-label="Ampliar ou reduzir a tela de abertura do ENTARDECER">
+          <figure class="shot shot--tall">
             <figcaption class="shot__bar" aria-hidden="true">
-              <i></i><i></i><i></i><span>entardecer — feed em tempo real</span>
+              <i></i><i></i><i></i><span>entardecer — tela de boas-vindas</span>
             </figcaption>
-            <img src="img/projetos/entardecer.jpg" loading="lazy" width="1200" height="600"
-                 alt="Tela do aplicativo ENTARDECER com o feed de fotos do evento e as ações de reação e comentário.">
+            <label class="shot__zoom" for="zoom-entardecer">
+              <img src="img/projetos/entardecer-capa.jpg" loading="lazy" width="720" height="922"
+                   alt="A tela de abertura do aplicativo ENTARDECER: um mosaico de fotos do casal, o selo “bem-vindo ao entardecer”, os nomes Felps &amp; Letícia e o convite para entrar e compartilhar as memórias do evento.">
+            </label>
           </figure>
           <div class="project__head">
             <div>
@@ -534,47 +839,16 @@
         </article>
 
         <article class="project">
-          <figure class="shot">
+          <input type="checkbox" id="zoom-web-studio" class="zoom-toggle"
+                 aria-label="Ampliar ou reduzir o diagrama do processo do Web Studio">
+          <figure class="shot shot--diagram">
             <figcaption class="shot__bar" aria-hidden="true">
-              <i></i><i></i><i></i><span>overnight — modalidades</span>
+              <i></i><i></i><i></i><span>web-studio — pipeline de produção</span>
             </figcaption>
-            <img src="img/projetos/overnight.jpg" loading="lazy" width="1200" height="600"
-                 alt="Tela de modalidades da plataforma Overnight, com os cards das competições disponíveis.">
-          </figure>
-          <div class="project__head">
-            <div>
-              <p class="project__sub">Gestão de competições · monorepo</p>
-              <h3 class="project__title">Overnight — Sports Competition Platform</h3>
-            </div>
-            <span class="badge badge--private">Privado</span>
-          </div>
-          <p class="project__desc">
-            Plataforma para gerenciar campeonatos internos, <strong>agnóstica à modalidade</strong>:
-            futebol, FIFA, futmesa, xadrez e truco rodam na mesma estrutura sem mexer no núcleo.
-            Monorepo pnpm com API e front separados.
-          </p>
-          <ul class="tags">
-            <li class="tag">Next.js 15</li><li class="tag">NestJS</li><li class="tag">TypeScript</li>
-            <li class="tag">Prisma</li><li class="tag">PostgreSQL</li><li class="tag tag--aqua">Docker</li>
-            <li class="tag tag--aqua">DDD</li>
-          </ul>
-          <ul class="bullets">
-            <li>Três <strong>engines de domínio puras e testadas</strong>, sem dependência de framework ou banco: inscrição, chaveamento (round robin, grupos, eliminação simples e dupla) e classificação com critérios de desempate configuráveis.</li>
-            <li>Arquitetura em DDD + Clean Architecture, com a regra de negócio isolada do controller e do ORM.</li>
-            <li>Autenticação com NextAuth + JWT e Postgres em Docker Compose.</li>
-          </ul>
-          <div class="project__actions">
-            <a class="gel-btn gel-btn--ghost" href="https://github.com/isaac-ferraz/overnight" target="_blank" rel="noopener">Demonstração</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <figure class="shot">
-            <figcaption class="shot__bar" aria-hidden="true">
-              <i></i><i></i><i></i><span>web-studio — template de cliente</span>
-            </figcaption>
-            <img src="img/projetos/web-studio.jpg" loading="lazy" width="1200" height="600"
-                 alt="Página de exemplo gerada pelo Web Studio para um negócio local, com seção de destaque e chamada para contato.">
+            <label class="shot__zoom" for="zoom-web-studio">
+              <img src="img/projetos/web-studio-processo.svg" loading="lazy" width="1200" height="600"
+                   alt="Diagrama do processo do Web Studio: uma entrada crua passa por escopo, template base com design system e régua de qualidade até virar um site publicado; abaixo, os três documentos que todo projeto herda — cânone de princípios, manual de operação e registro de decisões.">
+            </label>
           </figure>
           <div class="project__head">
             <div>
@@ -587,6 +861,8 @@
             Um sistema para transformar uma entrada crua — um site mal feito ou uma ficha do Google
             Maps — em um site pronto e publicável para um negócio local. Cada cliente tem uma dor
             diferente; o que não muda é <em>como o trabalho é feito</em>, e essa parte está escrita.
+            Por isso o que ilustra este projeto é o <strong>processo</strong>, não a tela de um
+            cliente: o entregável de terceiros não é meu para exibir.
           </p>
           <ul class="tags">
             <li class="tag">Next.js</li><li class="tag">TypeScript</li><li class="tag">Tailwind</li>
@@ -607,11 +883,13 @@
   </section>
 
   <!-- ═══════════════════════ INFORMAÇÕES CURRICULARES ═════════════════════ -->
+  <input type="checkbox" id="min-curriculo" class="min-toggle"
+         aria-label="Minimizar a janela Informações curriculares">
   <section class="window" id="curriculo" aria-labelledby="t-curriculo">
     <div class="titlebar">
       <img class="titlebar__icon" src="img/icons/curricular.svg" alt="" aria-hidden="true">
       <h2 class="titlebar__text" id="t-curriculo">Informações curriculares</h2>
-      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+      <div class="win-controls"><label class="win-btn" for="min-curriculo">_</label><span aria-hidden="true">▢</span><span aria-hidden="true">✕</span></div>
     </div>
 
     <div class="window__body stack">
@@ -650,7 +928,7 @@
               <ul class="bullets" style="margin-block-start:.6rem">
                 <li>Atuação como <strong>Product Owner</strong> em projetos internos: levantamento de requisitos junto ao cliente, definição de escopo e planejamento do trajeto até a entrega.</li>
                 <li>Participação no ciclo completo de desenvolvimento, da implementação aos testes.</li>
-                <li>Scripts de automação em Python para otimizar fluxos internos e reduzir esforço manual.</li>
+                <li>Automatização de processos com IA para otimizar fluxos internos e reduzir esforço manual.</li>
                 <li>Análise estrutural do banco PostgreSQL da empresa: mapeamento de schemas legados e testes de restauração de backup para avaliar integridade dos dados.</li>
                 <li>Suporte técnico a usuários e sistemas, com diagnóstico e resolução de incidentes.</li>
               </ul>
@@ -665,7 +943,8 @@
           <ul class="bullets">
             <li><strong>IT Essentials</strong> — Cisco Networking Academy <span class="badge badge--live">Concluído</span></li>
             <li><strong>Linux Essentials</strong> — Cisco Networking Academy <span class="badge badge--wip">Em andamento</span></li>
-            <li><strong>Formação em Python &amp; IA</strong> — Alura <span class="badge badge--wip">Em andamento</span></li>
+            <li><strong>Formação em Machine Learning</strong> — Alura <span class="badge badge--wip">Em andamento</span></li>
+            <li><strong>Java Orientado a Objetos</strong> — Alura <span class="badge badge--wip">Em andamento</span></li>
             <li><strong>AWS Academy Learner Lab</strong> — Amazon Web Services <span class="badge badge--wip">Em andamento</span></li>
           </ul>
         </div>
@@ -690,59 +969,49 @@
         </div>
 
         <div class="groupbox">
-          <h3>Habilidades pessoais</h3>
+          <h3>Soft skills</h3>
           <ul class="tags">
             <li class="tag tag--aqua">Trabalho em equipe</li>
             <li class="tag tag--aqua">Proatividade</li>
             <li class="tag tag--aqua">Atenção aos detalhes</li>
             <li class="tag tag--aqua">Raciocínio analítico</li>
+            <li class="tag tag--aqua">Resolução de problemas</li>
+            <li class="tag tag--aqua">Criatividade</li>
+            <li class="tag tag--aqua">Confiabilidade</li>
             <li class="tag tag--aqua">Organização</li>
             <li class="tag tag--aqua">Responsabilidade</li>
           </ul>
         </div>
       </div>
 
-      <div class="groupbox">
-        <h3>Como eu trabalho</h3>
-        <ul class="bullets">
-          <li><strong>Documentação junto do código.</strong> Todo projeto meu tem README de verdade e um documento de contexto com as decisões de arquitetura registradas — quem chega depois entende o porquê, não só o quê.</li>
-          <li><strong>Validação na borda e tipagem total.</strong> <code>strict: true</code>, validação em toda escrita de API e erros do banco traduzidos para mensagens que a pessoa usuária entende.</li>
-          <li><strong>Mobile-first e acessível.</strong> A tela nasce em 360&nbsp;px e escala; skip link, foco visível e checagem automatizada de acessibilidade.</li>
-          <li><strong>Domínio isolado do framework.</strong> Regra de negócio em função pura e testada, longe do controller e do ORM.</li>
-        </ul>
-      </div>
-
     </div>
   </section>
 
   <!-- ═════════════════════════════ CONTATO ════════════════════════════════ -->
+  <input type="checkbox" id="min-contato" class="min-toggle"
+         aria-label="Minimizar a janela Contato">
   <section class="window" id="contato" aria-labelledby="t-contato">
     <div class="titlebar">
       <img class="titlebar__icon" src="img/icons/contact.svg" alt="" aria-hidden="true">
       <h2 class="titlebar__text" id="t-contato">Contato</h2>
-      <div class="win-controls" aria-hidden="true"><span>_</span><span>▢</span><span>✕</span></div>
+      <div class="win-controls"><label class="win-btn" for="min-contato">_</label><span aria-hidden="true">▢</span><span aria-hidden="true">✕</span></div>
     </div>
 
     <div class="window__body stack">
-      <p class="lead">Aberto a oportunidades, colaborações e conversa técnica.</p>
+      <p class="lead">
+        Se interessou em conhecer mais sobre o meu trabalho?
+      </p>
+      <p>
+        Se algum destes projetos te fez pensar em algo que você precisa resolver — um site que
+        ainda não existe, um processo que consome tempo demais ou um sistema que ninguém entende
+        mais —, me chama. Respondo a todo mundo: proposta de trabalho, parceria em projeto,
+        dúvida de quem está começando ou só conversa técnica sobre como uma coisa dessas foi feita.
+      </p>
 
-      <div class="contact-grid">
-        <a class="contact-card" href="https://www.linkedin.com/in/isaacferraz1311/" target="_blank" rel="noopener">
-          <strong>LinkedIn</strong>
-          <span>linkedin.com/in/isaacferraz1311</span>
-        </a>
-        <a class="contact-card" href="https://github.com/isaac-ferraz" target="_blank" rel="noopener">
-          <strong>GitHub</strong>
-          <span>github.com/isaac-ferraz</span>
-        </a>
-        <a class="contact-card" href="mailto:isaac.ferraz1311@gmail.com">
-          <strong>E-mail</strong>
-          <span>isaac.ferraz1311@gmail.com</span>
-        </a>
-        <a class="contact-card" href="assets/curriculo-isaac-ferraz.pdf" download>
-          <strong>Currículo</strong>
-          <span>Baixar em PDF</span>
-        </a>
+      <div class="btn-row">
+        <a class="gel-btn" href="mailto:isaac.ferraz1311@gmail.com">✉ isaac.ferraz1311@gmail.com</a>
+        <a class="gel-btn gel-btn--ghost" href="https://www.linkedin.com/in/isaacferraz1311/" target="_blank" rel="noopener">LinkedIn — /isaacferraz1311</a>
+        <a class="gel-btn gel-btn--ghost" href="https://github.com/isaac-ferraz" target="_blank" rel="noopener">GitHub — /isaac-ferraz</a>
       </div>
     </div>
   </section>
@@ -788,7 +1057,7 @@
       <li><a href="#pessoais">Projetos pessoais</a></li>
       <li><a href="#curriculo">Informações curriculares</a></li>
       <li><a href="#contato">Contato</a></li>
-      <li><a href="assets/curriculo-isaac-ferraz.pdf" download>⬇ Baixar currículo</a></li>
+      <li><a href="mailto:isaac.ferraz1311@gmail.com">✉ Enviar e-mail</a></li>
     </ul>
   </div>
 </footer>

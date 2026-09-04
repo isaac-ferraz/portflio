@@ -24,7 +24,7 @@
   <rect width="1200" height="600" fill="url(#pbg)"/>
 
   <!-- cabeçalho -->
-  <text class="t k" x="48" y="52">COBRATEC ANALYTICS · SISCOBRA · SOMENTE LEITURA</text>
+  <text class="t k" x="48" y="52">COBRATEC ANALYTICS · SISTEMA DE COBRANÇAS · SOMENTE LEITURA</text>
   <text class="t h" x="48" y="82" style="font-size:20px">Desempenho da equipe — recorte mensal</text>
   <rect x="980" y="56" width="172" height="30" rx="15" fill="#1d3350" stroke="#2f5580"/>
   <text class="t u" x="1002" y="76">Período: 12 meses</text>
@@ -52,7 +52,7 @@
   <g>
     <rect x="894" y="128" width="258" height="104" rx="10" fill="url(#card)" stroke="#2b4869"/>
     <text class="t k" x="916" y="158">BASE CONSULTADA</text>
-    <text class="t n" x="916" y="196">55 mi linhas</text>
+    <text class="t n" x="916" y="196">~50 mi linhas</text>
     <text class="t u" x="916" y="216">janela de data apoiada em índice</text>
   </g>
 
@@ -96,5 +96,5 @@
   </g>
   <line x1="730" y1="490" x2="1128" y2="490" stroke="#2f5580" stroke-dasharray="4 4"/>
   <text class="t u" x="730" y="516">Nomes substituídos · CPF mascarado em logs e exemplos (LGPD)</text>
-  <text class="t u" x="730" y="536" style="fill:#e0a52b">Ilustração — valores fictícios</text>
+  <text class="t u" x="730" y="536" style="fill:#e0a52b">Ilustração — dados de teste, nenhum valor é real</text>
 </svg>

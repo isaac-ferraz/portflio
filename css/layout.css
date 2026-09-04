@@ -51,27 +51,65 @@
   margin-block-start: var(--sp-2);
 }
 
+/* As grades desta folha declaram a coluna em fração (`1fr`), nunca em pixel.
+   Quantas colunas cabem é decisão de media query, não de uma largura mínima
+   escondida dentro do `minmax()`. Duas consequências práticas:
+
+   1. O número de colunas passa a ser sempre divisor da quantidade de itens,
+      então nenhuma linha termina com buraco — que era o defeito do `auto-fit`
+      em `.projects` e em `.cards`.
+   2. O ponto de virada fica em `em`, então ele acompanha quem aumentou a fonte
+      padrão do navegador; a coluna quebra quando o texto pede, não quando o
+      dispositivo tem tantos pixels.
+
+   Os pontos abaixo são os mesmos onde a grade já quebrava antes da troca, para
+   o layout não mudar de lugar: 602, 698/1014, 886 e 562/1090 pixels. */
+
 /* Duas colunas para "objetivos" e "áreas de interesse" */
 .two-col {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--sp-4);
+}
+@media (min-width: 37.5em) {
+  .two-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* --- Competências: Grid -------------------------------------------------- */
 
+/* Seis caixas: 1, 2 e 3 colunas dividem certo em qualquer um dos três passos. */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  grid-template-columns: 1fr;
   gap: var(--sp-4);
+}
+@media (min-width: 43.75em) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 63.75em) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* --- Projetos: Grid ------------------------------------------------------ */
 
+/* Para de subir em duas colunas: na terceira os cartões estreitos ficavam de
+   dois em dois e deixavam uma coluna inteira vazia na linha — buraco ainda por
+   cima espremido entre dois cartões `--wide`. */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  grid-template-columns: 1fr;
   gap: var(--sp-5);
+}
+@media (min-width: 55.5em) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Um cartão de projeto é um Flexbox em coluna: a imagem no topo,
@@ -141,9 +179,12 @@
   grid-column: 1 / -1;
 }
 
+/* Hoje cada API traz um bloco só aqui dentro, então a grade nunca passou de
+   uma coluna em nenhuma largura — a fração declara isso, em vez de deixar a
+   conta do `auto-fit` dar o mesmo resultado por acidente. */
 .api-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  grid-template-columns: 1fr;
   gap: var(--sp-4);
 }
 
@@ -186,44 +227,33 @@
   color: var(--ink-soft);
 }
 
+/* Quatro caixas (cursos, premiações, idiomas, soft skills): 1, 2 e 4 colunas.
+   O passo de três, que o `auto-fit` fazia entre 834 e 1089px, era justamente o
+   que deixava a segunda linha com um cartão e dois buracos. */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  grid-template-columns: 1fr;
   gap: var(--sp-4);
 }
-
-/* --- Contato ------------------------------------------------------------- */
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
-  gap: var(--sp-4);
+@media (min-width: 35em) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 68em) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-.contact-card {
+/* --- Fileira de botões (contato) ----------------------------------------- */
+
+/* Os endereços vão no rótulo do próprio botão, então o e-mail continua
+   legível e copiável sem precisar de um cartão só para exibi-lo. */
+.btn-row {
   display: flex;
-  flex-direction: column;
-  gap: var(--sp-1);
-  padding: var(--sp-4);
-  border-radius: var(--r-card);
-  border: 1px solid var(--hairline);
-  background: linear-gradient(180deg, #ffffff, #eef7ff);
-  text-decoration: none;
-  color: var(--ink);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.contact-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px -12px rgba(6, 40, 80, 0.5);
-}
-.contact-card strong {
-  color: var(--sky-800);
-  font-family: var(--font-title);
-}
-.contact-card span {
-  font-size: var(--t-sm);
-  color: var(--ink-soft);
-  word-break: break-word;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
 }
 
 /* --- Rodapé -------------------------------------------------------------- */

@@ -7,7 +7,7 @@
 /* --- Área de trabalho ---------------------------------------------------- */
 
 body {
-  background: var(--sky-600) url("../img/wallpaper.svg") center / cover no-repeat fixed;
+  background: var(--sky-600) url("../img/windows_xp.jpg") center / cover no-repeat fixed;
   padding-block: var(--sp-5) calc(var(--taskbar-h) + var(--sp-6));
   padding-inline: var(--sp-4);
 }
@@ -20,7 +20,6 @@ body {
   gap: var(--sp-5);
 }
 
-/* Link de pulo — aparece só no teclado */
 .skip-link {
   position: absolute;
   inset-inline-start: var(--sp-4);
@@ -96,13 +95,14 @@ body {
   margin-inline-end: auto;
 }
 
-/* Botões _ ▢ ✕ — puramente decorativos, escondidos de leitores de tela */
+/* Botões _ ▢ ✕. O ▢ e o ✕ são decorativos; o _ minimiza de verdade. */
 .win-controls {
   display: flex;
   gap: 3px;
   flex: none;
 }
-.win-controls span {
+.win-controls span,
+.win-btn {
   width: 26px;
   height: 18px;
   display: grid;
@@ -117,6 +117,40 @@ body {
 }
 .win-controls span:last-child {
   background: linear-gradient(180deg, #f3928c, #c0392b);
+}
+
+/* --- Minimizar a janela (truque do checkbox — zero JavaScript) ----------- */
+
+.win-btn {
+  cursor: pointer;
+  user-select: none;
+}
+.win-btn:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.3));
+}
+
+.min-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Minimizada, sobra só a barra de título — a janela "enrola" como no Windows. */
+.min-toggle:checked + .window .window__body {
+  display: none;
+}
+/* Botão aceso enquanto está minimizada, para não parecer que a seção sumiu. */
+.min-toggle:checked + .window .win-btn {
+  background: linear-gradient(180deg, #ffe9a8, #f0c14b);
+  color: #4a3806;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+.min-toggle:focus-visible + .window .win-btn {
+  outline: 3px solid #ffd23f;
+  outline-offset: 2px;
 }
 
 /* --- Corpo da janela ----------------------------------------------------- */

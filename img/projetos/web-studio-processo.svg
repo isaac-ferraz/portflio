@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img"
+     aria-label="Diagrama do processo do Web Studio: uma entrada crua passa por diagnóstico e escopo, template base com design system e régua de qualidade até virar um site publicado; abaixo, os três documentos que todo projeto herda — cânone de princípios, manual de operação e registro de decisões.">
+  <defs>
+    <linearGradient id="wbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7fbff"/><stop offset="1" stop-color="#e6eff8"/>
+    </linearGradient>
+    <linearGradient id="wbox" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#eef5fc"/>
+    </linearGradient>
+    <linearGradient id="wend" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9fbe9"/><stop offset="1" stop-color="#c7f0c9"/>
+    </linearGradient>
+    <linearGradient id="wchip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8fd3f4"/><stop offset="1" stop-color="#1a7fc8"/>
+    </linearGradient>
+    <marker id="warrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4a6d8c"/>
+    </marker>
+    <style>
+      .t   { font-family: "Segoe UI", Tahoma, sans-serif; fill:#10243a; }
+      .h   { font-weight:700; font-size:16px; }
+      .s   { font-size:12.5px; fill:#4a6d8c; }
+      .k   { font-size:12px; fill:#4a6d8c; letter-spacing:.09em; font-weight:700; }
+      .num { font-size:14px; font-weight:700; fill:#ffffff; }
+      .ln  { stroke:#8ba7bf; stroke-width:2; fill:none; marker-end:url(#warrow); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="600" fill="url(#wbg)"/>
+  <text class="t k" x="48" y="46">WEB STUDIO · PIPELINE DE PRODUÇÃO DE SITES</text>
+  <line x1="48" y1="60" x2="1152" y2="60" stroke="#c8d8e6" stroke-width="1"/>
+  <text class="t h" x="48" y="96" style="font-size:20px">De uma entrada crua a um site publicável</text>
+  <text class="t s" x="48" y="120">Cada cliente tem uma dor diferente; o que não muda é como o trabalho é feito.</text>
+
+  <!-- 1 -->
+  <rect x="48" y="150" width="190" height="170" rx="10" fill="url(#wbox)" stroke="#a8c2d8" stroke-width="1.5"/>
+  <circle cx="76" cy="182" r="15" fill="url(#wchip)" stroke="#1a7fc8"/>
+  <text class="t num" x="76" y="187" text-anchor="middle">1</text>
+  <text class="t h" x="70" y="230">Entrada crua</text>
+  <text class="t s" x="70" y="256">Um site mal feito ou</text>
+  <text class="t s" x="70" y="274">só uma ficha do</text>
+  <text class="t s" x="70" y="292">Google Maps.</text>
+
+  <!-- 2 -->
+  <rect x="272" y="150" width="190" height="170" rx="10" fill="url(#wbox)" stroke="#a8c2d8" stroke-width="1.5"/>
+  <circle cx="300" cy="182" r="15" fill="url(#wchip)" stroke="#1a7fc8"/>
+  <text class="t num" x="300" y="187" text-anchor="middle">2</text>
+  <text class="t h" x="294" y="230">Escopo</text>
+  <text class="t s" x="294" y="256">O que o negócio</text>
+  <text class="t s" x="294" y="274">precisa, o que cabe</text>
+  <text class="t s" x="294" y="292">e o que fica de fora.</text>
+
+  <!-- 3 -->
+  <rect x="496" y="150" width="190" height="170" rx="10" fill="url(#wbox)" stroke="#a8c2d8" stroke-width="1.5"/>
+  <circle cx="524" cy="182" r="15" fill="url(#wchip)" stroke="#1a7fc8"/>
+  <text class="t num" x="524" y="187" text-anchor="middle">3</text>
+  <text class="t h" x="518" y="230">Template base</text>
+  <text class="t s" x="518" y="256">Design system em</text>
+  <text class="t s" x="518" y="274">tokens; o que é do</text>
+  <text class="t s" x="518" y="292">cliente fica isolado.</text>
+
+  <!-- 4 -->
+  <rect x="720" y="150" width="190" height="170" rx="10" fill="url(#wbox)" stroke="#a8c2d8" stroke-width="1.5"/>
+  <circle cx="748" cy="182" r="15" fill="url(#wchip)" stroke="#1a7fc8"/>
+  <text class="t num" x="748" y="187" text-anchor="middle">4</text>
+  <text class="t h" x="742" y="230">Régua de</text>
+  <text class="t h" x="742" y="250">qualidade</text>
+  <text class="t s" x="742" y="276">Performance, acesso</text>
+  <text class="t s" x="742" y="294">e SEO conferidos</text>
+  <text class="t s" x="742" y="312">antes de publicar.</text>
+
+  <!-- 5 -->
+  <rect x="944" y="150" width="190" height="170" rx="10" fill="url(#wend)" stroke="#6fbb35" stroke-width="1.5"/>
+  <circle cx="972" cy="182" r="15" fill="url(#wchip)" stroke="#1a7fc8"/>
+  <text class="t num" x="972" y="187" text-anchor="middle">5</text>
+  <text class="t h" x="966" y="230">Site publicado</text>
+  <text class="t s" x="966" y="256">Entrega com manual</text>
+  <text class="t s" x="966" y="274">para quem não é</text>
+  <text class="t s" x="966" y="292">da área.</text>
+
+  <!-- conexões -->
+  <path class="ln" d="M238 235 L266 235"/>
+  <path class="ln" d="M462 235 L490 235"/>
+  <path class="ln" d="M686 235 L714 235"/>
+  <path class="ln" d="M910 235 L938 235"/>
+
+  <!-- o que não muda -->
+  <text class="t k" x="48" y="366">O QUE TODO PROJETO HERDA — E ESTÁ ESCRITO</text>
+
+  <rect x="48" y="384" width="352" height="140" rx="10" fill="#ffffff" stroke="#a8c2d8" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text class="t h" x="72" y="420">Cânone de princípios</text>
+  <text class="t s" x="72" y="448">As regras que valem para</text>
+  <text class="t s" x="72" y="468">qualquer projeto, antes de</text>
+  <text class="t s" x="72" y="488">escrever a primeira linha.</text>
+
+  <rect x="424" y="384" width="352" height="140" rx="10" fill="#ffffff" stroke="#a8c2d8" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text class="t h" x="448" y="420">Manual de operação</text>
+  <text class="t s" x="448" y="448">O pipeline passo a passo e a</text>
+  <text class="t s" x="448" y="468">régua de qualidade — o mesmo</text>
+  <text class="t s" x="448" y="488">caminho em todo cliente.</text>
+
+  <rect x="800" y="384" width="352" height="140" rx="10" fill="#ffffff" stroke="#a8c2d8" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text class="t h" x="824" y="420">Registro de decisões</text>
+  <text class="t s" x="824" y="448">Cada escolha de arquitetura</text>
+  <text class="t s" x="824" y="468">com o custo que ela teve —</text>
+  <text class="t s" x="824" y="488">para não repetir o erro.</text>
+
+  <text class="t s" x="48" y="558" style="fill:#7a4a06">Ilustração do processo — nenhum site de cliente é exibido.</text>
+</svg>

@@ -15,7 +15,7 @@ mão, sem framework:
 
 | Restrição | Como foi resolvido |
 | --- | --- |
-| **Zero JavaScript** | Nenhuma tag `<script>` no projeto. A navegação usa âncoras e `:target`, o menu Iniciar usa o *checkbox hack* (`:checked ~`) e as seções expansíveis usam `<details>`/`<summary>` nativos. |
+| **Zero JavaScript** | Nenhuma tag `<script>` no projeto. A navegação usa âncoras e `:target`; o menu Iniciar, o botão de minimizar de cada janela e o zoom das capturas usam o *checkbox hack* (`:checked +`); as seções expansíveis usam `<details>`/`<summary>` nativos. |
 | **Só HTML e CSS** | Sem Bootstrap, sem build, sem dependências. O site é servido como está. |
 | **Grid e Flexbox** | As seções de projetos são `display: grid` com `repeat(auto-fit, minmax(...))`; os cartões por dentro são Flexbox em coluna. |
 | **Identidade visual** | Frutiger Aero + Windows XP (Luna) + Windows 7 (Aero Glass): janelas com barra de título de vidro, barra de tarefas, botões *gel* e papel de parede vetorial. |
@@ -32,17 +32,35 @@ mão, sem framework:
 │   ├── components.css  # botões gel, etiquetas, selos, escala de competências
 │   ├── layout.css      # grid/flex das seções + responsivo
 │   └── main.css        # único <link> do HTML; importa os demais
-├── img/
-│   ├── perfil-*.jpg    # foto de perfil (quadrada, 512 e 1024)
-│   ├── wallpaper.svg   # papel de parede Aero, vetorial
-│   ├── icons/          # ícones das barras de título
-│   └── projetos/       # capturas e diagramas dos projetos
-└── assets/
-    └── curriculo-isaac-ferraz.pdf
+└── img/
+    ├── perfil-*.jpg    # foto de perfil (quadrada, 512 e 1024)
+    ├── wallpaper.svg   # papel de parede Aero, vetorial
+    ├── icons/          # ícones das barras de título
+    └── projetos/       # capturas e diagramas dos projetos
 ```
+
+O contato é feito por botões (e-mail, LinkedIn, GitHub) — não há PDF de
+currículo para baixar; as informações curriculares ficam na própria página.
 
 O CSS é dividido por responsabilidade e reunido em `main.css` com `@import`, para
 o HTML carregar uma folha só.
+
+### Minimizar e ampliar, sem JavaScript
+
+Os dois usam o mesmo padrão do menu Iniciar: um `<input type="checkbox">`
+escondido logo antes do elemento, e um `<label>` que serve de botão.
+
+- **Minimizar** — o `_` da barra de título é um `<label>`; com
+  `.min-toggle:checked + .window .window__body { display: none }` sobra só a
+  barra, como uma janela enrolada. O botão fica âmbar enquanto está minimizada.
+- **Ampliar a captura** — o `<label>` envolve a imagem; ao marcar, a imagem
+  larga o corte `aspect-ratio: 2/1` e cresce até `min(78vh, 820px)`.
+
+A ampliação acontece **no lugar**, e não numa sobreposição em tela cheia: uma
+*lightbox* exigiria um bloco de markup duplicado por captura, e o
+`position: fixed` não sobreviveria dentro do cartão de qualquer forma —
+`.window` usa `backdrop-filter` e `.project:hover` usa `transform`, e os dois
+criam bloco de contenção para descendentes fixos.
 
 ---
 
@@ -51,8 +69,8 @@ o HTML carregar uma folha só.
 Não há build. Qualquer servidor estático serve:
 
 ```bash
-python3 -m http.server 8080
-# abra http://localhost:8080
+python3 -m http.server 5500
+# abra http://localhost:5500
 ```
 
 Abrir o `index.html` direto pelo `file://` também funciona.

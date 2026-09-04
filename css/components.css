@@ -302,6 +302,140 @@
   aspect-ratio: 2 / 1;
 }
 
+/* Capturas panorâmicas (um fluxo inteiro deitado numa tira de 5,6:1). No corte
+   2:1 sumiria metade dos nós; em `contain` dentro de 2:1 sobrariam duas faixas
+   vazias enormes. Então a moldura assume a proporção da própria imagem. */
+.shot--wide img {
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Capturas em pé (tela de celular, capa de app). Cortadas em 2:1 elas
+   perderiam justamente o que interessa e ainda apareceriam ampliadas — então
+   entram inteiras, centradas na moldura, como um retrato na parede.
+   A moldura também encolhe: numa janela 2:1 a captura ficaria boiando no meio
+   de duas faixas vazias enormes. `margin-inline:auto` centra porque o cartão
+   é um flex container. */
+.shot--tall {
+  width: min(100%, 360px);
+  margin-inline: auto;
+}
+.shot--tall img {
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  object-position: center;
+  background: linear-gradient(180deg, #eef7ff, #d7e9f8);
+}
+
+/* --- Lupa: a captura cresce no próprio lugar ---------------------------- */
+
+/* Mesmo truque do menu Iniciar: um checkbox escondido guarda o estado, e o
+   <label> em volta da imagem alterna. Nada de sobreposição em tela cheia —
+   ela exigiria um bloco de markup duplicado para cada captura, e o
+   position:fixed morreria dentro da janela de qualquer jeito (.window usa
+   backdrop-filter e .project:hover usa transform: os dois criam bloco de
+   contenção). Assim a imagem simplesmente sai do corte 2:1 e ocupa o espaço
+   que ela merece, sem uma linha de JavaScript e sem markup sobrando. */
+
+.zoom-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* O <label> é só o gatilho; quem desenha a moldura continua sendo .shot. */
+.shot__zoom {
+  display: block;
+  position: relative;
+  cursor: zoom-in;
+}
+/* Selo "ampliar" no canto — aparece no hover e sempre que houver foco. */
+.shot__zoom::after {
+  content: "🔍 Ampliar";
+  position: absolute;
+  inset-block-end: var(--sp-2);
+  inset-inline-end: var(--sp-2);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--r-pill);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  color: #fff;
+  background: rgba(8, 44, 90, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  text-shadow: 0 1px 2px rgba(0, 20, 50, 0.8);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  pointer-events: none;
+}
+.shot__zoom:hover::after,
+.zoom-toggle:focus-visible + .shot .shot__zoom::after {
+  opacity: 1;
+  transform: none;
+}
+.zoom-toggle:focus-visible + .shot {
+  outline: 3px solid #ffd23f;
+  outline-offset: 2px;
+}
+
+/* Ampliada: a imagem larga o corte 2:1 e cresce até o limite da tela. */
+.zoom-toggle:checked + .shot {
+  width: 100%;
+  max-width: 100%;
+}
+.zoom-toggle:checked + .shot .shot__zoom {
+  cursor: zoom-out;
+}
+.zoom-toggle:checked + .shot .shot__zoom::after {
+  content: "🔍 Reduzir";
+}
+.zoom-toggle:checked + .shot img {
+  aspect-ratio: auto;
+  /* width:auto é o que preserva a proporção quando a altura é o limite */
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: min(78vh, 820px);
+  display: block;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+/* Na tira panorâmica não adianta crescer em altura: o que interessa é ler o
+   rótulo de cada nó. Ampliar aqui devolve a imagem ao tamanho nativo e deixa a
+   própria moldura rolar na horizontal. */
+.zoom-toggle:checked + .shot--wide {
+  overflow-x: auto;
+}
+.zoom-toggle:checked + .shot--wide img {
+  width: 1581px;
+  max-width: none;
+  max-height: none;
+}
+
+@media (max-width: 640px) {
+  /* sem hover em toque: o selo fica sempre visível */
+  .shot__zoom::after {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shot__zoom::after {
+    transition: none;
+  }
+}
+
+@media print {
+  .shot__zoom::after {
+    display: none;
+  }
+}
+
 /* --- Foto de perfil (moldura biselada + brilho Aero) -------------------- */
 
 .avatar {

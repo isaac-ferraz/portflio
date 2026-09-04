@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img"
+     aria-label="Fluxo do assistente de vacinação no Telegram: a entrada chega por botões do menu, texto livre ou mensagem de voz; o áudio é transcrito pelo faster-whisper e o texto é classificado pelo Ollama em intenção e parâmetros; um roteador valida a intenção contra uma lista fechada e despacha para calendário vacinal, agendamento com lembretes, cobertura vacinal, unidades próximas ou FAQ.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7fbff"/><stop offset="1" stop-color="#e6eff8"/>
+    </linearGradient>
+    <linearGradient id="box" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#eef5fc"/>
+    </linearGradient>
+    <linearGradient id="ia" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3fbfa"/><stop offset="1" stop-color="#d3f3ee"/>
+    </linearGradient>
+    <linearGradient id="rot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e4f0fb"/><stop offset="1" stop-color="#c9e2f6"/>
+    </linearGradient>
+    <linearGradient id="out" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9f6ea"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4a6d8c"/>
+    </marker>
+    <style>
+      .t   { font-family: "Segoe UI", Tahoma, sans-serif; fill:#10243a; }
+      .h   { font-weight:700; font-size:17px; }
+      .s   { font-size:13px; fill:#4a6d8c; }
+      .k   { font-size:12px; fill:#4a6d8c; letter-spacing:.09em; font-weight:700; }
+      .ln  { stroke:#8ba7bf; stroke-width:2; fill:none; marker-end:url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <text class="t k" x="48" y="46">API 2026/1 · ASSISTENTE DE VACINAÇÃO · FLUXO DO BOT NO TELEGRAM</text>
+  <line x1="48" y1="60" x2="1152" y2="60" stroke="#c8d8e6" stroke-width="1"/>
+
+  <text class="t k" x="48" y="96">ENTRADA</text>
+  <text class="t k" x="300" y="96">INTERPRETAÇÃO</text>
+  <text class="t k" x="580" y="96">ROTEAMENTO</text>
+  <text class="t k" x="800" y="96">O QUE O BOT ENTREGA</text>
+
+  <!-- entrada -->
+  <rect x="48" y="120" width="200" height="76" rx="10" fill="url(#box)" stroke="#a8c2d8" stroke-width="1.5"/>
+  <text class="t h" x="68" y="152">Botões do menu</text>
+  <text class="t s" x="68" y="176">teclado fixo</text>
+
+  <rect x="48" y="246" width="200" height="76" rx="10" fill="url(#box)" stroke="#a8c2d8" stroke-width="1.5"/>
+  <text class="t h" x="68" y="278">Texto livre</text>
+  <text class="t s" x="68" y="302">nas próprias palavras</text>
+
+  <rect x="48" y="372" width="200" height="76" rx="10" fill="url(#box)" stroke="#a8c2d8" stroke-width="1.5"/>
+  <text class="t h" x="68" y="404">Mensagem de voz</text>
+  <text class="t s" x="68" y="428">áudio gravado no app</text>
+
+  <!-- interpretação -->
+  <rect x="300" y="240" width="230" height="100" rx="10" fill="url(#ia)" stroke="#3fb3a5" stroke-width="1.5"/>
+  <text class="t h" x="320" y="272">Ollama · llama3.2</text>
+  <text class="t s" x="320" y="296">intenção + parâmetros</text>
+  <text class="t s" x="320" y="315">devolvidos em JSON</text>
+
+  <rect x="300" y="372" width="230" height="76" rx="10" fill="url(#ia)" stroke="#3fb3a5" stroke-width="1.5"/>
+  <text class="t h" x="320" y="404">faster-whisper</text>
+  <text class="t s" x="320" y="428">transcrição local em pt-BR</text>
+
+  <!-- roteador -->
+  <rect x="580" y="180" width="170" height="232" rx="10" fill="url(#rot)" stroke="#6f9dc4" stroke-width="1.8"/>
+  <text class="t h" x="600" y="226">Roteador de</text>
+  <text class="t h" x="600" y="248">intenções</text>
+  <text class="t s" x="600" y="280">valida contra uma</text>
+  <text class="t s" x="600" y="299">lista fechada de</text>
+  <text class="t s" x="600" y="318">intenções válidas</text>
+  <text class="t s" x="600" y="350">fora da lista ou</text>
+  <text class="t s" x="600" y="369">modelo offline:</text>
+  <text class="t s" x="600" y="388">volta para o menu</text>
+
+  <!-- entregas -->
+  <rect x="800" y="108" width="352" height="84" rx="10" fill="url(#out)" stroke="#6fbb35" stroke-width="1.5"/>
+  <text class="t h" x="822" y="140">Calendário vacinal</text>
+  <text class="t s" x="822" y="164">por grupo ou por data de nascimento</text>
+  <text class="t s" x="822" y="182">raspagem do calendário nacional (gov.br)</text>
+
+  <rect x="800" y="204" width="352" height="84" rx="10" fill="url(#out)" stroke="#6fbb35" stroke-width="1.5"/>
+  <text class="t h" x="822" y="236">Agendamento e lembretes</text>
+  <text class="t s" x="822" y="260">10 dias · 1 dia · no dia da vacina</text>
+  <text class="t s" x="822" y="278">Telegram, e-mail e Google Agenda</text>
+
+  <rect x="800" y="300" width="352" height="84" rx="10" fill="url(#out)" stroke="#6fbb35" stroke-width="1.5"/>
+  <text class="t h" x="822" y="332">Cobertura vacinal</text>
+  <text class="t s" x="822" y="356">estado · município · ranking dos estados</text>
+  <text class="t s" x="822" y="374">painel do Ministério da Saúde, cache de 6 h</text>
+
+  <rect x="800" y="396" width="352" height="84" rx="10" fill="url(#out)" stroke="#6fbb35" stroke-width="1.5"/>
+  <text class="t h" x="822" y="428">Unidades próximas</text>
+  <text class="t s" x="822" y="452">GPS do Telegram → base CNES de UBS</text>
+  <text class="t s" x="822" y="470">distância calculada por Haversine</text>
+
+  <rect x="800" y="492" width="352" height="64" rx="10" fill="url(#out)" stroke="#6fbb35" stroke-width="1.5"/>
+  <text class="t h" x="822" y="524">FAQ</text>
+  <text class="t s" x="822" y="546">documentos necessários e reações comuns</text>
+
+  <!-- restrição do enunciado -->
+  <rect x="48" y="472" width="482" height="86" rx="10" fill="#ffffff" stroke="#a8c2d8" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text class="t h" x="70" y="504">Restrição do enunciado</text>
+  <text class="t s" x="70" y="528">Sem API externa e sem banco de dados: tudo vem de raspagem</text>
+  <text class="t s" x="70" y="546">própria — BeautifulSoup e Selenium — e o estado fica em JSON.</text>
+
+  <!-- conexões -->
+  <path class="ln" d="M248 284 L292 284"/>
+  <path class="ln" d="M248 410 L292 410"/>
+  <path class="ln" d="M415 370 L415 348"/>
+  <path class="ln" d="M248 158 C 400 150, 470 160, 572 208"/>
+  <path class="ln" d="M530 290 L572 290"/>
+
+  <path class="ln" d="M750 220 C 772 198, 776 166, 792 152"/>
+  <path class="ln" d="M750 262 C 772 258, 776 250, 792 246"/>
+  <path class="ln" d="M750 300 C 772 312, 776 332, 792 342"/>
+  <path class="ln" d="M750 340 C 772 372, 776 416, 792 438"/>
+  <path class="ln" d="M750 380 C 772 442, 776 502, 792 524"/>
+</svg>
