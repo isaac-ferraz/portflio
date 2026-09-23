@@ -806,6 +806,81 @@
 
       <div class="projects">
 
+        <article class="project project--wide">
+          <div class="project__top">
+            <input type="checkbox" id="zoom-ericmac" class="zoom-toggle"
+                   aria-label="Ampliar ou reduzir a tela do portfólio do Eric Mac">
+            <figure class="shot">
+              <figcaption class="shot__bar" aria-hidden="true">
+                <i></i><i></i><i></i><span>isaac-ferraz.github.io/ericmac — case Raízes aberto</span>
+              </figcaption>
+              <label class="shot__zoom" for="zoom-ericmac">
+                <img src="img/projetos/ericmac.jpg" loading="lazy" width="1200" height="600"
+                     alt="O portfólio do Eric Mac aberto no navegador como a mesa de um Mac: barra de menus no topo, a janela do case Raízes no centro com o logotipo sobre fundo verde-petróleo, as pastas Kozok, Tecinsoles e Raízes à direita, cada uma na cor da própria marca, e o Dock embaixo. O papel de parede de contornos concêntricos também está tingido do verde da Raízes.">
+              </label>
+            </figure>
+
+            <div class="project__intro">
+              <div class="project__head">
+                <div>
+                  <p class="project__sub">Portfólio de designer · macOS no navegador</p>
+                  <h3 class="project__title">Eric Mac — um portfólio que é um Mac</h3>
+                </div>
+                <span class="badge badge--live">No ar</span>
+              </div>
+              <p class="project__desc">
+                Portfólio feito para um amigo, o designer de produtos <strong>Eric Mac</strong>. No
+                computador, o site é um macOS: barra de menus, Dock, janelas que se arrastam, Spotlight.
+                No celular, o mesmo conteúdo vira um iPhone. Os projetos vieram do Behance dele, e o
+                papel de parede — os contornos do banner dele — assume a cor da marca do projeto que
+                estiver em foco.
+              </p>
+              <p class="muted">
+                Irmão deste portfólio: aqui a metáfora é o Windows XP; lá, o Mac de quem o site
+                apresenta. O símbolo no lugar da maçã é a forma do banner do Eric, desenhada em código.
+              </p>
+              <ul class="tags">
+                <li class="tag">React 19</li><li class="tag">TypeScript</li><li class="tag">Vite</li>
+                <li class="tag">Motion</li><li class="tag">Zustand</li>
+                <li class="tag tag--aqua">Playwright</li><li class="tag tag--aqua">axe-core</li>
+              </ul>
+            </div>
+          </div>
+
+          <details class="disclose">
+            <summary>O que tem dentro</summary>
+            <div class="disclose__body">
+              <div class="groupbox">
+                <h4>Os apps</h4>
+                <ul class="bullets">
+                  <li><strong>Projetos</strong> (o Finder) — grade e lista, filtros por campo e ferramenta, pré-visualização com Espaço.</li>
+                  <li><strong>Case</strong> — ficha técnica, texto, comparador de antes e depois arrastável, paleta com hex copiável e galeria.</li>
+                  <li><strong>Contato</strong> (o Mail), <strong>Mensagens</strong> com os comentários do Behance, <strong>Notas</strong> e uma <strong>Lixeira</strong> com as identidades aposentadas — que não dá para esvaziar.</li>
+                </ul>
+              </div>
+              <div class="groupbox">
+                <h4>O sistema por trás</h4>
+                <ul class="bullets">
+                  <li>Menus navegáveis pelo teclado, busca que ignora acento (<code>raizes</code> acha Raízes), tema claro e escuro, português e inglês.</li>
+                  <li>Cada janela tem endereço próprio (<code>#/kozok</code>, <code>#/contato</code>): dá para mandar o link de um case.</li>
+                  <li>Uma lista de projetos só alimenta Finder, busca, menus, mesa e celular.</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <ul class="bullets">
+            <li><strong>Qualidade medida, não afirmada:</strong> axe-core (WCAG 2.1 A/AA) com 0 violações em 1440px e 375px, nos temas claro e escuro, em todas as janelas; nenhuma rolagem horizontal em qualquer largura de 320 a 1600px.</li>
+            <li><strong>Desempenho com antes e depois:</strong> medido com 4G lento e processador 4× mais lento, a primeira coisa na tela caiu de ~2,5 s para <strong>~0,6 s</strong> (tela de abertura em HTML puro, antes do JavaScript) e a página parada subiu de 29 para <strong>60 quadros por segundo</strong> (o fundo animado obrigava todo vidro a refazer o desfoque a cada quadro).</li>
+            <li>Esse jeito de medir virou o portão de qualidade do <a href="#web-studio">Web Studio</a>, logo abaixo.</li>
+          </ul>
+
+          <div class="project__actions">
+            <a class="gel-btn" href="https://isaac-ferraz.github.io/ericmac/" target="_blank" rel="noopener">Ver o site no ar</a>
+            <span class="gel-btn gel-btn--off" aria-disabled="true">Repositório privado</span>
+          </div>
+        </article>
+
         <article class="project">
           <input type="checkbox" id="zoom-entardecer" class="zoom-toggle"
                  aria-label="Ampliar ou reduzir a tela de abertura do ENTARDECER">
@@ -847,7 +922,7 @@
           </div>
         </article>
 
-        <article class="project">
+        <article class="project" id="web-studio">
           <input type="checkbox" id="zoom-web-studio" class="zoom-toggle"
                  aria-label="Ampliar ou reduzir o diagrama do processo do Web Studio">
           <figure class="shot shot--diagram">

@@ -165,3 +165,6 @@ imagens:
   um filtro CSS por cima, que qualquer pessoa desligaria pelo inspetor.
 - **Nenhuma entrega de cliente é exibida.** O Web Studio é ilustrado por um
   diagrama do processo (`web-studio-processo.svg`), não pelo site de um cliente.
+- **O portfólio do Eric Mac** aparece pela tela do próprio site, que já é
+  público e foi feito para ser mostrado; os trabalhos que se veem na captura são
+  dele e estão publicados no Behance dele.
