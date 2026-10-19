@@ -1,0 +1,11 @@
+---
+interface Props { num: string; id: string; title: string; accent?: string; intro?: string; level?: 2 | 3 }
+const { num, id, title, accent, intro, level = 2 } = Astro.props;
+const Tag = `h${level}` as 'h2' | 'h3';
+---
+
+<header class="section-heading">
+  <span class="section-num" aria-hidden="true">_{num}_</span>
+  <Tag class="section-title" id={id}>{title}{accent && <> <em>{accent}</em></>}</Tag>
+  {intro && <p class="section-intro">{intro}</p>}
+</header>

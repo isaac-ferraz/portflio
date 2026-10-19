@@ -1,0 +1,30 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  sizes: string;
+  widths?: number[];
+  eager?: boolean;
+  /** Nome da View Transition (o cartão "vira" a página de detalhe). */
+  vt?: string;
+  class?: string;
+}
+const { src, alt, sizes, widths = [400, 640, 900, 1200], eager = false, vt, class: cls } = Astro.props;
+const isSvg = src.format === 'svg';
+const style = vt ? `view-transition-name: ${vt}` : undefined;
+const usable = widths.filter((w) => w <= src.width);
+---
+
+{isSvg ? (
+  <img class:list={['cover', 'is-svg', cls]} src={src.src} width={src.width} height={src.height} alt={alt}
+    loading={eager ? 'eager' : 'lazy'} decoding="async" style={style} />
+) : (
+  <Picture class:list={['cover', cls]} src={src} alt={alt} formats={['avif', 'webp']}
+    widths={usable.length ? usable : [src.width]} sizes={sizes}
+    loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async"
+    {...(src.format === 'png' ? { fallbackFormat: 'webp' as const } : {})}
+    pictureAttributes={{ style }} />
+)}

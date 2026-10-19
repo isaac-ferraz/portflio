@@ -1,0 +1,64 @@
+category: profissional
+order: 1
+year: '2026'
+org: Cobratec
+title: Cobratec 360
+accent: '#38bdf8'
+kicker: { pt: Plataforma interna, en: Internal platform }
+tagline:
+  pt: Começou como inventário de hardware do TI e virou a plataforma interna da empresa.
+  en: It started as the IT hardware inventory and grew into the company's internal platform.
+summary:
+  pt: Um monólito modular em Next.js que reúne inventário de hardware, chamados de TI, analytics de cobrança, disparo de e-mail com conformidade e um CRM de cobrança com ficha 360 do devedor. Roda em produção na rede do escritório.
+  en: A modular Next.js monolith that brings together hardware inventory, IT tickets, collections analytics, compliant e-mail campaigns and a collections CRM with a 360° debtor view. It runs in production on the office network.
+role:
+  pt: Desenvolvedor do sistema de ponta a ponta — requisitos com o TI e a cobrança, arquitetura, código, testes e deploy.
+  en: End-to-end developer — requirements with IT and collections, architecture, code, tests and deployment.
+stack: [Next.js 15, React 19, TypeScript, Prisma, PostgreSQL, Docker, Vitest, GitHub Actions]
+highlights:
+  - pt: Fila de tarefas no próprio Postgres com FOR UPDATE SKIP LOCKED, eleição de líder por advisory lock e LISTEN/NOTIFY para tempo real.
+    en: Job queue inside Postgres with FOR UPDATE SKIP LOCKED, leader election through advisory locks and LISTEN/NOTIFY for real-time updates.
+  - pt: Trilha de auditoria append-only, permissões por capacidade e sessão revogável em cookie httpOnly.
+    en: Append-only audit trail, capability-based permissions and revocable httpOnly cookie sessions.
+  - pt: LGPD desde o desenho — CPF mascarado, retenção e purga de conversas e descadastro que vale em todos os canais.
+    en: Privacy by design (LGPD) — masked IDs, conversation retention and purge, and an opt-out that applies across every channel.
+  - pt: Indicadores conferidos linha a linha contra os relatórios oficiais do sistema de cobrança.
+    en: KPIs checked line by line against the official reports of the collections system.
+metrics:
+  - { value: '1.600+', label: { pt: testes automatizados, en: automated tests } }
+  - { value: '100+', label: { pt: rotas de API, en: API routes } }
+  - { value: '80+', label: { pt: decisões documentadas, en: documented decisions } }
+  - { value: 'R$ 0', label: { pt: em licenças, en: in licences } }
+status: producao
+links: {}
+confidential: true
+cover: ../../assets/projects/cobratec-360/capa.jpg
+coverAlt:
+  pt: Tela de abertura do Cobratec 360, com o logotipo sobre fundo escuro.
+  en: Cobratec 360 opening screen, with the logo on a dark background.
+gallery:
+  - src: ../../assets/projects/cobratec-360/ficha.jpg
+    alt: { pt: Ficha 360 de uma devedora fictícia marcada como EXEMPLO., en: 360° profile of a fictional debtor marked as SAMPLE. }
+    caption: { pt: Ficha 360 — tudo sobre o devedor numa tela só (persona fictícia)., en: 360° profile — everything about the debtor on one screen (fictional persona). }
+  - src: ../../assets/projects/cobratec-360/negociacao.jpg
+    alt: { pt: Fluxo de negociação de um acordo no CRM., en: Agreement negotiation flow in the CRM. }
+    caption: { pt: Do contato ao acordo, com cada passo registrado., en: From first contact to agreement, every step recorded. }
+  - src: ../../assets/projects/cobratec-360/omnicanal.jpg
+    alt: { pt: Canais de contato reunidos numa linha do tempo., en: Contact channels gathered on a single timeline. }
+    caption: { pt: E-mail, WhatsApp e telefone numa linha só., en: E-mail, WhatsApp and phone on one line. }
+  - src: ../../assets/projects/cobratec-360/linha-do-tempo.jpg
+    alt: { pt: Linha do tempo das interações com o devedor., en: Timeline of interactions with the debtor. }
+  - src: ../../assets/projects/cobratec-360/inventario.jpg
+    alt: { pt: Tela do inventário de hardware com dados de exemplo., en: Hardware inventory screen with sample data. }
+    caption: { pt: Onde tudo começou — o inventário de hardware do TI., en: Where it all started — the IT hardware inventory. }
+sections:
+  - title: { pt: O problema, en: The problem }
+    body:
+      pt: O TI controlava computadores, celulares e chamados em planilhas soltas, e a cobrança dependia de relatórios montados à mão. Cada área tinha a sua versão da verdade.
+      en: IT tracked computers, phones and tickets in loose spreadsheets, and collections relied on hand-built reports. Every team had its own version of the truth.
+  - title: { pt: Como resolvi, en: How I solved it }
+    items:
+      - { pt: Comecei pequeno — o inventário — e fui ganhando a confiança das áreas a cada entrega., en: I started small — the inventory — and earned each team's trust delivery by delivery. }
+      - { pt: Migrei de SQLite para PostgreSQL quando a fila e o tempo real passaram a exigir., en: I migrated from SQLite to PostgreSQL once the queue and real-time features demanded it. }
+      - { pt: Cada decisão relevante virou um registro escrito, com contexto e alternativas., en: Every relevant decision became a written record, with context and alternatives. }
+      - { pt: Deploy em Docker com migrações automáticas na subida e CI rodando lint, testes contra Postgres e build., en: Docker deployment with automatic migrations on boot and CI running lint, Postgres-backed tests and build. }

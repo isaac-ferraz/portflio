@@ -1,0 +1,80 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { marqueeRows, skills } from '~/data/profile';
+import { pick, useTranslations, type Lang } from '~/i18n/utils';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="section tools" id="tools" aria-labelledby="tools-title" data-section="tools">
+  <div class="wrap">
+    <SectionHeading num="03" id="tools-title" title={t('tools.title')} accent={t('tools.accent')} intro={t('tools.intro')} />
+  </div>
+
+  <!-- Decorativo: o mesmo conteúdo está na grade abaixo. -->
+  <div class="marquees" aria-hidden="true" data-marquees>
+    {marqueeRows.map((row, r) => (
+      <div class="marquee" data-dir={r % 2 === 0 ? 'left' : 'right'}>
+        <div class="marquee-inner" data-marquee>
+          {[0, 1].map(() => (
+            <ul class="marquee-set">
+              {row.map((item) => <li>{item}<span class="star">✦</span></li>)}
+            </ul>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="wrap">
+    <div class="skill-grid">
+      {skills.map((g) => (
+        <section class="skill-card" data-reveal aria-label={pick(g.title, lang)}>
+          <h3>{pick(g.title, lang)}</h3>
+          <ul class="chip-list" role="list">
+            {g.items.map((i) => <li class="chip">{i}</li>)}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquees {
+    display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.6rem; overflow-x: clip;
+    padding-block: 1rem; margin-bottom: clamp(2rem, 1rem + 4vw, 4rem);
+  }
+  .marquee {
+    overflow: clip; border-block: var(--border); background: var(--accent); color: var(--on-accent);
+    rotate: -1.5deg; margin-inline: -2rem;
+  }
+  .marquee[data-dir='right'] { rotate: 1.2deg; background: var(--surface); color: var(--ink); }
+  .marquee-inner { display: flex; width: max-content; }
+  .marquee-set { display: flex; list-style: none; padding: 0; margin: 0; }
+  .marquee-set li {
+    font-family: var(--font-comic); font-size: clamp(1.6rem, 1.1rem + 2.4vw, 3.2rem);
+    letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap;
+    padding: 0.35rem 0 0.2rem;
+  }
+  .star { display: inline-block; margin-inline: 1.2rem; font-size: 0.6em; vertical-align: middle; }
+  @media (prefers-reduced-motion: no-preference) {
+    /* Pausado fora da tela (site.ts liga `data-play` com um IntersectionObserver). */
+    .marquee-inner { animation: marquee 38s linear infinite paused; }
+    .marquees[data-play] .marquee-inner { animation-play-state: running; }
+    .marquee[data-dir='right'] .marquee-inner { animation-direction: reverse; animation-duration: 46s; }
+  }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+
+  .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1rem; }
+  .skill-card {
+    border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1.3rem;
+    background: var(--surface);
+  }
+  .skill-card h3 { font-size: var(--step-1); margin-bottom: 0.9rem; }
+  @media (max-width: 40rem) {
+    .marquee[data-dir='right'] { display: none; }
+  }
+</style>

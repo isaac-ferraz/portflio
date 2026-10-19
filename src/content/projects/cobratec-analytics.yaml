@@ -1,0 +1,36 @@
+category: profissional
+order: 5
+year: '2026'
+org: Cobratec
+title: Cobratec Analytics
+accent: '#a78bfa'
+kicker: { pt: Dados & automação, en: Data & automation }
+tagline:
+  pt: Indicadores de cobrança que batem, linha a linha, com os relatórios oficiais.
+  en: Collections KPIs that match the official reports, line by line.
+summary:
+  pt: Exploração e análise do banco do sistema de cobrança, somente leitura. Mapeei o esquema, escrevi as regras de cada indicador, validei contra os relatórios oficiais e automatizei um relatório diário com n8n. Virou a base de dados do Cobratec 360.
+  en: Read-only exploration and analysis of the collections system's database. I mapped the schema, wrote the rules for each KPI, validated them against the official reports and automated a daily report with n8n. It became the data foundation of Cobratec 360.
+role:
+  pt: Analista e desenvolvedor — consultas, regras de negócio, validação e automação.
+  en: Analyst and developer — queries, business rules, validation and automation.
+stack: [Python, Polars, pandas, SQLAlchemy, PostgreSQL, Streamlit, n8n]
+highlights:
+  - pt: Consultas sobre tabelas de dezenas de milhões de linhas, sempre filtradas por data.
+    en: Queries over tables with tens of millions of rows, always filtered by date.
+  - pt: Uma descoberta sobre qual coluna identifica o dono da ação levou a conferência de ~97% para 100%.
+    en: Finding out which column really identifies the owner of an action took the match from ~97% to 100%.
+  - pt: Exportações com dados reais ficam fora do repositório, por LGPD.
+    en: Exports containing real data stay out of the repository, for LGPD compliance.
+status: entregue
+links: {}
+confidential: true
+cover: ../../assets/projects/cobratec-analytics/analytics.svg
+coverAlt:
+  pt: Diagrama do fluxo de dados, do banco de cobrança até as planilhas e o painel.
+  en: Data-flow diagram, from the collections database to spreadsheets and the dashboard.
+gallery:
+  - src: ../../assets/projects/cobratec-analytics/workflow.png
+    kind: strip
+    alt: { pt: Workflow do n8n que gera e envia o relatório diário., en: n8n workflow that builds and sends the daily report. }
+    caption: { pt: O relatório diário, montado e enviado pelo n8n., en: The daily report, built and sent by n8n. }

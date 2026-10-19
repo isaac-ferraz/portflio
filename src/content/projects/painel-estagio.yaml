@@ -1,0 +1,32 @@
+category: pessoal
+order: 11
+year: '2026'
+title: Painel de Estágio
+accent: '#34d399'
+kicker: { pt: Ferramenta própria, en: Personal tool }
+tagline:
+  pt: O resumo do fim do dia virou um painel que o gestor abre quando quiser.
+  en: The end-of-day summary became a dashboard my manager can open any time.
+summary:
+  pt: Meu gestor pediu um resumo diário do estágio. Em vez de mandar mensagens, construí um diário de atividades com minutos por categoria e um painel com a distribuição do trabalho, relatório semanal e exportação em Excel.
+  en: My manager asked for a daily internship summary. Instead of sending messages, I built an activity log with minutes per category and a dashboard showing how the work is split, with a weekly report and Excel export.
+role:
+  pt: Ideia, design e desenvolvimento.
+  en: Idea, design and development.
+stack: [Next.js 14, TypeScript, Prisma, PostgreSQL, Tailwind CSS, Vitest, Vercel]
+highlights:
+  - pt: Gráficos feitos à mão, sem biblioteca, com bundle inicial de ~106 kB.
+    en: Hand-made charts with no library, and a ~106 kB first-load bundle.
+  - pt: Testes rodando com TZ=UTC de propósito, para reproduzir o bug de fuso horário da Vercel.
+    en: Tests run with TZ=UTC on purpose, to reproduce the Vercel time-zone bug.
+  - pt: Três papéis — estagiário, admin e gestor (que só comenta).
+    en: Three roles — intern, admin and manager (who can only comment).
+metrics:
+  - { value: '82', label: { pt: testes, en: tests } }
+  - { value: '3', label: { pt: papéis, en: roles } }
+status: producao
+links: {}
+cover: ../../assets/projects/painel-estagio/painel.svg
+coverAlt:
+  pt: Ilustração do painel com colunas de minutos por dia e categoria, em dados de exemplo.
+  en: Illustration of the dashboard with columns of minutes per day and category, using sample data.

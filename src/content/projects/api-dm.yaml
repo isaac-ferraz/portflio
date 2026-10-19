@@ -1,0 +1,37 @@
+category: academico
+order: 6
+year: '2026'
+org: FATEC · DM
+title: Cartões DM
+accent: '#ef4444'
+kicker: { pt: 'API · 2º semestre', en: 'API · 2nd semester' }
+tagline:
+  pt: Landing page que capta e pré-qualifica clientes para os cartões da DM.
+  en: A landing page that captures and pre-qualifies customers for DM's cards.
+summary:
+  pt: Desafio real do parceiro acadêmico DM. A pessoa escolhe um cartão, preenche um assistente em quatro etapas e recebe na hora o resultado — aprovado, em análise ou negado —, seguindo as regras de negócio do parceiro.
+  en: A real challenge from the academic partner DM. People choose a card, go through a four-step wizard and instantly get the result — approved, under review or denied — following the partner's business rules.
+role:
+  pt: Front-end da landing page e documentos de escopo, fluxo e wireframes.
+  en: Landing-page front end plus the scope, flow and wireframe documents.
+stack: [Python, Flask, MySQL, Docker, HTML, CSS, JavaScript, ViaCEP, Scrum, Jira]
+highlights:
+  - pt: Regras do parceiro aplicadas no back-end, como lojas filtradas pelo estado do CEP.
+    en: Partner rules enforced in the back end, such as stores filtered by the postcode's state.
+  - pt: Design tokens, componentes próprios e máscaras de CPF, data e telefone.
+    en: Design tokens, custom components and masks for ID, date and phone fields.
+  - pt: Backlog com 11 histórias, três sprints e a Sprint 1 entregue com 31 de 35 pontos.
+    en: Backlog of 11 stories, three sprints and Sprint 1 delivered with 31 of 35 points.
+status: andamento
+links:
+  repo: https://github.com/PI-Nexus/Projeto-Integrador-II
+  video: https://youtu.be/9zSZ0oM3F0M
+team:
+  size: 8
+  myPart:
+    pt: HTML semântico das seções e do assistente, CSS base e de componentes, identidade visual e máscaras de formulário.
+    en: Semantic HTML for the sections and the wizard, base and component CSS, visual identity and form masks.
+cover: ../../assets/projects/api-dm/fluxo.svg
+coverAlt:
+  pt: Fluxo do assistente — escolha do cartão, dados, endereço e resultado.
+  en: Wizard flow — card choice, personal data, address and result.

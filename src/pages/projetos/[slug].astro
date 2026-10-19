@@ -1,0 +1,10 @@
+---
+import type { GetStaticPaths } from 'astro';
+import ProjectDetail from '~/components/ProjectDetail.astro';
+import { projectPaths } from '~/components/project-paths';
+
+export const getStaticPaths = (() => projectPaths()) satisfies GetStaticPaths;
+const { slug } = Astro.params;
+---
+
+<ProjectDetail lang="pt" slug={slug} />

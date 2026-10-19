@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+import { useTranslations, type Lang } from '~/i18n/utils';
+
+interface Props { lang: Lang }
+const t = useTranslations(Astro.props.lang);
+---
+
+<p class="sample-note"><Icon name="lock" /><span>{t('projects.confidential')}</span></p>

@@ -1,0 +1,50 @@
+---
+import { Picture } from 'astro:assets';
+import bust from '~/assets/hero/mascote.png';
+import { sections } from '~/data/sections';
+import { useTranslations, type Lang } from '~/i18n/utils';
+
+interface Props { lang: Lang }
+const t = useTranslations(Astro.props.lang);
+const lines = Object.fromEntries(sections.map((s) => [s.id, t(s.mascot)]));
+---
+
+<!-- Mascote: busto fixo no canto. A fala muda a cada seção; o clique leva à próxima
+     (ou ao topo, no celular e na última seção). Some quando há um <dialog> aberto. -->
+<div class="mascot" data-mascot data-lines={JSON.stringify(lines)} hidden>
+  <p class="mascot-bubble bubble" aria-hidden="true" data-mascot-line>{t('mascot.hero')}</p>
+  <button class="mascot-btn" type="button" data-mascot-btn
+    data-label-next={t('mascot.label')} data-label-top={t('mascot.top')} aria-label={t('mascot.label')}>
+    <Picture src={bust} alt="" formats={['avif', 'webp']} widths={[96, 192]} sizes="96px" loading="lazy" fallbackFormat="webp" />
+  </button>
+</div>
+
+<style>
+  .mascot {
+    position: fixed; right: clamp(0.75rem, 2vw, 1.5rem); bottom: clamp(0.75rem, 2vw, 1.5rem); z-index: 40;
+    display: grid; justify-items: end; gap: 0.6rem; pointer-events: none;
+    transition: opacity 0.35s, translate 0.45s var(--ease-out);
+  }
+  .mascot[data-away] { opacity: 0; translate: 0 130%; }
+  .mascot-btn {
+    pointer-events: auto; width: 5.5rem; height: 5.5rem; border-radius: 50%; overflow: clip;
+    border: var(--border); background: var(--accent); box-shadow: 4px 4px 0 var(--line-strong);
+    transition: scale 0.2s var(--ease-out);
+  }
+  .mascot-btn :global(img) { width: 100%; height: 100%; object-fit: cover; translate: 0 6%; }
+  .mascot-btn:hover { scale: 1.06; }
+  .mascot-bubble { font-size: 0.95rem; max-width: 15rem; white-space: normal; text-align: center; }
+  .mascot-bubble::after { left: auto; right: 2.2rem; }
+  .mascot[data-talk] .mascot-btn { animation: squash 0.5s var(--ease-out); }
+  .mascot[data-talk] .mascot-bubble { animation: bob 0.45s cubic-bezier(0.34, 1.7, 0.5, 1); }
+  @keyframes squash { 30% { scale: 1.12 0.88; } 60% { scale: 0.94 1.08; } }
+  @keyframes bob { from { scale: 0.6; opacity: 0; } }
+  @media (max-width: 47.99rem) {
+    .mascot-bubble { display: none; }
+    .mascot-btn { width: 3.6rem; height: 3.6rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mascot, .mascot[data-talk] * { transition: none; animation: none; }
+  }
+  :global(body:has(dialog[open])) .mascot { display: none; }
+</style>

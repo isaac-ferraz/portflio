@@ -1,0 +1,46 @@
+---
+import Icon from './Icon.astro';
+import { profile } from '~/data/profile';
+import { rich } from '~/i18n/rich';
+import { url, useTranslations, type Lang } from '~/i18n/utils';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="section contact halftone" id="contact" aria-labelledby="contact-title" data-section="contact">
+  <div class="wrap">
+    <p class="section-num" aria-hidden="true">_06_</p>
+    <h2 class="headline" id="contact-title" set:html={rich(t('contact.headline'))} data-reveal />
+    <p class="text" data-reveal>{t('contact.text')}</p>
+    <div class="actions" data-reveal>
+      <a class="btn btn-primary" href={`mailto:${profile.email}`}><Icon name="mail" />{t('contact.email')}</a>
+      <button class="btn" type="button" data-copy={profile.email} data-copied={t('contact.copied')}>
+        <Icon name="copy" /><span data-copy-label>{t('contact.copy')}</span>
+      </button>
+      <a class="btn" href={profile.linkedin} target="_blank" rel="me noopener"><Icon name="linkedin" />LinkedIn</a>
+      <a class="btn" href={profile.github} target="_blank" rel="me noopener"><Icon name="github" />GitHub</a>
+      <a class="btn" href={url(profile.cv)} download><Icon name="download" />{t('contact.cv')}<span class="note">{t('contact.cvNote')}</span></a>
+    </div>
+    <p class="email mono">{profile.email}</p>
+    <p class="sr-only" role="status" aria-live="polite" data-copy-status></p>
+  </div>
+</section>
+
+<style>
+  .contact { border-top: var(--border); background-color: var(--bg-2); }
+  .headline {
+    font-size: var(--step-5); font-weight: 800; line-height: 0.95; letter-spacing: -0.04em;
+    max-width: 14ch; margin-block: 1rem 2rem;
+  }
+  .headline :global(em) { color: var(--accent-ink); }
+  .text { max-width: 40rem; font-size: var(--step-1); color: var(--ink-soft); }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-block: 2.4rem 1.4rem; }
+  .note { font-weight: 500; font-size: 0.75rem; color: var(--ink-soft); }
+  .email { color: var(--ink-soft); font-size: var(--step--1); }
+  @media (max-width: 40rem) {
+    .actions { display: grid; }
+    .headline { font-size: var(--step-4); }
+  }
+</style>

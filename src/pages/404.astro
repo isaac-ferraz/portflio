@@ -1,0 +1,26 @@
+---
+import Base from '~/layouts/Base.astro';
+import { homePath, useTranslations } from '~/i18n/utils';
+const t = useTranslations('pt');
+const te = useTranslations('en');
+---
+
+<Base lang="pt" title={`404 — ${t('notfound.title')}`} description={t('notfound.text')} og="og/pt/index.png">
+  <section class="nf wrap">
+    <p class="bubble is-accent big" aria-hidden="true">404!</p>
+    <h1>{t('notfound.title')}</h1>
+    <p>{t('notfound.text')}</p>
+    <p lang="en">{te('notfound.text')}</p>
+    <div class="row">
+      <a class="btn btn-primary" href={homePath('pt')}>{t('notfound.home')}</a>
+      <a class="btn" href={homePath('en')} lang="en">{te('notfound.home')}</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nf { min-height: 80vh; display: grid; align-content: center; justify-items: start; gap: 1.2rem; padding-top: var(--header-h); }
+  .big { font-size: var(--step-4); margin-bottom: 1rem; }
+  h1 { font-size: var(--step-4); }
+  .row { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+</style>

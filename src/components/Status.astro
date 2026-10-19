@@ -1,0 +1,8 @@
+---
+import { useTranslations, type Lang } from '~/i18n/utils';
+type S = 'producao' | 'homologacao' | 'entregue' | 'andamento' | 'evento';
+interface Props { lang: Lang; status: S }
+const t = useTranslations(Astro.props.lang);
+---
+
+<span class="chip status" data-status={Astro.props.status}>{t(`status.${Astro.props.status}`)}</span>

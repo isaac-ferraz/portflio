@@ -1,0 +1,237 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import { getImage, Picture } from 'astro:assets';
+import Base from '~/layouts/Base.astro';
+import Cover from './Cover.astro';
+import Icon from './Icon.astro';
+import Status from './Status.astro';
+import SampleNote from './SampleNote.astro';
+import Lightbox from './Lightbox.astro';
+import { homePath, pick, projectPath, useTranslations, type Lang } from '~/i18n/utils';
+
+interface Props { lang: Lang; slug: string }
+const { lang, slug } = Astro.props;
+const t = useTranslations(lang);
+const entry = (await getEntry('projects', slug))!;
+const p = entry.data;
+
+const all = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const idx = all.findIndex((x) => x.id === slug);
+const prev = all[(idx - 1 + all.length) % all.length]!;
+const next = all[(idx + 1) % all.length]!;
+
+const anchor = { profissional: 'projects', academico: 'academic', pessoal: 'personal' }[p.category];
+const catLabel = t(({ profissional: 'projects.pro', academico: 'projects.academic', pessoal: 'projects.personal' } as const)[p.category]);
+
+// Versão grande de cada imagem da galeria, para o lightbox.
+const gallery = await Promise.all(
+  p.gallery.map(async (g) => ({
+    ...g,
+    full: g.src.format === 'svg' ? g.src.src : (await getImage({ src: g.src, width: Math.min(g.src.width, 1800), format: 'webp' })).src,
+  })),
+);
+const phones = gallery.filter((g) => g.kind === 'phone');
+const others = gallery.filter((g) => g.kind !== 'phone');
+const title = `${p.title} — ${pick(p.kicker, lang)} | Isaac Ferraz`;
+---
+
+<Base lang={lang} title={title} description={pick(p.summary, lang)} og={`og/${lang}/${slug}.png`} ogAlt={p.title} type="article">
+  <article class="detail" style={`--accent-p: ${p.accent}`}>
+    <header class="wrap d-head">
+      <a class="back" href={`${homePath(lang)}#${anchor}`}><Icon name="arrowLeft" />{t('detail.back')}</a>
+      <p class="kicker mono">{catLabel} · {pick(p.kicker, lang)}</p>
+      <h1>{p.title}</h1>
+      <p class="tagline">{pick(p.tagline, lang)}</p>
+      <div class="head-meta">
+        <Status lang={lang} status={p.status} />
+        {p.links.live && <a class="btn btn-primary" href={p.links.live} target="_blank" rel="noopener">{t('detail.live')}<Icon name="external" /></a>}
+        {!p.confidential && p.links.repo && <a class="btn" href={p.links.repo} target="_blank" rel="noopener"><Icon name="github" />{t('detail.repo')}</a>}
+        {p.links.video && <a class="btn" href={p.links.video} target="_blank" rel="noopener"><Icon name="play" />{t('detail.video')}</a>}
+        {p.confidential && <span class="chip"><Icon name="lock" class="i-sm" />{t('detail.private')}</span>}
+      </div>
+    </header>
+
+    <div class="wrap">
+      <div class="d-cover">
+        <Cover src={p.cover} alt={pick(p.coverAlt, lang)} sizes="(min-width: 76rem) 76rem, 96vw" widths={[640, 960, 1280, 1600]} eager vt={`cover-${slug}`} />
+      </div>
+      {p.confidential && <SampleNote lang={lang} />}
+    </div>
+
+    <div class="wrap d-body">
+      <div class="d-main">
+        <p class="summary">{pick(p.summary, lang)}</p>
+
+        {p.metrics && (
+          <ul class="metrics" role="list">
+            {p.metrics.map((m) => (
+              <li><span class="m-val">{m.value}</span><span class="m-lab">{pick(m.label, lang)}</span></li>
+            ))}
+          </ul>
+        )}
+
+        <section aria-labelledby="h-highlights">
+          <h2 id="h-highlights">{t('detail.highlights')}</h2>
+          <ul class="highlights" role="list">
+            {p.highlights.map((h) => <li>{pick(h, lang)}</li>)}
+          </ul>
+        </section>
+
+        {p.sections.map((s, i) => (
+          <section aria-labelledby={`h-s${i}`}>
+            <h2 id={`h-s${i}`}>{pick(s.title, lang)}</h2>
+            {s.body && <p>{pick(s.body, lang)}</p>}
+            {s.items && <ul class="bullets">{s.items.map((it) => <li>{pick(it, lang)}</li>)}</ul>}
+          </section>
+        ))}
+      </div>
+
+      <aside class="d-side" aria-label={t('detail.org')}>
+        <dl>
+          <div><dt>{t('detail.role')}</dt><dd>{pick(p.role, lang)}</dd></div>
+          <div><dt>{t('detail.year')}</dt><dd>{p.year}</dd></div>
+          {p.org && <div><dt>{t('detail.org')}</dt><dd>{p.org}</dd></div>}
+          {p.team && (
+            <>
+              <div><dt>{t('detail.team')}</dt><dd>{p.team.size} {t('detail.people')}</dd></div>
+              <div><dt>{t('detail.myPart')}</dt><dd>{pick(p.team.myPart, lang)}</dd></div>
+            </>
+          )}
+          <div>
+            <dt>{t('detail.stack')}</dt>
+            <dd><ul class="chip-list" role="list">{p.stack.map((s) => <li class="chip">{s}</li>)}</ul></dd>
+          </div>
+          {p.credits && (
+            <div><dt>{t('detail.credits')}</dt><dd>{p.credits.map((c) => <span class="credit">{pick(c, lang)}</span>)}</dd></div>
+          )}
+        </dl>
+      </aside>
+    </div>
+
+    {gallery.length > 0 && (
+      <section class="wrap gallery" aria-labelledby="h-gallery">
+        <h2 id="h-gallery">{t('detail.gallery')}</h2>
+        {phones.length > 0 && (
+          <ul class="phones" role="list">
+            {phones.map((g) => (
+              <li>
+                <figure>
+                  <button class="shot phone" type="button" data-enlarge data-full={g.full} data-alt={pick(g.alt, lang)} data-caption={g.caption ? pick(g.caption, lang) : ''}>
+                    <Picture src={g.src} alt={pick(g.alt, lang)} formats={['avif', 'webp']} widths={[240, 400]} sizes="(min-width: 48rem) 15rem, 45vw" loading="lazy" fallbackFormat="webp" />
+                    <span class="sr-only">{t('detail.enlarge')}</span>
+                  </button>
+                  {g.caption && <figcaption>{pick(g.caption, lang)}</figcaption>}
+                </figure>
+              </li>
+            ))}
+          </ul>
+        )}
+        {others.length > 0 && (
+          <ul class="shots" role="list">
+            {others.map((g) => (
+              <li class:list={[g.kind === 'strip' && 'is-strip']}>
+                <figure>
+                  <button class="shot" type="button" data-enlarge data-full={g.full} data-alt={pick(g.alt, lang)} data-caption={g.caption ? pick(g.caption, lang) : ''}>
+                    <Picture src={g.src} alt={pick(g.alt, lang)} formats={['avif', 'webp']} widths={[480, 800, 1200].filter((w) => w <= g.src.width)} sizes="(min-width: 64rem) 38rem, 94vw" loading="lazy" {...(g.src.format === 'png' ? { fallbackFormat: 'webp' as const } : {})} />
+                    <span class="sr-only">{t('detail.enlarge')}</span>
+                  </button>
+                  {g.caption && <figcaption>{pick(g.caption, lang)}</figcaption>}
+                </figure>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+    )}
+
+    <nav class="wrap pager" aria-label={t('nav.projects')}>
+      <a href={projectPath(prev.id, lang)} rel="prev"><span class="mono">{t('detail.prev')}</span><strong>{prev.data.title}</strong></a>
+      <a href={projectPath(next.id, lang)} rel="next" class="nx"><span class="mono">{t('detail.next')}</span><strong>{next.data.title}</strong></a>
+    </nav>
+  </article>
+  <Lightbox lang={lang} slot="after" />
+</Base>
+
+<style>
+  .detail { padding-top: calc(var(--header-h) + 2rem); padding-bottom: 4rem; }
+  .d-head { display: grid; gap: 1rem; justify-items: start; margin-bottom: 2.4rem; }
+  .back { display: inline-flex; gap: 0.4rem; align-items: center; font-weight: 650; font-size: var(--step--1); text-decoration: none; }
+  .back :global(svg) { width: 1rem; height: 1rem; }
+  .kicker { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); }
+  h1 { font-size: var(--step-5); letter-spacing: -0.04em; line-height: 0.92; }
+  .tagline { font-size: var(--step-2); line-height: 1.25; max-width: 44rem; color: var(--ink-soft); }
+  .head-meta { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-top: 0.4rem; }
+  .head-meta :global(.i-sm) { width: 0.9rem; height: 0.9rem; }
+
+  .d-cover {
+    aspect-ratio: 16 / 9; border: var(--border); border-radius: var(--radius-lg); overflow: clip;
+    box-shadow: 10px 10px 0 var(--accent-p); background: var(--surface-2); margin-bottom: 1.2rem;
+  }
+  .d-body {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem); gap: clamp(2rem, 1rem + 4vw, 5rem);
+    margin-top: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+  }
+  .d-main { display: grid; gap: 2.6rem; align-content: start; }
+  .d-main h2, .gallery h2 { font-size: var(--step-2); margin-bottom: 1rem; }
+  .summary { font-size: var(--step-1); line-height: 1.5; }
+  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 0.8rem; }
+  .metrics li { border: var(--border); border-radius: var(--radius); padding: 1rem; background: var(--surface); }
+  .m-val { display: block; font-size: var(--step-3); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+  .m-lab { color: var(--ink-soft); font-size: var(--step--1); }
+  .highlights { display: grid; gap: 0.8rem; counter-reset: h; }
+  .highlights li {
+    counter-increment: h; display: grid; grid-template-columns: 2.4rem 1fr; gap: 0.6rem; align-items: start;
+    padding: 1rem 1.1rem; border-radius: var(--radius); background: var(--surface); border: 1.5px solid var(--line);
+  }
+  .highlights li::before {
+    content: counter(h, decimal-leading-zero); font-family: var(--font-mono); font-weight: 700;
+    color: var(--accent-ink); padding-top: 0.1rem;
+  }
+  .bullets { display: grid; gap: 0.5rem; padding-left: 1.2rem; }
+  .bullets li::marker { color: var(--accent-ink); }
+
+  .d-side dl {
+    position: sticky; top: calc(var(--header-h) + 1.5rem); display: grid; gap: 1.2rem;
+    border: var(--border); border-radius: var(--radius-lg); padding: 1.4rem; background: var(--surface);
+    box-shadow: var(--shadow-comic);
+  }
+  .d-side dt { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 0.3rem; }
+  .d-side dd { margin: 0; font-weight: 550; }
+  .credit { display: block; }
+
+  .gallery { margin-top: clamp(3rem, 2rem + 4vw, 6rem); }
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1.4rem; }
+  .shots .is-strip { grid-column: 1 / -1; }
+  .phones { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 13rem)); gap: 1.4rem; justify-content: center; margin-bottom: 2rem; }
+  figure { display: grid; gap: 0.6rem; }
+  figcaption { color: var(--ink-soft); font-size: var(--step--1); }
+  .shot {
+    display: block; width: 100%; border: var(--border); border-radius: var(--radius); overflow: clip;
+    background: var(--surface-2); cursor: zoom-in; transition: translate 0.2s, box-shadow 0.2s;
+  }
+  .shot:hover { translate: -3px -3px; box-shadow: 6px 6px 0 var(--accent-p); }
+  .shot :global(img) { width: 100%; height: auto; }
+  .phone { border-radius: 1.6rem; padding: 0.35rem; background: #111; }
+  .phone :global(img) { border-radius: 1.3rem; }
+
+  .pager {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: clamp(4rem, 3rem + 4vw, 7rem);
+  }
+  .pager a {
+    display: grid; gap: 0.3rem; padding: 1.2rem 1.4rem; border: var(--border); border-radius: var(--radius);
+    background: var(--surface); text-decoration: none; transition: translate 0.2s, box-shadow 0.2s;
+  }
+  .pager a:hover { translate: -3px -3px; box-shadow: var(--shadow-comic); }
+  .pager span { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+  .pager strong { font-size: var(--step-1); }
+  .pager .nx { text-align: right; }
+
+  @media (max-width: 63.99rem) {
+    .d-body { grid-template-columns: 1fr; }
+    .d-side dl { position: static; }
+  }
+  @media (max-width: 40rem) {
+    .pager { grid-template-columns: 1fr; }
+    .pager .nx { text-align: left; }
+  }
+</style>

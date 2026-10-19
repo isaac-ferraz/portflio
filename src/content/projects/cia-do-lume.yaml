@@ -1,0 +1,32 @@
+category: pessoal
+order: 10
+year: '2026'
+title: Cia do Lume
+accent: '#facc15'
+kicker: { pt: Jogo infantil, en: Kids' game }
+tagline:
+  pt: Cinco personagens, cinco jogos e nenhum game over.
+  en: Five characters, five games and no game over.
+summary:
+  pt: App de jogos para o ministério infantil da Igreja da Cidade. Cada personagem ensina um dos cinco propósitos da igreja com um jogo próprio — plataforma, ritmo, Snake, Tetris e um quiz de versículos —, com avatar, missões diárias e recompensas.
+  en: A game app for Igreja da Cidade's children's ministry. Each character teaches one of the church's five purposes through its own game — platformer, rhythm, Snake, Tetris and a Bible-verse quiz — with avatars, daily missions and rewards.
+role:
+  pt: Desenvolvimento dos jogos, do meta-jogo e das ferramentas de áudio e captura.
+  en: Development of the games, the meta-game and the audio and capture tooling.
+stack: [Godot 4, GDScript, Python, Bash]
+highlights:
+  - pt: Pensado para crianças — sem game over, alvos de toque de 64 px e compras que exigem segurar o botão.
+    en: Designed for kids — no game over, 64 px touch targets and purchases that require holding the button.
+  - pt: Efeitos sonoros sintetizados por código, sem arquivos de áudio.
+    en: Sound effects synthesised in code, with no audio files.
+  - pt: Bots que jogam sozinhos para testar cada fase.
+    en: Bots that play by themselves to test every level.
+status: andamento
+links: {}
+credits:
+  - { pt: 'Arte: José Ferraz', en: 'Art: José Ferraz' }
+  - { pt: 'Personagens e marca: Igreja da Cidade', en: 'Characters and brand: Igreja da Cidade' }
+cover: ../../assets/projects/cia-do-lume/turma.jpg
+coverAlt:
+  pt: Os cinco personagens da Cia do Lume numa casa na árvore.
+  en: The five Cia do Lume characters in a treehouse.

@@ -1,0 +1,27 @@
+---
+import Icon from './Icon.astro';
+import { useTranslations, type Lang } from '~/i18n/utils';
+interface Props { lang: Lang }
+const t = useTranslations(Astro.props.lang);
+---
+
+<!-- Um só <dialog> para a galeria: Esc fecha e o foco volta ao botão que abriu. -->
+<dialog class="lightbox" data-lightbox aria-label={t('detail.gallery')}>
+  <form method="dialog"><button class="close icon-btn" aria-label={t('detail.close')}><Icon name="close" /></button></form>
+  <figure>
+    <img data-lightbox-img alt="" />
+    <figcaption data-lightbox-cap></figcaption>
+  </figure>
+</dialog>
+
+<style>
+  .lightbox {
+    width: min(96vw, 80rem); max-height: 94vh; padding: 0; border: var(--border); border-radius: var(--radius-lg);
+    background: var(--surface); color: var(--ink); box-shadow: var(--shadow-comic); overflow: clip;
+  }
+  .lightbox::backdrop { background: rgb(0 0 0 / 0.78); backdrop-filter: blur(4px); }
+  figure { display: grid; gap: 0.6rem; padding: 1rem; }
+  img { max-height: 80vh; width: auto; margin-inline: auto; border-radius: 8px; object-fit: contain; }
+  figcaption { text-align: center; color: var(--ink-soft); font-size: var(--step--1); }
+  .close { position: absolute; top: 0.6rem; right: 0.6rem; z-index: 2; }
+</style>

@@ -1,0 +1,36 @@
+category: pessoal
+order: 8
+year: '2026'
+title: Eric Mac
+accent: '#60a5fa'
+kicker: { pt: Portfólio de designer, en: Designer portfolio }
+tagline:
+  pt: Um portfólio que é um Mac no computador e um iPhone no celular.
+  en: A portfolio that is a Mac on desktop and an iPhone on mobile.
+summary:
+  pt: Portfólio do designer Eric Macintyre, que se comporta como um macOS no navegador — janelas que arrastam e redimensionam, Dock, Spotlight e apps para cada parte do trabalho. No celular, vira um iPhone.
+  en: A portfolio for designer Eric Macintyre that behaves like macOS in the browser — draggable, resizable windows, a Dock, Spotlight and an app for each part of the work. On mobile it becomes an iPhone.
+role:
+  pt: Desenvolvimento completo, a partir das peças e da identidade do Eric.
+  en: Full development, built from Eric's work and identity.
+stack: [React 19, TypeScript, Vite, Motion, Zustand, Playwright, axe-core]
+highlights:
+  - pt: Gerenciador de janelas com arrastar, redimensionar, minimizar para o Dock e endereço por janela.
+    en: Window manager with drag, resize, minimise-to-Dock and a URL per window.
+  - pt: Primeira pintura de ~2,5 s para ~0,6 s em 4G lento, desenhando o boot inline.
+    en: First paint from ~2.5 s down to ~0.6 s on slow 4G by drawing the boot screen inline.
+  - pt: Zero violações no axe em claro e escuro, de 375 a 1440 px.
+    en: Zero axe violations in light and dark, from 375 to 1440 px.
+status: producao
+links:
+  live: https://isaac-ferraz.github.io/ericmac/
+  repo: https://github.com/isaac-ferraz/ericmac
+credits:
+  - { pt: 'Design e peças: Eric Macintyre', en: 'Design and artwork: Eric Macintyre' }
+cover: ../../assets/projects/eric-mac/desktop.jpg
+coverAlt:
+  pt: Área de trabalho em estilo macOS com janelas do portfólio do Eric.
+  en: macOS-style desktop with windows from Eric's portfolio.
+gallery:
+  - src: ../../assets/projects/eric-mac/case.jpg
+    alt: { pt: Janela de um case aberto no portfólio., en: A case study window open in the portfolio. }

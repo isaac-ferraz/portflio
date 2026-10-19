@@ -1,0 +1,37 @@
+category: academico
+order: 7
+year: '2026'
+org: FATEC
+title: BotGotinha
+accent: '#22d3ee'
+kicker: { pt: 'API · 1º semestre', en: 'API · 1st semester' }
+tagline:
+  pt: Um assistente de vacinação no Telegram que entende texto e voz.
+  en: A Telegram vaccination assistant that understands text and voice.
+summary:
+  pt: Bot que mostra o calendário vacinal, agenda doses com lembretes, consulta a cobertura vacinal e encontra a UBS mais próxima. A regra do semestre era não usar API de terceiros nem banco de dados — tudo vem de scraping e de algoritmos do time.
+  en: A bot that shows the vaccination schedule, books doses with reminders, checks vaccination coverage and finds the nearest clinic. The semester rule was no third-party APIs and no database — everything comes from scraping and the team's own algorithms.
+role:
+  pt: Interpretador de linguagem natural e roteador de intenções (em dupla), fluxo de voz e links de agenda.
+  en: Natural-language interpreter and intent router (in a pair), the voice flow and calendar links.
+stack: [Python, pyTelegramBotAPI, Ollama, faster-whisper, BeautifulSoup, Selenium, pandas, Scrum]
+highlights:
+  - pt: LLM local (llama3.2 no Ollama) roteando intenções, sem enviar dados para fora.
+    en: Local LLM (llama3.2 on Ollama) routing intents, with no data sent out.
+  - pt: Mensagens de voz transcritas com faster-whisper.
+    en: Voice messages transcribed with faster-whisper.
+  - pt: UBS mais próximas pelo cadastro nacional, com distância de Haversine.
+    en: Nearest clinics from the national register, using Haversine distance.
+  - pt: Lembretes 10 dias, 1 dia e no dia da vacina, por Telegram e e-mail.
+    en: Reminders 10 days, 1 day and on the day of the shot, via Telegram and e-mail.
+status: entregue
+links: {}
+team:
+  size: 8
+  myPart:
+    pt: Interpretador de linguagem natural e roteador, fluxo de voz, links do Google Agenda, navegação por botões e a documentação das sprints.
+    en: Natural-language interpreter and router, voice flow, Google Calendar links, button navigation and the sprint documentation.
+cover: ../../assets/projects/botgotinha/fluxo.svg
+coverAlt:
+  pt: Fluxo do bot — mensagem de texto ou voz, transcrição, interpretação e resposta.
+  en: Bot flow — text or voice message, transcription, interpretation and reply.

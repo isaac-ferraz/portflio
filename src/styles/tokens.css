@@ -1,0 +1,53 @@
+@layer reset, tokens, base, components, utilities;
+
+/*
+ * Tokens. As cores usam `light-dark()`: o `color-scheme` da raiz decide o
+ * tema — segue o sistema por padrão e `data-theme` (salvo pelo botão) força.
+ * Contraste conferido nos dois temas: texto ≥ 7:1, texto suave ≥ 4.5:1.
+ */
+@layer tokens {
+  :root {
+    color-scheme: light dark;
+
+    --bg: light-dark(#f4efe4, #0c0c0f);
+    --bg-2: light-dark(#ebe4d5, #131318);
+    --surface: light-dark(#fffdf8, #17171d);
+    --surface-2: light-dark(#f8f3e9, #1e1e26);
+    --ink: light-dark(#16151a, #f3efe6);
+    --ink-soft: light-dark(#4f4b55, #a9a5b0);
+    --line: light-dark(#d6cebd, #2b2b35);
+    --line-strong: light-dark(#16151a, #f3efe6);
+
+    /* amarelo de HQ: fundo de destaque; `--accent-ink` é a versão legível como texto */
+    --accent: #ffd23f;
+    --accent-ink: light-dark(#7a5600, #ffd23f);
+    --on-accent: #16151a;
+    --pop: light-dark(#b81f3a, #ff6b81);
+    --dot: light-dark(rgb(22 21 26 / 0.13), rgb(243 239 230 / 0.09));
+
+    --font-sans: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+    --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, monospace;
+    --font-comic: 'Bangers', 'Impact', var(--font-sans);
+
+    --step--1: clamp(0.84rem, 0.8rem + 0.18vw, 0.94rem);
+    --step-0: clamp(1rem, 0.96rem + 0.22vw, 1.13rem);
+    --step-1: clamp(1.2rem, 1.1rem + 0.45vw, 1.45rem);
+    --step-2: clamp(1.45rem, 1.25rem + 0.9vw, 2rem);
+    --step-3: clamp(1.8rem, 1.45rem + 1.7vw, 2.9rem);
+    --step-4: clamp(2.3rem, 1.6rem + 3.2vw, 4.4rem);
+    --step-5: clamp(3.2rem, 1.8rem + 7vw, 8.5rem);
+
+    --gutter: clamp(1rem, 0.6rem + 2.4vw, 2.5rem);
+    --max: 76rem;
+    --header-h: 4rem;
+    --radius: 14px;
+    --radius-lg: 22px;
+    --border: 2.5px solid var(--line-strong);
+    --shadow-comic: 6px 6px 0 var(--line-strong);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  :root[data-theme='light'] { color-scheme: light; }
+  :root[data-theme='dark'] { color-scheme: dark; }
+}

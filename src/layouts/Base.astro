@@ -1,0 +1,102 @@
+---
+import '@fontsource-variable/bricolage-grotesque';
+import '@fontsource/instrument-serif/400-italic.css';
+import '@fontsource-variable/jetbrains-mono';
+import '@fontsource/bangers';
+import '~/styles/tokens.css';
+import '~/styles/base.css';
+import bricolage from '@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2?url';
+import Header from '~/components/Header.astro';
+import Footer from '~/components/Footer.astro';
+import { profile } from '~/data/profile';
+import { alternatePath, htmlLang, url, useTranslations, type Lang } from '~/i18n/utils';
+import { languages } from '~/i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  /** Caminho da imagem OG, relativo ao `base` (ex.: `og/pt/index.png`). */
+  og: string;
+  ogAlt?: string;
+  type?: 'website' | 'article';
+  /** Página inicial: o header mostra as âncoras das seções. */
+  home?: boolean;
+}
+
+const { lang, title, description, og, ogAlt = title, type = 'website', home = false } = Astro.props;
+const t = useTranslations(lang);
+const site = Astro.site!;
+const canonical = new URL(Astro.url.pathname, site).href;
+const ogUrl = new URL(url(og), site).href;
+const alternates = (Object.keys(languages) as Lang[]).map((l) => ({
+  hreflang: htmlLang(l),
+  href: new URL(alternatePath(Astro.url, l), site).href,
+}));
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  url: new URL(url('/'), site).href,
+  email: `mailto:${profile.email}`,
+  jobTitle: lang === 'pt' ? 'Desenvolvedor Full-Stack' : 'Full-Stack Developer',
+  worksFor: { '@type': 'Organization', name: 'Cobratec' },
+  alumniOf: { '@type': 'CollegeOrUniversity', name: 'FATEC São José dos Campos' },
+  address: { '@type': 'PostalAddress', addressLocality: 'São José dos Campos', addressRegion: 'SP', addressCountry: 'BR' },
+  sameAs: [profile.linkedin, profile.github],
+};
+---
+
+<!doctype html>
+<html lang={htmlLang(lang)}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+    <link rel="alternate" hreflang="x-default" href={alternates[0]!.href} />
+    <meta name="theme-color" content="#0c0c0f" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)" />
+    <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
+    <link rel="preload" href={bricolage} as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={profile.name} />
+    <meta property="og:locale" content={lang === 'pt' ? 'pt_BR' : 'en_US'} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
+
+    <!-- Antes da primeira pintura: tema salvo e sinal de que há JS com movimento. -->
+    <script is:inline>
+      (() => {
+        const d = document.documentElement;
+        try {
+          const t = localStorage.getItem('theme');
+          if (t === 'light' || t === 'dark') d.dataset.theme = t;
+        } catch {}
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('motion');
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#conteudo">{t('skip')}</a>
+    <Header lang={lang} home={home} />
+    <main id="conteudo" tabindex="-1">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+    <slot name="after" />
+    <script>
+      import '~/scripts/site';
+    </script>
+  </body>
+</html>

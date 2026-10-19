@@ -1,0 +1,146 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SectionHeading from './SectionHeading.astro';
+import ProjectCard from './ProjectCard.astro';
+import Cover from './Cover.astro';
+import Status from './Status.astro';
+import Icon from './Icon.astro';
+import { pick, projectPath, useTranslations, type Lang } from '~/i18n/utils';
+
+interface Props { lang: Lang; projects: CollectionEntry<'projects'>[] }
+const { lang, projects } = Astro.props;
+const t = useTranslations(lang);
+const by = (c: string) => projects.filter((p) => p.data.category === c);
+const pro = by('profissional');
+const groups = [
+  { id: 'academic', title: t('projects.academic'), intro: t('projects.academic.intro'), items: by('academico') },
+  { id: 'personal', title: t('projects.personal'), intro: t('projects.personal.intro'), items: by('pessoal') },
+];
+---
+
+<section class="section projects" id="projects" aria-labelledby="projects-title" data-section="projects">
+  <div class="wrap">
+    <SectionHeading num="04" id="projects-title" title={t('projects.title')} accent={t('projects.accent')} intro={t('projects.intro')} />
+  </div>
+
+  <!-- Capítulo 1: trilho horizontal (fixado no desktop; carrossel com snap no resto). -->
+  <section class="chapter pro" aria-labelledby="pro-title" data-pro>
+    <div class="wrap chapter-head">
+      <h3 class="chapter-title" id="pro-title"><span class="chapter-n mono">01</span>{t('projects.pro')}</h3>
+      <p class="chapter-intro">{t('projects.pro.intro')}</p>
+      <p class="sample-inline"><Icon name="lock" />{t('projects.confidential')}</p>
+    </div>
+    <div class="pro-viewport" data-pro-viewport>
+      <ol class="pro-track" role="list" data-pro-track>
+        {pro.map((project, i) => {
+          const p = project.data;
+          return (
+            <li class="panel" style={`--accent-p: ${p.accent}`} data-pro-panel>
+              <article class="panel-inner">
+                <div class="panel-media">
+                  <Cover src={p.cover} alt={pick(p.coverAlt, lang)} sizes="(min-width: 64rem) 34rem, 88vw" widths={[480, 720, 1000]} vt={`cover-${project.id}`} />
+                </div>
+                <div class="panel-body">
+                  <p class="panel-count mono">{t('projects.panel')} {i + 1}/{pro.length}</p>
+                  <p class="kicker mono">{pick(p.kicker, lang)}</p>
+                  <h4 class="panel-title">{p.title}</h4>
+                  <p class="tagline">{pick(p.tagline, lang)}</p>
+                  <div class="meta"><Status lang={lang} status={p.status} /></div>
+                  <ul class="chip-list" role="list" aria-label="Stack">
+                    {p.stack.slice(0, 5).map((s) => <li class="chip">{s}</li>)}
+                  </ul>
+                  <a class="btn btn-primary panel-cta" href={projectPath(project.id, lang)}>
+                    {t('projects.open')}<span class="sr-only">: {p.title}</span><Icon name="arrowRight" />
+                  </a>
+                </div>
+              </article>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+    <div class="wrap pro-foot" aria-hidden="true">
+      <span class="mono hint">{t('projects.drag')}</span>
+      <span class="progress"><span class="progress-bar" data-pro-progress></span></span>
+    </div>
+  </section>
+
+  {groups.map((g, gi) => (
+    <section class="chapter" id={g.id} aria-labelledby={`${g.id}-title`} data-section={g.id}>
+      <div class="wrap">
+        <div class="chapter-head">
+          <h3 class="chapter-title" id={`${g.id}-title`}><span class="chapter-n mono">0{gi + 2}</span>{g.title}</h3>
+          <p class="chapter-intro">{g.intro}</p>
+        </div>
+        <div class="grid" data-count={g.items.length}>
+          {g.items.map((project) => <ProjectCard project={project} lang={lang} />)}
+        </div>
+      </div>
+    </section>
+  ))}
+</section>
+
+<style>
+  .chapter { padding-top: clamp(2rem, 1rem + 3vw, 4rem); }
+  .chapter + .chapter { padding-top: clamp(5rem, 3rem + 6vw, 8rem); }
+  .chapter-head { display: grid; gap: 0.8rem; margin-bottom: 2rem; max-width: 46rem; }
+  .chapter-title { font-size: var(--step-3); display: flex; align-items: baseline; gap: 0.8rem; }
+  .chapter-n {
+    font-size: 0.85rem; padding: 0.15rem 0.5rem; border-radius: 8px; border: var(--border);
+    background: var(--accent); color: var(--on-accent); translate: 0 -0.3em;
+  }
+  .chapter-intro { color: var(--ink-soft); }
+  .sample-inline {
+    display: flex; gap: 0.5rem; align-items: flex-start; font-size: var(--step--1); color: var(--ink);
+    border-left: 3px solid var(--accent); padding-left: 0.8rem;
+  }
+  .sample-inline :global(svg) { width: 1rem; height: 1rem; flex: none; margin-top: 0.2rem; color: var(--accent-ink); }
+
+  /* ----- trilho ----- */
+  .pro-viewport {
+    position: relative; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
+    scrollbar-width: none; padding-block: 1rem 1.5rem;
+  }
+  .pro-viewport::-webkit-scrollbar { display: none; }
+  .pro-track {
+    display: flex; gap: clamp(1rem, 0.5rem + 2vw, 2rem); width: max-content;
+    padding-inline: max(var(--gutter), (100vw - var(--max)) / 2);
+  }
+  .panel { width: min(86vw, 60rem); scroll-snap-align: center; }
+  .panel-inner {
+    height: 100%; display: grid; grid-template-columns: 1.15fr 1fr; overflow: clip;
+    background: var(--surface); border: var(--border); border-radius: var(--radius-lg);
+    box-shadow: 8px 8px 0 var(--accent-p);
+  }
+  .panel-media { border-right: var(--border); min-height: 22rem; background: var(--surface-2); }
+  .panel-body { display: grid; gap: 0.8rem; align-content: center; padding: clamp(1.2rem, 0.8rem + 1.5vw, 2.2rem); }
+  .panel-count {
+    justify-self: start; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.2rem 0.55rem; border: 1.5px solid var(--line-strong); border-radius: 6px;
+  }
+  .kicker { font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-ink); }
+  .panel-title { font-size: var(--step-3); }
+  .tagline { color: var(--ink-soft); font-size: var(--step-1); line-height: 1.35; }
+  .panel-cta { justify-self: start; margin-top: 0.4rem; }
+  .pro-foot { display: flex; align-items: center; gap: 1rem; }
+  .hint { font-size: 0.75rem; color: var(--ink-soft); white-space: nowrap; }
+  .progress { flex: 1; height: 4px; background: var(--line); border-radius: 4px; overflow: clip; }
+  .progress-bar { display: block; height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(var(--p, 0)); }
+
+  /* Fixado (desktop com movimento): o JS liga `.is-pinned` e move o trilho. */
+  :global(.motion-on) .pro.is-pinned .pro-viewport { overflow: visible; scroll-snap-type: none; }
+  :global(.motion-on) .pro.is-pinned .pro-track { will-change: transform; }
+
+  @media (max-width: 47.99rem) {
+    .panel-inner { grid-template-columns: 1fr; }
+    .panel-media { border-right: 0; border-bottom: var(--border); min-height: 0; aspect-ratio: 16 / 10; }
+  }
+
+  /* ----- grades ----- */
+  .grid { display: grid; gap: clamp(1.2rem, 0.8rem + 1.5vw, 2rem); grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
+  @media (min-width: 64rem) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .grid > :global(:nth-child(even)) { margin-top: 2.5rem; }
+    .grid { padding-bottom: 2.5rem; }
+  }
+</style>

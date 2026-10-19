@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+# termos que nunca podem aparecer no site publicado (ver scripts/guard-confidential.mjs)
+.confidential-denylist
+test-results/
+playwright-report/
+.lighthouseci/

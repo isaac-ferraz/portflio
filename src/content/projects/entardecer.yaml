@@ -1,0 +1,44 @@
+category: pessoal
+order: 9
+year: '2026'
+title: ENTARDECER
+accent: '#fb923c'
+kicker: { pt: Rede social de casamento, en: Wedding social network }
+tagline:
+  pt: Uma rede social que aguentou um casamento inteiro, em tempo real.
+  en: A social network that carried a whole wedding, in real time.
+summary:
+  pt: Feito para o casamento de amigos. Durante a festa, os convidados postavam fotos e vídeos, votavam em enquetes e jogavam bingo, com tudo projetado no telão. Depois, o app virou um museu permanente de memórias.
+  en: Built for friends' wedding. During the party guests posted photos and videos, voted in polls and played bingo, all shown on the big screen. Afterwards the app became a permanent memory museum.
+role:
+  pt: Desenvolvimento e design, do convite em QR code ao museu.
+  en: Development and design, from the QR-code invitation to the museum.
+stack: [Next.js 14, TypeScript, Prisma, Supabase, Realtime, PWA, Vitest, Playwright]
+highlights:
+  - pt: Feed em tempo real com upload comprimido no próprio celular e fila offline.
+    en: Real-time feed with on-device compressed uploads and an offline queue.
+  - pt: Modo telão, enquetes ao vivo, gamificação e um livro de memórias exportado em PDF, XLSX e DOCX.
+    en: Projector mode, live polls, gamification and a memory book exported to PDF, XLSX and DOCX.
+  - pt: RLS em todas as tabelas, URLs assinadas e um botão "apagar meus dados".
+    en: RLS on every table, signed URLs and a "delete my data" button.
+status: evento
+links: {}
+credits:
+  - { pt: Fotos do casal usadas com autorização., en: Photos of the couple used with permission. }
+cover: ../../assets/projects/entardecer/capa.jpg
+coverAlt:
+  pt: Tela de boas-vindas do app ENTARDECER entre duas fotos do casal.
+  en: The ENTARDECER welcome screen between two photos of the couple.
+gallery:
+  - src: ../../assets/projects/entardecer/boas-vindas.jpg
+    alt: { pt: Tela de boas-vindas do app., en: The app's welcome screen. }
+    caption: { pt: A porta de entrada — o convidado entra pelo QR code, sem cadastro., en: The front door — guests join through a QR code, with no sign-up. }
+  - src: ../../assets/projects/entardecer/o-pedido.jpg
+    alt: { pt: Foto do pedido de casamento., en: Photo of the proposal. }
+    kind: art
+  - src: ../../assets/projects/entardecer/primeiro-encontro.jpg
+    alt: { pt: Foto do casal no primeiro encontro., en: Photo of the couple's first date. }
+    kind: art
+  - src: ../../assets/projects/entardecer/maos-dadas.jpg
+    alt: { pt: O casal de mãos dadas., en: The couple holding hands. }
+    kind: art

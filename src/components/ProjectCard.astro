@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Cover from './Cover.astro';
+import Status from './Status.astro';
+import Icon from './Icon.astro';
+import { pick, projectPath, useTranslations, type Lang } from '~/i18n/utils';
+
+interface Props { project: CollectionEntry<'projects'>; lang: Lang }
+const { project, lang } = Astro.props;
+const p = project.data;
+const t = useTranslations(lang);
+const href = projectPath(project.id, lang);
+---
+
+<article class="card" style={`--accent-p: ${p.accent}`} data-reveal data-tilt>
+  <div class="card-media">
+    <Cover src={p.cover} alt={pick(p.coverAlt, lang)} sizes="(min-width: 64rem) 36vw, (min-width: 40rem) 50vw, 92vw" widths={[400, 640, 900]} vt={`cover-${project.id}`} />
+  </div>
+  <div class="card-body">
+    <p class="kicker mono">{pick(p.kicker, lang)} · {p.year}</p>
+    <h4 class="card-title"><a href={href} class="stretched">{p.title}</a></h4>
+    <p class="tagline">{pick(p.tagline, lang)}</p>
+    <div class="meta">
+      <Status lang={lang} status={p.status} />
+      {p.confidential && <span class="chip">{t('projects.confidential.short')}</span>}
+    </div>
+    <ul class="chip-list stack" role="list" aria-label="Stack">
+      {p.stack.slice(0, 4).map((s) => <li class="chip">{s}</li>)}
+    </ul>
+    <span class="go" aria-hidden="true">{t('projects.open')}<Icon name="arrowRight" /></span>
+  </div>
+</article>
+
+<style>
+  .card {
+    position: relative; display: grid; grid-template-rows: auto 1fr;
+    background: var(--surface); border: var(--border); border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-comic); overflow: clip;
+    transition: box-shadow 0.25s var(--ease-out), translate 0.25s var(--ease-out);
+    transform-style: preserve-3d;
+  }
+  .card:hover, .card:focus-within { translate: -3px -3px; box-shadow: 9px 9px 0 var(--accent-p); }
+  .card-media { aspect-ratio: 16 / 10; border-bottom: var(--border); overflow: clip; background: var(--surface-2); }
+  .card-media :global(img) { transition: scale 0.6s var(--ease-out); }
+  .card:hover .card-media :global(img) { scale: 1.04; }
+  .card-body { display: grid; gap: 0.7rem; align-content: start; padding: 1.2rem 1.3rem 1.4rem; }
+  .kicker { font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-ink); }
+  .card-title { font-size: var(--step-2); }
+  .stretched { text-decoration: none; }
+  .stretched::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+  .stretched:focus-visible { outline: none; }
+  .card:has(.stretched:focus-visible) { outline: 3px solid var(--accent-ink); outline-offset: 4px; }
+  .tagline { color: var(--ink-soft); }
+  .meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .go { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700; margin-top: 0.3rem; }
+  .go :global(svg) { width: 1.1rem; height: 1.1rem; transition: translate 0.2s; }
+  .card:hover .go :global(svg) { translate: 4px 0; }
+</style>

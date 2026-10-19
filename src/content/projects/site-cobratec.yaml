@@ -1,0 +1,34 @@
+category: profissional
+order: 3
+year: '2026'
+org: Cobratec
+title: Site Grupo Cobratec
+accent: '#d4a72c'
+kicker: { pt: Site institucional, en: Corporate website }
+tagline:
+  pt: O site de uma empresa fundada em 1987, rápido, acessível e no ar.
+  en: The website of a company founded in 1987 — fast, accessible and live.
+summary:
+  pt: Site institucional do Grupo Cobratec com doze seções, formulário de contato protegido, páginas legais de LGPD e SEO completo. Construído com quase nenhuma dependência e metas de Lighthouse verificadas no CI.
+  en: Corporate website for Grupo Cobratec with twelve sections, a protected contact form, LGPD legal pages and complete SEO. Built with almost no dependencies and Lighthouse targets enforced in CI.
+role:
+  pt: Desenvolvedor de ponta a ponta — conteúdo com a diretoria, design, código e publicação.
+  en: End-to-end developer — content with the board, design, code and publishing.
+stack: [Next.js 14, TypeScript, Tailwind CSS, Resend, Vitest, Lighthouse CI, PHP]
+highlights:
+  - pt: Formulário com validação Zod, honeypot, limite de requisições e checagem de origem.
+    en: Form with Zod validation, honeypot, rate limiting and origin checks.
+  - pt: Imagens Open Graph geradas dinamicamente, sitemap, robots e política de cookies.
+    en: Dynamically generated Open Graph images, sitemap, robots and cookie policy.
+  - pt: Metas de Lighthouse no CI — performance acima de 90 e acessibilidade, boas práticas e SEO acima de 95.
+    en: Lighthouse targets in CI — performance above 90 and accessibility, best practices and SEO above 95.
+  - pt: Build estático alternativo para a hospedagem compartilhada da empresa.
+    en: Alternative static build for the company's shared hosting.
+status: producao
+links:
+  live: https://cobratecsp.com.br/
+confidential: true
+cover: ../../assets/projects/site-cobratec/home.jpg
+coverAlt:
+  pt: Página inicial do site do Grupo Cobratec.
+  en: Grupo Cobratec website home page.

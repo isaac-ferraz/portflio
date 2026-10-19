@@ -1,0 +1,119 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { education } from '~/data/profile';
+import { pick, useTranslations, type Lang } from '~/i18n/utils';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const name = (n: string | { pt: string; en: string }) => (typeof n === 'string' ? n : pick(n, lang));
+---
+
+<section class="section education" id="education" aria-labelledby="edu-title" data-section="education">
+  <div class="wrap">
+    <SectionHeading num="05" id="edu-title" title={t('edu.title')} accent={t('edu.accent')} />
+    <div class="edu-grid">
+      <section class="box degrees" aria-labelledby="edu-degree" data-reveal>
+        <h3 id="edu-degree">{t('edu.degree')}</h3>
+        <ol role="list" class="timeline">
+          {education.degrees.map((d) => (
+            <li>
+              <p class="when mono">{pick(d.when, lang)}</p>
+              <p class="what">{pick(d.title, lang)}</p>
+              <p class="where">{d.where}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="box awards" aria-labelledby="edu-awards" data-reveal>
+        <h3 id="edu-awards">{t('edu.awards')}</h3>
+        <ul role="list" class="stamps">
+          {education.awards.map((a, i) => (
+            <li class="stamp" style={`--r:${[-8, 5, -3][i]}deg`} data-stamp>
+              <span class="medal" aria-hidden="true">{a.short}</span>
+              <span class="medal-name">{pick(a.name, lang)}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="box courses" aria-labelledby="edu-courses" data-reveal>
+        <h3 id="edu-courses">{t('edu.courses')}</h3>
+        <ul role="list" class="course-list">
+          {education.courses.map((c) => (
+            <li>
+              <span class="course-name">{name(c.name)}</span>
+              <span class="course-by">{c.by}</span>
+              <span class="chip status" data-status={c.done ? 'producao' : 'andamento'}>{c.done ? t('edu.done') : t('edu.ongoing')}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="box langs" aria-labelledby="edu-langs" data-reveal>
+        <h3 id="edu-langs">{t('edu.langs')}</h3>
+        <ul role="list" class="lang-list">
+          {education.languages.map((l) => (
+            <li>
+              <span class="lang-row"><span>{pick(l.name, lang)}</span><span class="mono lvl">{pick(l.level, lang)}</span></span>
+              <span class="meter" aria-hidden="true"><span style={`--v:${l.value / 100}`}></span></span>
+            </li>
+          ))}
+        </ul>
+        <h3 class="soft-title">{t('edu.soft')}</h3>
+        <ul role="list" class="chip-list">
+          {education.soft[lang].map((s) => <li class="chip">{s}</li>)}
+        </ul>
+      </section>
+    </div>
+  </div>
+</section>
+
+<style>
+  .edu-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(12, 1fr); }
+  .box {
+    background: var(--surface); border: var(--border); border-radius: var(--radius-lg);
+    padding: clamp(1.2rem, 0.9rem + 1.2vw, 2rem); box-shadow: var(--shadow-comic);
+  }
+  .degrees { grid-column: span 7; }
+  .awards { grid-column: span 5; background: var(--accent); color: var(--on-accent); }
+  .courses { grid-column: span 7; }
+  .langs { grid-column: span 5; }
+  h3 { font-size: var(--step-1); margin-bottom: 1.2rem; }
+  .timeline { display: grid; gap: 1.2rem; }
+  .timeline li { border-left: 3px solid var(--accent); padding-left: 1rem; }
+  .when { font-size: 0.78rem; color: var(--accent-ink); }
+  .what { font-weight: 700; font-size: var(--step-1); line-height: 1.25; }
+  .where { color: var(--ink-soft); }
+
+  .stamps { display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: space-around; }
+  .stamp { display: grid; justify-items: center; gap: 0.5rem; width: 8.5rem; text-align: center; rotate: var(--r); }
+  .medal {
+    display: grid; place-items: center; width: 5.2rem; height: 5.2rem; border-radius: 50%;
+    border: 3px dashed var(--on-accent); outline: 3px solid var(--on-accent); outline-offset: 4px;
+    font-family: var(--font-comic); font-size: 1.6rem; letter-spacing: 0.04em; background: #fff6cf;
+  }
+  .medal-name { font-size: 0.85rem; font-weight: 700; line-height: 1.2; }
+
+  .course-list { display: grid; gap: 0.2rem; }
+  .course-list li {
+    display: grid; grid-template-columns: 1fr auto; gap: 0.1rem 1rem; align-items: center;
+    padding-block: 0.7rem; border-bottom: 1px solid var(--line);
+  }
+  .course-list li:last-child { border-bottom: 0; }
+  .course-name { font-weight: 650; }
+  .course-by { grid-row: 2; color: var(--ink-soft); font-size: var(--step--1); }
+  .course-list .status { grid-row: span 2; }
+
+  .lang-list { display: grid; gap: 1rem; margin-bottom: 1.6rem; }
+  .lang-row { display: flex; justify-content: space-between; font-weight: 650; margin-bottom: 0.35rem; }
+  .lvl { font-size: 0.78rem; color: var(--ink-soft); }
+  .meter { display: block; height: 0.7rem; border: 2px solid var(--line-strong); border-radius: 999px; overflow: clip; }
+  .meter span { display: block; height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(var(--v)); }
+  .soft-title { margin-bottom: 0.8rem; }
+
+  @media (max-width: 63.99rem) {
+    .degrees, .awards, .courses, .langs { grid-column: 1 / -1; }
+  }
+</style>

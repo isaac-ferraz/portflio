@@ -1,170 +1,102 @@
-# Portfólio Acadêmico — Isaac Ferraz de Oliveira
+# Portfólio — Isaac Ferraz de Oliveira
 
-Portfólio acadêmico digital do curso de **Análise e Desenvolvimento de Sistemas**
-da **FATEC São José dos Campos — Prof. Jessen Vidal**.
+Portfólio de desenvolvedor full-stack, estudante de **Análise e Desenvolvimento de
+Sistemas** na **FATEC São José dos Campos — Prof. Jessen Vidal** (RA 1460482611003).
 
-- **No ar:** <https://isaac-ferraz.github.io>
-- **RA:** 1460482611003
+- **No ar:** <https://isaac-ferraz.github.io/portflio/> (PT-BR) · <https://isaac-ferraz.github.io/portflio/en/> (EN)
+- A versão anterior, em estilo Windows XP / Frutiger Aero e sem JavaScript, continua no histórico do git (até o commit `cb38054`).
 
----
+## O que tem aqui
 
-## Sobre a construção
+Uma página única com rolagem coreografada, em seis seções numeradas no estilo de HQ:
+**Sobre**, **Jornada**, **Ferramentas**, **Projetos** (profissionais, acadêmicos e
+pessoais), **Formação** e **Contato**. Cada projeto tem também uma página própria.
 
-O portfólio é avaliado também pela técnica de construção, então ele foi feito à
-mão, sem framework:
+| Seção | No desktop | No celular/tablet |
+| --- | --- | --- |
+| Hero | Nome entrando letra a letra (só CSS), personagem recortado e balões que se afastam com o scroll; a retícula segue o mouse | Personagem acima do nome, mesma entrada |
+| Sobre | Manifesto fixado; as palavras acendem com o scroll | Acendem com o scroll, sem fixar |
+| Jornada | Caminho em SVG que se desenha passando por seis quadrinhos | Linha vertical que se preenche |
+| Ferramentas | Letreiros cuja velocidade e inclinação seguem o scroll + grade de habilidades | Um letreiro + grade |
+| Profissionais | Trilho horizontal fixado, com snap, contador e barra de progresso | Carrossel nativo com `scroll-snap` |
+| Acadêmicos e Pessoais | Grade escalonada, reveal e tilt no hover | Uma coluna |
 
-| Restrição | Como foi resolvido |
+Um mascote no canto acompanha a leitura: a fala muda a cada seção e o clique leva à próxima.
+
+## Stack
+
+| | |
 | --- | --- |
-| **Zero JavaScript** | Nenhuma tag `<script>` no projeto. A navegação usa âncoras e `:target`; o menu Iniciar, o botão de minimizar de cada janela e o zoom das capturas usam o *checkbox hack* (`:checked +`); as seções expansíveis usam `<details>`/`<summary>` nativos. |
-| **Só HTML e CSS** | Sem Bootstrap, sem build, sem dependências. O site é servido como está. |
-| **Grid e Flexbox** | As seções de projetos e de competências são `display: grid`, com as colunas declaradas em fração (`1fr`, `repeat(2, 1fr)`) e a quantidade delas decidida por media query em `em`. Os cartões, por dentro, são Flexbox em coluna. |
-| **Identidade visual** | Frutiger Aero + Windows XP (Luna) + Windows 7 (Aero Glass): janelas com barra de título de vidro, barra de tarefas, botões *gel* e papel de parede vetorial. |
+| Framework | [Astro 7](https://astro.build) (site estático), TypeScript no modo `strictest` |
+| Conteúdo | Content collections com schema Zod — um YAML bilíngue por projeto em `src/content/projects/` |
+| Idiomas | i18n do Astro: PT-BR sem prefixo, inglês em `/en/`; textos de interface em `src/i18n/ui.ts` |
+| CSS | Escrito à mão, com `@layer`, tokens em custom properties e tema claro/escuro via `light-dark()` |
+| Movimento | GSAP 3 (ScrollTrigger) + Lenis, dentro de `gsap.matchMedia()` (desktop, celular, movimento reduzido) |
+| Transições | View Transitions nativas entre documentos: a capa do card "vira" a página do projeto |
+| Imagens | `astro:assets` → AVIF/WebP em larguras responsivas; imagens OG geradas no build com satori + resvg |
+| Testes | Playwright + axe-core |
 
-### Estrutura
+## Desempenho e acessibilidade
 
-```
-.
-├── index.html          # página única, HTML semântico
-├── css/
-│   ├── tokens.css      # cores, gradientes, sombras, escala tipográfica
-│   ├── reset.css
-│   ├── chrome.css      # janelas, barra de título, barra de tarefas, menu Iniciar
-│   ├── components.css  # botões gel, etiquetas, selos, escala de competências
-│   ├── layout.css      # grid/flex das seções + responsivo
-│   └── main.css        # único <link> do HTML; importa os demais
-└── img/
-    ├── perfil-*.jpg    # foto de perfil (quadrada, 512 e 1024)
-    ├── wallpaper.svg   # papel de parede Aero, vetorial
-    ├── icons/          # ícones das barras de título
-    └── projetos/       # capturas e diagramas dos projetos
-```
+- **JS inicial: ~3 KB gzip.** GSAP e Lenis (~51 KB gzip) só são baixados na primeira
+  interação (scroll, toque, mouse ou teclado). Quem pede movimento reduzido nunca os baixa,
+  e todo o conteúdo já aparece na primeira pintura.
+- A entrada do hero é feita só com `transform` em CSS: o texto é pintado já no primeiro
+  quadro e não atrasa o LCP. Animações em loop usam só `transform`/`opacity`, e os
+  letreiros pausam fora da tela.
+- Lighthouse (celular): **99 / 100 / 100 / 100** na home e **100 / 100 / 100 / 100** nas
+  páginas de projeto; CLS ≈ 0.
+- axe-core sem violações (WCAG 2.1 AA) nos dois temas; skip link, foco visível, lightbox
+  em `<dialog>` (Esc fecha e devolve o foco) e trilho fixado navegável por teclado.
 
-O contato é feito por botões (e-mail, LinkedIn, GitHub) — não há PDF de
-currículo para baixar; as informações curriculares ficam na própria página.
+## Confidencialidade
 
-O CSS é dividido por responsabilidade e reunido em `main.css` com `@import`, para
-o HTML carregar uma folha só.
+Os projetos da Cobratec mostram **dados de exemplo**, com aviso no card, na página e na
+galeria. Depois de todo build, `scripts/guard-confidential.mjs` falha se o `dist/` tiver
+IP privado, a porta `:5432`, EXIF em alguma imagem ou um termo do `.confidential-denylist`
+(arquivo local, fora do git).
 
-### Minimizar e ampliar, sem JavaScript
+## Comandos
 
-Os dois usam o mesmo padrão do menu Iniciar: um `<input type="checkbox">`
-escondido logo antes do elemento, e um `<label>` que serve de botão.
-
-- **Minimizar** — o `_` da barra de título é um `<label>`; com
-  `.min-toggle:checked + .window .window__body { display: none }` sobra só a
-  barra, como uma janela enrolada. O botão fica âmbar enquanto está minimizada.
-- **Ampliar a captura** — o `<label>` envolve a imagem; ao marcar, a imagem
-  larga o corte `aspect-ratio: 2/1` e cresce até `min(78vh, 820px)`.
-
-A ampliação acontece **no lugar**, e não numa sobreposição em tela cheia: uma
-*lightbox* exigiria um bloco de markup duplicado por captura, e o
-`position: fixed` não sobreviveria dentro do cartão de qualquer forma —
-`.window` usa `backdrop-filter` e `.project:hover` usa `transform`, e os dois
-criam bloco de contenção para descendentes fixos.
-
-Dois casos fogem desse comportamento padrão, porque neles crescer em altura não
-ajudaria:
-
-- **Tira panorâmica** (`.shot--wide`, o fluxo do n8n em 1581 × 283) — a moldura
-  assume a proporção da própria imagem em vez do corte 2:1, que engoliria
-  metade dos nós. Ampliada, ela volta ao tamanho nativo e é a **moldura** que
-  rola na horizontal (`overflow-x: auto`), porque ali o que interessa é ler o
-  rótulo de cada nó, não ver a tira maior.
-- **Captura dentro de cartão largo** — ampliada, ela larga a sua coluna com
-  `grid-column: 1 / -1` e toma o cartão inteiro. Sem isso, "ampliar" devolveria
-  a mesma imagem no mesmo tamanho.
-
-### Colunas em fração, não em pixel
-
-As grades declaram a coluna em `fr` e deixam a quantidade de colunas para a
-media query. A alternativa comum — `repeat(auto-fit, minmax(300px, 1fr))` —
-esconde a decisão dentro de uma largura mínima e produz o número de colunas que
-couber, que nem sempre divide certo a quantidade de itens: em `.cards`, com
-quatro caixas, o passo de três colunas deixava a segunda linha com um cartão e
-dois buracos.
-
-Vale registrar por que o `auto-fit` não se corrigia sozinho em `.projects`: ele
-só recolhe trilha vazia quando **ninguém referencia a linha `-1`**, e é
-exatamente o que os cartões `.project--wide` fazem para ocupar a linha inteira.
-
-Os pontos de virada estão em `em` (não em `px`), então a coluna quebra quando o
-texto pede — acompanhando quem aumentou a fonte padrão do navegador — e não
-quando o dispositivo tem tantos pixels:
-
-| grade | colunas |
-| --- | --- |
-| `.two-col` | 1 → 2 em `37.5em` |
-| `.skills-grid` | 1 → 2 em `43.75em` → 3 em `63.75em` |
-| `.projects` | 1 → 2 em `55.5em` |
-| `.cards` | 1 → 2 em `35em` → 4 em `68em` |
-| `.api-grid` | sempre 1 |
-
-### O topo do cartão largo
-
-Nos dois projetos de linha inteira a captura fica **ao lado** do texto, não
-acima dele (`.project__top`, duas colunas a partir de `55.5em`). Empilhada, ela
-crescia junto com o cartão: `aspect-ratio: 2/1` em 1130px dá 547px de altura —
-metade do cartão — e o texto virava legenda da foto, enquanto nos cartões
-estreitos a mesma captura ocupava um terço. Lado a lado, a largura que sobrava
-vai para o texto e a imagem volta à escala dos vizinhos (538 × 269 contra
-517 × 259). Abaixo do ponto de virada o cartão largo não tem largura sobrando
-para dividir, então tudo volta a empilhar.
-
----
-
-## Rodar localmente
-
-Não há build. Qualquer servidor estático serve:
-
-```bash
-python3 -m http.server 5500
-# abra http://localhost:5500
+```sh
+npm install
+npm run dev        # servidor de desenvolvimento
+npm run check      # astro check (tipos)
+npm run build      # build + guarda de confidencialidade + checagem dos links com /portflio/
+npm run preview    # serve o build em http://localhost:4321/portflio/
+npm run test:e2e   # Playwright + axe (rodar depois do build)
 ```
 
-Abrir o `index.html` direto pelo `file://` também funciona.
+## Estrutura
 
----
+```
+src/
+  assets/hero/         personagem recortado e busto do mascote
+  assets/projects/     imagens de cada projeto
+  components/          seções da home, cards, página de detalhe, mascote, lightbox
+  content/projects/    um YAML bilíngue por projeto
+  data/                perfil, jornada, habilidades, formação
+  i18n/                textos de interface e utilitários de rota
+  pages/               rotas PT, EN e imagens OG
+  scripts/site.ts      comportamento leve de todas as páginas
+  scripts/motion.ts    coreografia de scroll (carregada sob demanda)
+  styles/              tokens e base
+scripts/               guarda de confidencialidade, checagem de links, recorte do personagem
+tests/                 Playwright + axe
+```
 
-## Qualidade verificada
+## Deploy
 
-- **HTML** — Nu HTML Checker (W3C): 0 erros, 0 avisos.
-- **CSS** — validador do W3C (perfil CSS3 + SVG), nos seis arquivos: 0 erros, 0 avisos.
-- **Acessibilidade** — axe-core (WCAG 2.1 A e AA) em 1440px e 375px: 0 violações.
-- **Contraste** — os fundos de vidro e degradê, que o axe não consegue medir,
-  foram conferidos à mão contra os equivalentes opacos; todos passam em AA.
-- **Responsivo** — sem rolagem horizontal em nenhuma largura de 320 a 1600px
-  (varredura de 4 em 4 pixels, com todos os `<details>` abertos e as imagens
-  carregadas, que é o estado em que a página fica mais larga).
-- **Movimento** — `prefers-reduced-motion` desliga animações e rolagem suave.
-- **Impressão** — `@media print` remove o cromo da janela e mantém o conteúdo legível.
+GitHub Actions (`.github/workflows/deploy.yml`) faz o build e publica no GitHub Pages a
+cada push na `master`. O Pages do repositório precisa estar com a fonte em **GitHub Actions**.
 
-O contraste é o único item da lista conferido à mão; os demais são reexecutáveis
-e foram rodados de novo na versão atual dos arquivos.
+## Recorte do personagem
 
----
+`scripts/cutout.py` remove o fundo da ilustração com `rembg` (modelo `isnet-general-use`).
+Rode sempre com teto de memória — numa máquina de 7 GB, o modelo `birefnet` passou de
+9 GB e foi morto pelo sistema:
 
-## Conteúdo
-
-Segue a estrutura mínima pedida no roteiro da disciplina: apresentação pessoal,
-competências técnicas em escala declarada (1 a 5, sem percentuais), projetos
-acadêmicos (API), projetos profissionais, projetos pessoais, informações
-curriculares e contato.
-
-### Dados e privacidade
-
-Os projetos profissionais descrevem sistemas internos de uma empresa, então o
-conteúdo obedece a três regras — que valem tanto para o texto quanto para as
-imagens:
-
-- **Nenhum dado real.** Valores, CPFs e acordos que aparecem em captura ou
-  ilustração vêm de base de homologação ou são fictícios, e a própria página
-  declara isso no texto de cada projeto.
-- **O nome do sistema de cobrança não aparece.** No texto ele é chamado de
-  "Sistema de Cobranças da empresa". Na captura do fluxo do n8n ele está
-  borrado **dentro do próprio arquivo PNG** — mosaico com máscara suavizada, não
-  um filtro CSS por cima, que qualquer pessoa desligaria pelo inspetor.
-- **Nenhuma entrega de cliente é exibida.** O Web Studio é ilustrado por um
-  diagrama do processo (`web-studio-processo.svg`), não pelo site de um cliente.
-- **O portfólio do Eric Mac** aparece pela tela do próprio site, que já é
-  público e foi feito para ser mostrado; os trabalhos que se veem na captura são
-  dele e estão publicados no Behance dele.
+```sh
+systemd-run --user --scope -p MemoryMax=1800M -p MemorySwapMax=256M \
+  venv/bin/python scripts/cutout.py ilustracao.jpg saida/ isnet-general-use
+```

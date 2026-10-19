@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '~/layouts/Base.astro';
+import Hero from './Hero.astro';
+import About from './About.astro';
+import Journey from './Journey.astro';
+import Tools from './Tools.astro';
+import Projects from './Projects.astro';
+import Education from './Education.astro';
+import Contact from './Contact.astro';
+import Mascot from './Mascot.astro';
+import { useTranslations, type Lang } from '~/i18n/utils';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base lang={lang} title={t('meta.title')} description={t('meta.description')} og={`og/${lang}/index.png`} home>
+  <div data-motion>
+    <Hero lang={lang} />
+    <About lang={lang} />
+    <Journey lang={lang} />
+    <Tools lang={lang} />
+    <Projects lang={lang} projects={projects} />
+    <Education lang={lang} />
+    <Contact lang={lang} />
+  </div>
+  <Mascot lang={lang} slot="after" />
+</Base>
