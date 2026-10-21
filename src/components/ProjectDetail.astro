@@ -7,6 +7,7 @@ import Icon from './Icon.astro';
 import Status from './Status.astro';
 import SampleNote from './SampleNote.astro';
 import Lightbox from './Lightbox.astro';
+import { phases } from '~/data/phases';
 import { homePath, pick, projectPath, useTranslations, type Lang } from '~/i18n/utils';
 
 interface Props { lang: Lang; slug: string }
@@ -30,6 +31,7 @@ const gallery = await Promise.all(
     full: g.src.format === 'svg' ? g.src.src : (await getImage({ src: g.src, width: Math.min(g.src.width, 1800), format: 'webp' })).src,
   })),
 );
+const work = [...p.work].sort((a, b) => phases.indexOf(a.phase) - phases.indexOf(b.phase));
 const phones = gallery.filter((g) => g.kind === 'phone');
 const others = gallery.filter((g) => g.kind !== 'phone');
 const title = `${p.title} — ${pick(p.kicker, lang)} | Isaac Ferraz`;
@@ -69,6 +71,19 @@ const title = `${p.title} — ${pick(p.kicker, lang)} | Isaac Ferraz`;
             ))}
           </ul>
         )}
+
+        <section aria-labelledby="h-work">
+          <h2 id="h-work">{t('detail.work')}</h2>
+          <p class="work-intro">{t('detail.work.intro')}</p>
+          <ol class="work" role="list">
+            {work.map((w) => (
+              <li>
+                <span class="w-phase mono">{t(`phase.${w.phase}`)}</span>
+                <p>{pick(w.text, lang)}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
 
         <section aria-labelledby="h-highlights">
           <h2 id="h-highlights">{t('detail.highlights')}</h2>
@@ -187,6 +202,18 @@ const title = `${p.title} — ${pick(p.kicker, lang)} | Isaac Ferraz`;
     content: counter(h, decimal-leading-zero); font-family: var(--font-mono); font-weight: 700;
     color: var(--accent-ink); padding-top: 0.1rem;
   }
+  .work-intro { color: var(--ink-soft); margin: -0.5rem 0 1.2rem; }
+  .work { position: relative; display: grid; gap: 1.1rem; padding-left: 1.9rem; }
+  .work::before {
+    content: ''; position: absolute; left: 0.45rem; top: 0.5rem; bottom: 0.5rem; width: 2px;
+    background: var(--line); border-radius: 2px;
+  }
+  .work li { position: relative; display: grid; gap: 0.2rem; }
+  .work li::before {
+    content: ''; position: absolute; left: -1.9rem; top: 0.2rem; width: 1rem; height: 1rem;
+    border-radius: 50%; background: var(--accent-p); border: var(--border);
+  }
+  .w-phase { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); }
   .bullets { display: grid; gap: 0.5rem; padding-left: 1.2rem; }
   .bullets li::marker { color: var(--accent-ink); }
 

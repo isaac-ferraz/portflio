@@ -4,29 +4,48 @@ year: '2026'
 org: Cobratec
 title: Cobratec Negocia
 accent: '#25d366'
-kicker: { pt: Negociação no WhatsApp, en: WhatsApp negotiation }
+kicker: { pt: "Negociação no WhatsApp", en: "WhatsApp negotiation" }
 tagline:
   pt: Um acordo de ponta a ponta sem sair da conversa do WhatsApp.
   en: An agreement from start to finish without leaving the WhatsApp chat.
 summary:
-  pt: API em FastAPI sobre a WhatsApp Cloud API da Meta. Um bot conduz o devedor por um WhatsApp Flow — código de acesso, termos, parcelas, revisão e assinatura — até registrar a proposta, com transferência para atendente quando preciso.
-  en: A FastAPI service on Meta's WhatsApp Cloud API. A bot guides the debtor through a WhatsApp Flow — access code, terms, instalments, review and signature — until the proposal is registered, handing off to a human agent when needed.
+  pt: Serviço integrado à WhatsApp Cloud API da Meta. Um bot conduz o devedor por um WhatsApp Flow — código de acesso, termos, parcelas, revisão e assinatura — até registrar a proposta, com transferência para atendente quando preciso.
+  en: A service integrated with Meta's WhatsApp Cloud API. A bot guides the debtor through a WhatsApp Flow — access code, terms, instalments, review and signature — until the proposal is registered, handing off to a human agent when needed.
 role:
   pt: Desenvolvedor, em dupla — fluxo do Flow, criptografia, ciclo da proposta e testes.
   en: Developer, in a pair — the Flow journey, encryption, proposal lifecycle and tests.
-stack: [Python 3.12, FastAPI, SQLAlchemy async, PostgreSQL, WhatsApp Cloud API, n8n, pytest, Docker]
+stack: [Python, FastAPI, PostgreSQL, WhatsApp Cloud API]
+work:
+  - phase: planejamento
+    text:
+      pt: "Em dupla, desenhamos a jornada de negociação, do convite à assinatura."
+      en: "In a pair, we mapped the negotiation journey, from invitation to signature."
+  - phase: design
+    text:
+      pt: "Telas do WhatsApp Flow — acesso, termos, parcelas, revisão e assinatura."
+      en: "The WhatsApp Flow screens — access, terms, instalments, review and signature."
+  - phase: desenvolvimento
+    text:
+      pt: "Integração com o WhatsApp, segurança do endpoint e o ciclo da proposta."
+      en: "WhatsApp integration, endpoint security and the proposal lifecycle."
+  - phase: testes
+    text:
+      pt: "Suíte com 58 testes automatizados."
+      en: "A suite of 58 automated tests."
+  - phase: deploy
+    text:
+      pt: "Deploy automatizado e repetível."
+      en: "Automated, repeatable deployment."
 highlights:
-  - pt: Endpoint do Flow com criptografia RSA-OAEP + AES-GCM e webhooks validados por assinatura.
-    en: Flow endpoint with RSA-OAEP + AES-GCM encryption and signature-validated webhooks.
-  - pt: Ciclo da proposta como máquina de estados — pendente, assinada, efetivada, cancelada ou expirada.
-    en: Proposal lifecycle as a state machine — pending, signed, settled, cancelled or expired.
-  - pt: CPF apagado ao fim da sessão e versão dos termos gravada junto do aceite.
-    en: Personal ID erased at the end of the session, with the terms version stored next to the acceptance.
-  - pt: Deploy idempotente em 8 passos, scriptado.
-    en: Idempotent, scripted 8-step deployment.
+  - pt: Conversa criptografada com o WhatsApp e mensagens de entrada autenticadas.
+    en: Encrypted exchange with WhatsApp and authenticated incoming messages.
+  - pt: Cada proposta com um ciclo claro — pendente, assinada, efetivada, cancelada ou expirada.
+    en: Every proposal follows a clear lifecycle — pending, signed, settled, cancelled or expired.
+  - pt: Dados pessoais apagados ao fim da sessão e versão dos termos guardada junto do aceite.
+    en: Personal data erased at the end of the session, with the terms version stored next to the acceptance.
 metrics:
-  - { value: '58', label: { pt: testes, en: tests } }
-  - { value: '6', label: { pt: etapas no Flow, en: Flow steps } }
+  - { value: '58', label: { pt: "testes", en: "tests" } }
+  - { value: '6', label: { pt: "etapas no Flow", en: "Flow steps" } }
 status: andamento
 links: {}
 confidential: true
@@ -42,21 +61,21 @@ coverAlt:
 gallery:
   - src: ../../assets/projects/cobratec-negocia/01-convite.png
     kind: phone
-    alt: { pt: Convite para negociar., en: Invitation to negotiate. }
-    caption: { pt: 1 · Convite, en: 1 · Invitation }
+    alt: { pt: "Convite para negociar.", en: "Invitation to negotiate." }
+    caption: { pt: "1 · Convite", en: "1 · Invitation" }
   - src: ../../assets/projects/cobratec-negocia/02-acesso.png
     kind: phone
-    alt: { pt: Tela de código de acesso., en: Access code screen. }
-    caption: { pt: 2 · Código de acesso, en: 2 · Access code }
+    alt: { pt: "Tela de código de acesso.", en: "Access code screen." }
+    caption: { pt: "2 · Código de acesso", en: "2 · Access code" }
   - src: ../../assets/projects/cobratec-negocia/03-parcelas.png
     kind: phone
-    alt: { pt: Escolha das parcelas., en: Choosing instalments. }
-    caption: { pt: 3 · Parcelas, en: 3 · Instalments }
+    alt: { pt: "Escolha das parcelas.", en: "Choosing instalments." }
+    caption: { pt: "3 · Parcelas", en: "3 · Instalments" }
   - src: ../../assets/projects/cobratec-negocia/04-revisao.png
     kind: phone
-    alt: { pt: Revisão da proposta., en: Proposal review. }
-    caption: { pt: 4 · Revisão, en: 4 · Review }
+    alt: { pt: "Revisão da proposta.", en: "Proposal review." }
+    caption: { pt: "4 · Revisão", en: "4 · Review" }
   - src: ../../assets/projects/cobratec-negocia/05-assinatura.png
     kind: phone
-    alt: { pt: Assinatura da proposta., en: Signing the proposal. }
-    caption: { pt: 5 · Assinatura, en: 5 · Signature }
+    alt: { pt: "Assinatura da proposta.", en: "Signing the proposal." }
+    caption: { pt: "5 · Assinatura", en: "5 · Signature" }

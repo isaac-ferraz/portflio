@@ -3,7 +3,7 @@ order: 9
 year: '2026'
 title: ENTARDECER
 accent: '#fb923c'
-kicker: { pt: Rede social de casamento, en: Wedding social network }
+kicker: { pt: "Rede social de casamento", en: "Wedding social network" }
 tagline:
   pt: Uma rede social que aguentou um casamento inteiro, em tempo real.
   en: A social network that carried a whole wedding, in real time.
@@ -13,32 +13,57 @@ summary:
 role:
   pt: Desenvolvimento e design, do convite em QR code ao museu.
   en: Development and design, from the QR-code invitation to the museum.
-stack: [Next.js 14, TypeScript, Prisma, Supabase, Realtime, PWA, Vitest, Playwright]
+stack: [Next.js, TypeScript, PostgreSQL, PWA]
+work:
+  - phase: planejamento
+    text:
+      pt: "Defini com os noivos o que o app precisava ter, do convite ao pós-festa."
+      en: "Worked out with the couple what the app needed, from the invitation to after the party."
+  - phase: design
+    text:
+      pt: "Design do app inteiro, do convite em QR code ao museu de memórias."
+      en: "Design of the whole app, from the QR-code invitation to the memory museum."
+  - phase: desenvolvimento
+    text:
+      pt: "Feed em tempo real, enquetes, bingo, modo telão e fila offline para internet ruim."
+      en: "Real-time feed, polls, bingo, projector mode and an offline queue for bad connections."
+  - phase: testes
+    text:
+      pt: "Testes automatizados antes do grande dia — não tinha segunda chance."
+      en: "Automated tests before the big day — there was no second chance."
+  - phase: deploy
+    text:
+      pt: "No ar durante a festa inteira, com todos os convidados ao mesmo tempo."
+      en: "Live for the whole party, with every guest on it at once."
+  - phase: manutencao
+    text:
+      pt: "Depois da festa, virou um museu permanente de memórias, com livro exportável."
+      en: "After the party, it became a permanent memory museum with an exportable book."
 highlights:
   - pt: Feed em tempo real com upload comprimido no próprio celular e fila offline.
     en: Real-time feed with on-device compressed uploads and an offline queue.
   - pt: Modo telão, enquetes ao vivo, gamificação e um livro de memórias exportado em PDF, XLSX e DOCX.
     en: Projector mode, live polls, gamification and a memory book exported to PDF, XLSX and DOCX.
-  - pt: RLS em todas as tabelas, URLs assinadas e um botão "apagar meus dados".
-    en: RLS on every table, signed URLs and a "delete my data" button.
+  - pt: Privacidade levada a sério — cada um só vê o que deve, mídias protegidas e um botão "apagar meus dados".
+    en: Privacy taken seriously — everyone sees only what they should, protected media and a "delete my data" button.
 status: evento
 links: {}
 credits:
-  - { pt: Fotos do casal usadas com autorização., en: Photos of the couple used with permission. }
+  - { pt: "Fotos do casal usadas com autorização.", en: "Photos of the couple used with permission." }
 cover: ../../assets/projects/entardecer/capa.jpg
 coverAlt:
   pt: Tela de boas-vindas do app ENTARDECER entre duas fotos do casal.
   en: The ENTARDECER welcome screen between two photos of the couple.
 gallery:
   - src: ../../assets/projects/entardecer/boas-vindas.jpg
-    alt: { pt: Tela de boas-vindas do app., en: The app's welcome screen. }
-    caption: { pt: A porta de entrada — o convidado entra pelo QR code, sem cadastro., en: The front door — guests join through a QR code, with no sign-up. }
+    alt: { pt: "Tela de boas-vindas do app.", en: "The app's welcome screen." }
+    caption: { pt: "A porta de entrada — o convidado entra pelo QR code, sem cadastro.", en: "The front door — guests join through a QR code, with no sign-up." }
   - src: ../../assets/projects/entardecer/o-pedido.jpg
-    alt: { pt: Foto do pedido de casamento., en: Photo of the proposal. }
+    alt: { pt: "Foto do pedido de casamento.", en: "Photo of the proposal." }
     kind: art
   - src: ../../assets/projects/entardecer/primeiro-encontro.jpg
-    alt: { pt: Foto do casal no primeiro encontro., en: Photo of the couple's first date. }
+    alt: { pt: "Foto do casal no primeiro encontro.", en: "Photo of the couple's first date." }
     kind: art
   - src: ../../assets/projects/entardecer/maos-dadas.jpg
-    alt: { pt: O casal de mãos dadas., en: The couple holding hands. }
+    alt: { pt: "O casal de mãos dadas.", en: "The couple holding hands." }
     kind: art

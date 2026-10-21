@@ -4,26 +4,49 @@ year: '2026'
 org: Cobratec
 title: Site Grupo Cobratec
 accent: '#d4a72c'
-kicker: { pt: Site institucional, en: Corporate website }
+kicker: { pt: "Site institucional", en: "Corporate website" }
 tagline:
   pt: O site de uma empresa fundada em 1987, rápido, acessível e no ar.
   en: The website of a company founded in 1987 — fast, accessible and live.
 summary:
-  pt: Site institucional do Grupo Cobratec com doze seções, formulário de contato protegido, páginas legais de LGPD e SEO completo. Construído com quase nenhuma dependência e metas de Lighthouse verificadas no CI.
-  en: Corporate website for Grupo Cobratec with twelve sections, a protected contact form, LGPD legal pages and complete SEO. Built with almost no dependencies and Lighthouse targets enforced in CI.
+  pt: Site institucional do Grupo Cobratec com doze seções, formulário de contato protegido, páginas legais de LGPD e SEO completo. Leve, rápido e com metas de qualidade verificadas a cada mudança.
+  en: Corporate website for Grupo Cobratec with twelve sections, a protected contact form, LGPD legal pages and complete SEO. Light, fast and with quality targets checked on every change.
 role:
   pt: Desenvolvedor de ponta a ponta — conteúdo com a diretoria, design, código e publicação.
   en: End-to-end developer — content with the board, design, code and publishing.
-stack: [Next.js 14, TypeScript, Tailwind CSS, Resend, Vitest, Lighthouse CI, PHP]
+stack: [Next.js, TypeScript, Tailwind CSS]
+work:
+  - phase: planejamento
+    text:
+      pt: "Defini o conteúdo e as seções com a diretoria."
+      en: "Defined the content and sections with the board."
+  - phase: design
+    text:
+      pt: "Layout das doze seções sobre a identidade de uma empresa fundada em 1987."
+      en: "Layout of the twelve sections on top of the identity of a company founded in 1987."
+  - phase: desenvolvimento
+    text:
+      pt: "Código do site, formulário de contato protegido e páginas legais de LGPD."
+      en: "The site’s code, a protected contact form and LGPD legal pages."
+  - phase: testes
+    text:
+      pt: "Metas de performance, acessibilidade e SEO verificadas automaticamente a cada mudança."
+      en: "Performance, accessibility and SEO targets checked automatically on every change."
+  - phase: deploy
+    text:
+      pt: "Publicação no domínio da empresa, adaptada à hospedagem que ela já tinha."
+      en: "Published on the company’s domain, adapted to the hosting it already had."
+  - phase: manutencao
+    text:
+      pt: "Atualizações de conteúdo e acompanhamento depois do lançamento."
+      en: "Content updates and follow-up after launch."
 highlights:
-  - pt: Formulário com validação Zod, honeypot, limite de requisições e checagem de origem.
-    en: Form with Zod validation, honeypot, rate limiting and origin checks.
-  - pt: Imagens Open Graph geradas dinamicamente, sitemap, robots e política de cookies.
-    en: Dynamically generated Open Graph images, sitemap, robots and cookie policy.
-  - pt: Metas de Lighthouse no CI — performance acima de 90 e acessibilidade, boas práticas e SEO acima de 95.
-    en: Lighthouse targets in CI — performance above 90 and accessibility, best practices and SEO above 95.
-  - pt: Build estático alternativo para a hospedagem compartilhada da empresa.
-    en: Alternative static build for the company's shared hosting.
+  - pt: Formulário de contato protegido contra spam e abuso.
+    en: Contact form protected against spam and abuse.
+  - pt: SEO completo — imagens de compartilhamento, sitemap e política de cookies.
+    en: Complete SEO — share images, sitemap and cookie policy.
+  - pt: Performance acima de 90 e acessibilidade, boas práticas e SEO acima de 95 no Lighthouse.
+    en: Lighthouse scores above 90 for performance and above 95 for accessibility, best practices and SEO.
 status: producao
 links:
   live: https://cobratecsp.com.br/

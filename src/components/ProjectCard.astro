@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import Cover from './Cover.astro';
 import Status from './Status.astro';
 import Icon from './Icon.astro';
+import Phases from './Phases.astro';
 import { pick, projectPath, useTranslations, type Lang } from '~/i18n/utils';
 
 interface Props { project: CollectionEntry<'projects'>; lang: Lang }
@@ -24,9 +25,7 @@ const href = projectPath(project.id, lang);
       <Status lang={lang} status={p.status} />
       {p.confidential && <span class="chip">{t('projects.confidential.short')}</span>}
     </div>
-    <ul class="chip-list stack" role="list" aria-label="Stack">
-      {p.stack.slice(0, 4).map((s) => <li class="chip">{s}</li>)}
-    </ul>
+    <Phases lang={lang} done={p.work} />
     <span class="go" aria-hidden="true">{t('projects.open')}<Icon name="arrowRight" /></span>
   </div>
 </article>

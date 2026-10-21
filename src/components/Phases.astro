@@ -1,0 +1,26 @@
+---
+import { phases, type Phase } from '~/data/phases';
+import { useTranslations, type Lang } from '~/i18n/utils';
+
+interface Props { lang: Lang; done: { phase: Phase }[] }
+const { lang, done } = Astro.props;
+const t = useTranslations(lang);
+const steps = phases.filter((p) => done.some((d) => d.phase === p));
+---
+
+<ol class="phases" aria-label={t('projects.phases')}>
+  {steps.map((p) => <li class="mono">{t(`phase.${p}`)}</li>)}
+</ol>
+
+<style>
+  .phases { display: flex; flex-wrap: wrap; gap: 0.35rem 0; list-style: none; padding: 0; margin: 0; }
+  .phases li {
+    display: inline-flex; align-items: center; font-size: 0.72rem; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--ink-soft);
+  }
+  .phases li::before {
+    content: ''; width: 0.5rem; height: 0.5rem; border-radius: 50%; margin-right: 0.4rem;
+    background: var(--accent-p, var(--accent)); border: 1.5px solid var(--ink);
+  }
+  .phases li:not(:last-child)::after { content: '→'; margin-inline: 0.45rem; color: var(--ink-soft); opacity: 0.6; }
+</style>

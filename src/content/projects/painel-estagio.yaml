@@ -3,7 +3,7 @@ order: 11
 year: '2026'
 title: Painel de Estágio
 accent: '#34d399'
-kicker: { pt: Ferramenta própria, en: Personal tool }
+kicker: { pt: "Ferramenta própria", en: "Personal tool" }
 tagline:
   pt: O resumo do fim do dia virou um painel que o gestor abre quando quiser.
   en: The end-of-day summary became a dashboard my manager can open any time.
@@ -13,7 +13,32 @@ summary:
 role:
   pt: Ideia, design e desenvolvimento.
   en: Idea, design and development.
-stack: [Next.js 14, TypeScript, Prisma, PostgreSQL, Tailwind CSS, Vitest, Vercel]
+stack: [Next.js, TypeScript, PostgreSQL, Vercel]
+work:
+  - phase: planejamento
+    text:
+      pt: "Transformei o pedido do gestor — um resumo diário — num produto."
+      en: "Turned my manager’s request — a daily summary — into a product."
+  - phase: design
+    text:
+      pt: "Design do diário e do painel, com gráficos feitos à mão."
+      en: "Design of the log and the dashboard, with hand-made charts."
+  - phase: desenvolvimento
+    text:
+      pt: "Diário de atividades, painel, relatório semanal, exportação em Excel e três papéis de acesso."
+      en: "Activity log, dashboard, weekly report, Excel export and three access roles."
+  - phase: testes
+    text:
+      pt: "82 testes automatizados, inclusive para o bug de fuso horário."
+      en: "82 automated tests, including one for the time-zone bug."
+  - phase: deploy
+    text:
+      pt: "Publicado na nuvem, acessível ao gestor de qualquer lugar."
+      en: "Deployed to the cloud, reachable by my manager from anywhere."
+  - phase: manutencao
+    text:
+      pt: "Uso diário no estágio, com ajustes a partir dos comentários do gestor."
+      en: "Used every day in the internship, with tweaks based on my manager’s comments."
 highlights:
   - pt: Gráficos feitos à mão, sem biblioteca, com bundle inicial de ~106 kB.
     en: Hand-made charts with no library, and a ~106 kB first-load bundle.
@@ -22,8 +47,8 @@ highlights:
   - pt: Três papéis — estagiário, admin e gestor (que só comenta).
     en: Three roles — intern, admin and manager (who can only comment).
 metrics:
-  - { value: '82', label: { pt: testes, en: tests } }
-  - { value: '3', label: { pt: papéis, en: roles } }
+  - { value: '82', label: { pt: "testes", en: "tests" } }
+  - { value: '3', label: { pt: "papéis", en: "roles" } }
 status: producao
 links: {}
 cover: ../../assets/projects/painel-estagio/painel.svg

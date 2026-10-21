@@ -14,7 +14,20 @@ summary:
 role:
   pt: Front-end da landing page e documentos de escopo, fluxo e wireframes.
   en: Landing-page front end plus the scope, flow and wireframe documents.
-stack: [Python, Flask, MySQL, Docker, HTML, CSS, JavaScript, ViaCEP, Scrum, Jira]
+stack: [Flask, MySQL, HTML, CSS, JavaScript, Scrum]
+work:
+  - phase: planejamento
+    text:
+      pt: "Documentos de escopo e fluxo, e participação no backlog e nas sprints."
+      en: "Scope and flow documents, plus taking part in the backlog and sprints."
+  - phase: design
+    text:
+      pt: "Wireframes, identidade visual e design tokens."
+      en: "Wireframes, visual identity and design tokens."
+  - phase: desenvolvimento
+    text:
+      pt: "HTML semântico das seções e do assistente, CSS de componentes e máscaras de formulário."
+      en: "Semantic HTML for the sections and the wizard, component CSS and form masks."
 highlights:
   - pt: Regras do parceiro aplicadas no back-end, como lojas filtradas pelo estado do CEP.
     en: Partner rules enforced in the back end, such as stores filtered by the postcode's state.

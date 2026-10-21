@@ -1,7 +1,7 @@
 ---
 import SectionHeading from './SectionHeading.astro';
 import { marqueeRows, skills } from '~/data/profile';
-import { pick, useTranslations, type Lang } from '~/i18n/utils';
+import { pick, pickText, useTranslations, type Lang } from '~/i18n/utils';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -34,7 +34,7 @@ const t = useTranslations(lang);
         <section class="skill-card" data-reveal aria-label={pick(g.title, lang)}>
           <h3>{pick(g.title, lang)}</h3>
           <ul class="chip-list" role="list">
-            {g.items.map((i) => <li class="chip">{i}</li>)}
+            {g.items.map((i) => <li class="chip">{pickText(i, lang)}</li>)}
           </ul>
         </section>
       ))}

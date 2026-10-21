@@ -3,7 +3,7 @@ order: 8
 year: '2026'
 title: Eric Mac
 accent: '#60a5fa'
-kicker: { pt: Portfólio de designer, en: Designer portfolio }
+kicker: { pt: "Portfólio de designer", en: "Designer portfolio" }
 tagline:
   pt: Um portfólio que é um Mac no computador e um iPhone no celular.
   en: A portfolio that is a Mac on desktop and an iPhone on mobile.
@@ -13,7 +13,24 @@ summary:
 role:
   pt: Desenvolvimento completo, a partir das peças e da identidade do Eric.
   en: Full development, built from Eric's work and identity.
-stack: [React 19, TypeScript, Vite, Motion, Zustand, Playwright, axe-core]
+stack: [React, TypeScript]
+work:
+  - phase: planejamento
+    text:
+      pt: "Estrutura do portfólio a partir das peças e da identidade do Eric."
+      en: "Structured the portfolio around Eric’s work and identity."
+  - phase: desenvolvimento
+    text:
+      pt: "Gerenciador de janelas, Dock, Spotlight e a versão iPhone para o celular."
+      en: "Window manager, Dock, Spotlight and the iPhone version for mobile."
+  - phase: testes
+    text:
+      pt: "Acessibilidade verificada em claro e escuro, de 375 a 1440 px."
+      en: "Accessibility checked in light and dark, from 375 to 1440 px."
+  - phase: deploy
+    text:
+      pt: "Publicado e no ar."
+      en: "Published and live."
 highlights:
   - pt: Gerenciador de janelas com arrastar, redimensionar, minimizar para o Dock e endereço por janela.
     en: Window manager with drag, resize, minimise-to-Dock and a URL per window.
@@ -33,4 +50,4 @@ coverAlt:
   en: macOS-style desktop with windows from Eric's portfolio.
 gallery:
   - src: ../../assets/projects/eric-mac/case.jpg
-    alt: { pt: Janela de um case aberto no portfólio., en: A case study window open in the portfolio. }
+    alt: { pt: "Janela de um case aberto no portfólio.", en: "A case study window open in the portfolio." }

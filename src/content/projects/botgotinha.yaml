@@ -14,12 +14,21 @@ summary:
 role:
   pt: Interpretador de linguagem natural e roteador de intenções (em dupla), fluxo de voz e links de agenda.
   en: Natural-language interpreter and intent router (in a pair), the voice flow and calendar links.
-stack: [Python, pyTelegramBotAPI, Ollama, faster-whisper, BeautifulSoup, Selenium, pandas, Scrum]
+stack: [Python, IA local, Web scraping, pandas, Scrum]
+work:
+  - phase: planejamento
+    text:
+      pt: "Planejamento e documentação das sprints com o time."
+      en: "Sprint planning and documentation with the team."
+  - phase: desenvolvimento
+    text:
+      pt: "Interpretador de linguagem natural e roteador de intenções (em dupla), fluxo de voz, links do Google Agenda e navegação por botões."
+      en: "Natural-language interpreter and intent router (in a pair), voice flow, Google Calendar links and button navigation."
 highlights:
-  - pt: LLM local (llama3.2 no Ollama) roteando intenções, sem enviar dados para fora.
-    en: Local LLM (llama3.2 on Ollama) routing intents, with no data sent out.
-  - pt: Mensagens de voz transcritas com faster-whisper.
-    en: Voice messages transcribed with faster-whisper.
+  - pt: IA rodando localmente para entender o que a pessoa pede, sem enviar dados para fora.
+    en: AI running locally to understand what people ask, with no data sent out.
+  - pt: Mensagens de voz transcritas no próprio servidor.
+    en: Voice messages transcribed on the server itself.
   - pt: UBS mais próximas pelo cadastro nacional, com distância de Haversine.
     en: Nearest clinics from the national register, using Haversine distance.
   - pt: Lembretes 10 dias, 1 dia e no dia da vacina, por Telegram e e-mail.

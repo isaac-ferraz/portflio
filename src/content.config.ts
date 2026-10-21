@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
+import { phases } from './data/phases';
 
 /** Texto nos dois idiomas do site. */
 const L = z.object({ pt: z.string(), en: z.string() });
@@ -18,7 +19,10 @@ const projects = defineCollection({
       tagline: L,
       summary: L,
       role: L,
-      stack: z.array(z.string()).min(1),
+      /** Tecnologias em alto nível — o "como" detalhado fica de fora de propósito. */
+      stack: z.array(z.string()).min(1).max(6),
+      /** O que eu fiz em cada etapa, do planejamento à manutenção. */
+      work: z.array(z.object({ phase: z.enum(phases), text: L })).min(1),
       highlights: z.array(L).min(2).max(5),
       metrics: z.array(z.object({ value: z.string(), label: L })).max(4).optional(),
       status: z.enum(['producao', 'homologacao', 'entregue', 'andamento', 'evento']),

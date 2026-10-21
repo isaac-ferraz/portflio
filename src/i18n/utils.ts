@@ -28,6 +28,9 @@ export function useTranslations(lang: Lang) {
 /** Escolhe o idioma de um texto bilíngue do conteúdo. */
 export const pick = (text: L, lang: Lang) => text[lang];
 
+/** Igual a `pick`, mas aceita um texto que é o mesmo nos dois idiomas. */
+export const pickText = (text: string | L, lang: Lang) => (typeof text === 'string' ? text : text[lang]);
+
 export const homePath = (lang: Lang) => url(lang === defaultLang ? '/' : `/${lang}/`);
 
 export const projectPath = (slug: string, lang: Lang) =>

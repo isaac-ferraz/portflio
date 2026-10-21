@@ -5,6 +5,7 @@ import ProjectCard from './ProjectCard.astro';
 import Cover from './Cover.astro';
 import Status from './Status.astro';
 import Icon from './Icon.astro';
+import Phases from './Phases.astro';
 import { pick, projectPath, useTranslations, type Lang } from '~/i18n/utils';
 
 interface Props { lang: Lang; projects: CollectionEntry<'projects'>[] }
@@ -46,9 +47,7 @@ const groups = [
                   <h4 class="panel-title">{p.title}</h4>
                   <p class="tagline">{pick(p.tagline, lang)}</p>
                   <div class="meta"><Status lang={lang} status={p.status} /></div>
-                  <ul class="chip-list" role="list" aria-label="Stack">
-                    {p.stack.slice(0, 5).map((s) => <li class="chip">{s}</li>)}
-                  </ul>
+                  <Phases lang={lang} done={p.work} />
                   <a class="btn btn-primary panel-cta" href={projectPath(project.id, lang)}>
                     {t('projects.open')}<span class="sr-only">: {p.title}</span><Icon name="arrowRight" />
                   </a>

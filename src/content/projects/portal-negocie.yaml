@@ -4,7 +4,7 @@ year: '2026'
 org: Cobratec
 title: Portal Negocie
 accent: '#f5b942'
-kicker: { pt: Autoatendimento, en: Self-service }
+kicker: { pt: "Autoatendimento", en: "Self-service" }
 tagline:
   pt: O devedor simula, fecha o acordo e baixa o boleto sozinho, a qualquer hora.
   en: Debtors simulate, close an agreement and download the payment slip on their own, any time.
@@ -14,16 +14,37 @@ summary:
 role:
   pt: Desenvolvedor e Product Owner — levantei as regras com a cobrança e implementei front, back e segurança.
   en: Developer and Product Owner — gathered the rules with the collections team and built front end, back end and security.
-stack: [Next.js 14, TypeScript, Tailwind CSS, PostgreSQL, API REST, Resend, Docker]
+stack: [Next.js, TypeScript, PostgreSQL, API REST]
+work:
+  - phase: planejamento
+    text:
+      pt: "Como Product Owner, levantei as regras de negociação com a cobrança e montei o backlog."
+      en: "As Product Owner, I gathered the negotiation rules with the collections team and built the backlog."
+  - phase: design
+    text:
+      pt: "Desenhei a jornada de autoatendimento, da identificação ao boleto."
+      en: "Designed the self-service journey, from identification to payment slip."
+  - phase: desenvolvimento
+    text:
+      pt: "Front-end, back-end, segurança e a integração com a API oficial do sistema de cobrança."
+      en: "Front end, back end, security and the integration with the collections system’s official API."
+  - phase: testes
+    text:
+      pt: "Homologação com a cobrança, com travas que permitem testar sem tocar em clientes reais."
+      en: "Acceptance testing with collections, with safeguards to test without touching real customers."
+  - phase: deploy
+    text:
+      pt: "Publicação em homologação sem expor o servidor interno da empresa."
+      en: "Staging deployment without exposing the company’s internal server."
 highlights:
-  - pt: Segundo fator por e-mail guardado só como HMAC, com limite de tentativas e respostas iguais para evitar enumeração de CPFs.
-    en: E-mail second factor stored only as an HMAC, with attempt limits and identical responses to prevent ID enumeration.
-  - pt: Banco acessado só em transações READ ONLY; um fechamento com resultado incerto nunca vira "tente de novo".
-    en: Database accessed only in READ ONLY transactions; a close with an uncertain result never turns into "try again".
-  - pt: Handoff para o WhatsApp com token assinado no lugar do CPF.
-    en: Hand-off to WhatsApp with a signed token instead of the personal ID.
-  - pt: Publicado atrás de um túnel SSH reverso — o servidor interno nunca fica exposto.
-    en: Published behind a reverse SSH tunnel — the internal server is never exposed.
+  - pt: Verificação em duas etapas por e-mail e proteção contra tentativas abusivas.
+    en: Two-step e-mail verification and protection against abusive attempts.
+  - pt: Fechamento à prova de falhas — um resultado incerto nunca vira um acordo duplicado.
+    en: Failure-proof closing — an uncertain result never turns into a duplicate agreement.
+  - pt: A negociação continua no WhatsApp sem expor dados pessoais.
+    en: The negotiation continues on WhatsApp without exposing personal data.
+  - pt: Publicado sem expor o servidor interno da empresa.
+    en: Published without exposing the company's internal server.
 status: homologacao
 links: {}
 confidential: true
@@ -32,11 +53,11 @@ coverAlt:
   pt: Tela do portal com opções de parcelamento de um acordo.
   en: Portal screen showing instalment options for an agreement.
 sections:
-  - title: { pt: O problema, en: The problem }
+  - title: { pt: "O problema", en: "The problem" }
     body:
       pt: Toda negociação passava por um atendente, em horário comercial. Quem queria resolver a dívida à noite ou no fim de semana simplesmente não conseguia.
       en: Every negotiation went through an agent during business hours. People who wanted to settle a debt at night or on weekends simply couldn't.
-  - title: { pt: Decisões que importam, en: Decisions that matter }
+  - title: { pt: "Decisões que importam", en: "Decisions that matter" }
     items:
-      - { pt: Simular de novo antes de registrar o acordo, para nunca gravar uma condição desatualizada., en: Re-simulate before registering the agreement, so an outdated offer is never recorded. }
-      - { pt: Travas de carteira para testar em produção sem tocar em clientes reais., en: Portfolio locks to test in production without touching real customers. }
+      - { pt: "Simular de novo antes de registrar o acordo, para nunca gravar uma condição desatualizada.", en: "Re-simulate before registering the agreement, so an outdated offer is never recorded." }
+      - { pt: "Travas para testar em produção sem tocar em clientes reais.", en: "Safeguards to test in production without touching real customers." }

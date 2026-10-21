@@ -10,7 +10,16 @@ export const profile = {
   city: 'São José dos Campos, SP',
 };
 
-export type JourneyStep = { when: L; title: string; text: L; tag: L };
+export type JourneyStep = {
+  when: L;
+  title: string | L;
+  text: L;
+  tag: L;
+  /** Painel clicável: âncora da página inicial e o texto do convite. */
+  link?: { href: string; label: L };
+  /** `offer` destaca o painel final, o convite. */
+  variant?: 'offer';
+};
 
 export const journey: JourneyStep[] = [
   {
@@ -50,41 +59,47 @@ export const journey: JourneyStep[] = [
     },
   },
   {
-    when: { pt: 'Ago – Out 2026', en: 'Aug – Oct 2026' },
-    title: 'Product Owner',
-    tag: { pt: 'Produção', en: 'Production' },
+    when: { pt: 'Hoje', en: 'Today' },
+    title: { pt: 'Projetos em produção', en: 'Projects in production' },
+    tag: { pt: 'No ar', en: 'Live' },
     text: {
-      pt: 'Site institucional no ar, portal de negociação, negociação pelo WhatsApp e a plataforma interna — do levantamento de requisitos à entrega.',
-      en: 'Corporate website live, a debt-negotiation portal, WhatsApp negotiation and the internal platform — from requirements to delivery.',
+      pt: 'Plataforma interna, site institucional, portfólios e painéis no ar — sistemas que pessoas de verdade usam todos os dias, que eu planejei, construí, publiquei e sigo mantendo.',
+      en: 'An internal platform, a corporate website, portfolios and dashboards live — systems real people use every day, that I planned, built, shipped and keep maintaining.',
     },
+    link: { href: '#projects', label: { pt: 'Ver os projetos', en: 'See the projects' } },
   },
   {
-    when: { pt: 'Agora', en: 'Now' },
-    title: 'Próximo capítulo',
-    tag: { pt: 'Em construção', en: 'In progress' },
+    when: { pt: 'Próximo capítulo', en: 'Next chapter' },
+    title: { pt: 'Que tal ser com você?', en: 'How about with you?' },
+    tag: { pt: 'Disponível', en: 'Available' },
     text: {
-      pt: 'API com a DM na FATEC, rumo à Feira de Soluções de dezembro — e a meta de seguir como desenvolvedor júnior num time experiente.',
-      en: 'The DM project at FATEC, heading to the December Solutions Fair — and the goal of growing as a junior developer in an experienced team.',
+      pt: 'Procuro um time onde eu possa crescer e entregar desde o primeiro dia — do planejamento ao deploy, e o que vem depois. Se você tem uma vaga ou uma ideia para tirar do papel, o próximo capítulo a gente escreve junto.',
+      en: "I'm looking for a team where I can grow and deliver from day one — from planning to deployment, and everything after. If you have an opening or an idea to get off the ground, we can write the next chapter together.",
     },
+    link: { href: '#contact', label: { pt: 'Vamos conversar', en: "Let's talk" } },
+    variant: 'offer',
   },
 ];
 
-export type SkillGroup = { title: L; items: string[] };
+export type SkillGroup = { title: L; items: (string | L)[] };
 
 export const skills: SkillGroup[] = [
-  { title: { pt: 'Linguagens', en: 'Languages' }, items: ['Python', 'TypeScript', 'JavaScript', 'SQL', 'Java', 'PHP', 'Bash'] },
-  { title: { pt: 'Front-end', en: 'Front-end' }, items: ['React', 'Next.js', 'Astro', 'Tailwind CSS', 'HTML & CSS', 'Acessibilidade'] },
+  { title: { pt: 'Linguagens', en: 'Languages' }, items: ['Python', 'Java', 'TypeScript', 'JavaScript', 'SQL', 'PHP', 'Bash'] },
+  {
+    title: { pt: 'Front-end', en: 'Front-end' },
+    items: ['React', 'Next.js', 'Tailwind CSS', 'HTML & CSS', { pt: 'Acessibilidade', en: 'Accessibility' }],
+  },
   {
     title: { pt: 'Back-end & dados', en: 'Back-end & data' },
-    items: ['Node.js', 'FastAPI', 'Flask', 'APIs REST', 'PostgreSQL', 'MySQL', 'SQLite', 'Prisma', 'Supabase', 'Polars / pandas'],
+    items: ['API REST', 'Node.js', 'FastAPI', 'Flask', 'PostgreSQL', 'MySQL', 'SQLite', 'Prisma', 'pandas'],
   },
   {
     title: { pt: 'IA & automação', en: 'AI & automation' },
-    items: ['n8n', 'Ollama (LLMs locais)', 'Engenharia de prompts', 'Chatbots', 'faster-whisper', 'WhatsApp Cloud API'],
+    items: ['Claude', 'n8n', { pt: 'Ollama (LLMs locais)', en: 'Ollama (local LLMs)' }, { pt: 'Engenharia de prompts', en: 'Prompt engineering' }, 'Chatbots', 'WhatsApp Cloud API'],
   },
   {
-    title: { pt: 'Infra & qualidade', en: 'Infra & quality' },
-    items: ['Linux', 'Git / GitHub', 'Docker', 'GitHub Actions', 'Vercel', 'Vitest', 'Playwright', 'Lighthouse CI'],
+    title: { pt: 'DevOps & qualidade', en: 'DevOps & quality' },
+    items: ['DevOps', 'Docker', 'Linux', 'CI/CD', 'GitHub Actions', 'Git / GitHub', 'Vercel', { pt: 'Testes automatizados', en: 'Automated testing' }, 'Lighthouse CI'],
   },
   {
     title: { pt: 'Métodos', en: 'Methods' },
@@ -94,8 +109,8 @@ export const skills: SkillGroup[] = [
 
 /** Linhas dos marquees (decorativas — o conteúdo acessível é a grade de habilidades). */
 export const marqueeRows = [
-  ['Next.js', 'TypeScript', 'Python', 'PostgreSQL', 'React', 'FastAPI', 'Prisma', 'Docker', 'n8n', 'Astro'],
-  ['Polars', 'Supabase', 'Tailwind', 'GSAP', 'Linux', 'Playwright', 'Ollama', 'Flask', 'MySQL', 'Vitest'],
+  ['Next.js', 'TypeScript', 'Python', 'Java', 'PostgreSQL', 'React', 'FastAPI', 'Docker', 'n8n', 'Claude'],
+  ['pandas', 'API REST', 'DevOps', 'Tailwind', 'Linux', 'Ollama', 'Flask', 'MySQL', 'Prisma', 'SQL'],
 ];
 
 export const education = {

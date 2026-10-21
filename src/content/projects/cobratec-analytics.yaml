@@ -4,7 +4,7 @@ year: '2026'
 org: Cobratec
 title: Cobratec Analytics
 accent: '#a78bfa'
-kicker: { pt: Dados & automação, en: Data & automation }
+kicker: { pt: "Dados & automação", en: "Data & automation" }
 tagline:
   pt: Indicadores de cobrança que batem, linha a linha, com os relatórios oficiais.
   en: Collections KPIs that match the official reports, line by line.
@@ -14,7 +14,28 @@ summary:
 role:
   pt: Analista e desenvolvedor — consultas, regras de negócio, validação e automação.
   en: Analyst and developer — queries, business rules, validation and automation.
-stack: [Python, Polars, pandas, SQLAlchemy, PostgreSQL, Streamlit, n8n]
+stack: [Python, pandas, SQL, n8n]
+work:
+  - phase: planejamento
+    text:
+      pt: "Defini com a cobrança quais indicadores importavam e mapeei o banco do sistema."
+      en: "Defined with collections which KPIs mattered and mapped the system’s database."
+  - phase: desenvolvimento
+    text:
+      pt: "Consultas e regras de cada indicador sobre tabelas de dezenas de milhões de linhas."
+      en: "Queries and rules for each KPI over tables with tens of millions of rows."
+  - phase: testes
+    text:
+      pt: "Validação linha a linha contra os relatórios oficiais, até chegar a 100%."
+      en: "Line-by-line validation against the official reports, up to a 100% match."
+  - phase: deploy
+    text:
+      pt: "Relatório diário automatizado, montado e enviado sozinho."
+      en: "An automated daily report, built and sent on its own."
+  - phase: manutencao
+    text:
+      pt: "Os dados e as regras viraram a base do Cobratec 360, onde sigo acompanhando os indicadores."
+      en: "The data and rules became the foundation of Cobratec 360, where I keep tracking the KPIs."
 highlights:
   - pt: Consultas sobre tabelas de dezenas de milhões de linhas, sempre filtradas por data.
     en: Queries over tables with tens of millions of rows, always filtered by date.
@@ -32,5 +53,5 @@ coverAlt:
 gallery:
   - src: ../../assets/projects/cobratec-analytics/workflow.png
     kind: strip
-    alt: { pt: Workflow do n8n que gera e envia o relatório diário., en: n8n workflow that builds and sends the daily report. }
-    caption: { pt: O relatório diário, montado e enviado pelo n8n., en: The daily report, built and sent by n8n. }
+    alt: { pt: "Workflow do n8n que gera e envia o relatório diário.", en: "n8n workflow that builds and sends the daily report." }
+    caption: { pt: "O relatório diário, montado e enviado pelo n8n.", en: "The daily report, built and sent by n8n." }
